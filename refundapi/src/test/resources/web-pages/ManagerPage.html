@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Manager Page</title>
+    <style>
+        table.tableFormat th,table.tableFormat td{
+            border: 3px solid black;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align:center;">Welcome, [NAME WILL GO HERE]</h1>
+    <h4 style="text-align:center;">Manager Access</h4>
+    
+
+    <div>
+        <table name="viewPendingRequests" class="tableFormat">
+            <thead>
+                <th style="text-align:center;">PENDING REQUESTS WILL POPULATE THIS TABLE BELOW</th>
+            </thead>
+            <tbody>
+                <td>
+                    PLACEHOLDER TEXT PLACEHOLDER TEXT <br>
+                    Reason for Reimbursement  <br>
+                    PLACEHOLDER TEXT PLACEHOLDER TEXT <br>
+                </td>
+            </tbody>
+        </table>
+    </div>
+
+    <br>
+
+    <div>
+        <table name= "IDrequest" class="tableFormat">
+            <thead>
+                <th>
+                    <input type="text" placeholder="Enter Request ID"><br>
+                </th>
+            </thead>
+            <tbody>
+                <td>
+                    <textarea name="managerReason" id="managerReason" cols="30" rows="10">THIS IS WHERE MANAGER ENTERS DECISION REASON</textarea>
+                </td>
+            </tbody>
+
+        </table>
+    </div>
+    <br>
+
+    <select name="statusUpdate" id="statusUpdate">
+        <option value="1">Accept</option>
+        <option value="2">Deny</option>
+    </select>
+    <button>Submit</button>
+
+    <br><br>
+    <div style="text-align:center;">
+        <button>Sign Out</button>
+    </div>
+    
+
+    
+</body>
+<script>
+    
+
+    async function managerPageIntialize(){
+    welcomesplash.textContent = `Welcome to your Homepage, ${sessionStorage.getItem('name')}`
+    // testDesc = 
+    // (
+    //     `The FitnessGram Pacer Test is a multistage aerobic capacity test that progressively gets more difficult as it continues. The 20 meter pacer test will begin in 30 seconds.\n`+
+    //     `Line up at the start. The running speed starts slowly, but gets faster each minute after you hear this signal.\n`+
+    //     `[beep] A single lap should be completed each time you hear this sound. [ding] Remember to run in a straight line, and run as long as possible.\n`+
+    //     `The second time you fail to complete a lap before the sound, your test is over. The test will begin on the word start. On your mark, get ready, start.\n`
+    // )
+    testSteps = 
+    (
+        `1. First Step to Reproduce\n`+
+        `2. Second Step to Reproduce\n`+
+        `3. Use Protection\n`+
+        `4. Fourth Step to Reproduce\n`
+    )
+    // defectDesc.textContent = testDesc
+    stepsDesc.textContent = testSteps
+
+    const dateData = new Date()
+    x = dateData.getDate()
+    y = dateData.getMonth() + 1
+    z = dateData.getFullYear()
+    dateString = `${z}${y}${x}`
+}
+    managerPageIntialize()
+
+    async function setTesterList(){
+        document.getElementById("testerSelect").innerHTML = ''
+
+        let employeeResponse = await fetch("https://bugcatcher.coe.revaturelabs.com/16/employees")
+        let employeResponseBody = await employeeResponse.json()
+        for( let object of employeResponseBody){
+            if(object.role === 'Tester'){
+                let test = document.getElementById("testerSelect");
+                
+                let testerOption = document.createElement("option");
+                
+                testerOption.textContent = `${object.fname} ${object.lname}`;
+                testerOption.value = `${object.fname} ${object.lname}`;
+                test.appendChild(testerOption)
+            }else{
+                null
+            }
+        }
+    }
+    setTesterList()
+
+    
+    // async function setDefectList(){
+    //     document.getElementById("defectSelect").innerHTML = ''
+    //     let defectResponse = await fetch("https://bugcatcher.coe.revaturelabs.com/16/defects")
+    //     let defectResponseBody = await defectResponse.json()
+        
+    //     for(let object of defectResponseBody){
+    //         let x = document.getElementById("defectSelect");
+    //         let defectOption = document.createElement("option");
+    //         defectOption.text = `${object.defectId}`;
+    //         x.add(defectOption, x[0])
+    //     }
+    // }
+    // setDefectList()
+    
+    async function createDefect(){
+        
+        let b = testerSelect[testerSelect.selectedIndex].value
+        let c = severitySelect[severitySelect.selectedIndex].value
+        let d = prioritySelect[prioritySelect.selectedIndex].value
+        let e = defectDesc.value
+        let f = stepsDesc.value
+        let g = ""
+        // selectionString =""
+
+        
+        let employeeResponse = await fetch("https://bugcatcher.coe.revaturelabs.com/16/employees")
+        let employeResponseBody = await employeeResponse.json()
+
+        for(let object of employeResponseBody){
+            if(`${object.fname} ${object.lname}` === b){
+                g = object.username
+            }else{
+                null
+            }
+        }
+
+        createDefectObject = 
+        {
+            "assignedTo": `${g}`,
+            "dateReported": `${dateString}`,
+            "desc": `${e}`,
+            "stepsToReproduce": `${f}`,
+            "severity": `${c}`,
+            "priority": `${d}`
+        }
+        console.log(createDefectObject)
+        createDefectJSON = JSON.stringify(createDefectObject)
+
+        let config = 
+        {
+            method:"POST", // method is a reference to the kind of request you are making (the verb): GET is the default
+            headers:{'Content-Type':"application/json"}, // some APIs will return an error message without this value included
+            body: createDefectJSON
+        }
+        let createDefectReponse = await fetch("https://bugcatcher.coe.revaturelabs.com/16/defects", config)
+        if(createDefectReponse.status === 201){
+            alert(`You have just submitted your defect`)
+        }else{
+            null
+        }
+        
+        
+    }
+
+</script>
+</html>
