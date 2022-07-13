@@ -22,7 +22,7 @@ public class LoginTests {
 
     @Test   // make sure to add this @Test annotation
     public void addUserPositiveTest(){   // this is a positive test, so I note it in the test name
-        Login testLogin = new Login("test username", "test user password", "test user role");
+        Login testLogin = new Login("test username", "test user password", "test person name", "test user role");
         Login result = loginDao.addUser(testLogin);
         Assert.assertNotNull(result.getId());
     }
