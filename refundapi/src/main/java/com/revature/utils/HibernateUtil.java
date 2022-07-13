@@ -28,12 +28,12 @@ public class HibernateUtil {
     }
     
     // this beginTransaction method can be used in any DAOs I create now
-    private static void beginTransaction() {
+    public static void beginTransaction() {
         session = getSessionFactory().openSession();
         transaction = session.beginTransaction();
     }
 
-    private static void endTransaction() {
+    public static void endTransaction() {
         transaction.commit();
         session.close();
     }
