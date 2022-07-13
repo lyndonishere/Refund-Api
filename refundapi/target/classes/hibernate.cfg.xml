@@ -12,7 +12,7 @@
         <!-- replace this with your AWS link as well as whatever database you have set up:-->
         <!-- preface our AWS link with "jdbc:postgresql://"-->
         <!-- at the end of our link we specify the database, in this case pets2-->
-        <property name="connection.url">jdbc:postgresql://reimbursement-kitties.cpupenbiw9cy.us-west-1.rds.amazonaws.com/</property>
+        <property name="connection.url">jdbc:postgresql://reimbursement-kitties.cpupenbiw9cy.us-west-1.rds.amazonaws.com/postgres</property>
 
         <!-- replace credentials: -->
         <property name="connection.username">keyboardkitties</property>
