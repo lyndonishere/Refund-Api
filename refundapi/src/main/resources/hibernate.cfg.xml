@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+        
+        <!-- This is our driver. It's necessary for our connection, so it should stay the same -->
+        <property name="connection.driver_class">org.postgresql.Driver</property>
+
+        <!-- replace this with your AWS link as well as whatever database you have set up:-->
+        <!-- preface our AWS link with "jdbc:postgresql://"-->
+        <!-- at the end of our link we specify the database, in this case pets2-->
+        <property name="connection.url">jdbc:postgresql://reimbursement-kitties.cpupenbiw9cy.us-west-1.rds.amazonaws.com/</property>
+
+        <!-- replace credentials: -->
+        <property name="connection.username">keyboardkitties</property>
+        <property name="connection.password">ilikekitties</property>
+
+        <!-- Keep the dialect the same because we're using postgres-->
+        <property name="dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+
+        <!-- if we make changes to our java code, our database will automatically update-->
+        <property name="hbm2ddl.auto">update</property>
+
+        <!-- this means that any SQL commands that are run will be displayed on the terminal: -->
+        <property name="show_sql">true</property>
+
+        <!-- Object Reational Mapping, we're mapping our Login class (that we have yet to create) to a table in our database-->
+        <!-- NOTE: need to map other classes for other tables-->
+        <mapping class="com.revature.entities.Login"/>
+
+    </session-factory>
+</hibernate-configuration>
