@@ -9,21 +9,52 @@
     </style>
 </head>
 <body>
+    <!--application header-->
+    <header></header>
+    <!--build js algorithm to transfer login response to page greeting-->
     <h1 style="text-align:center;">Welcome, [NAME WILL GO HERE]</h1>
-    <h4 style="text-align:center;">Employee Access</h4>
-    
-
+    <h4 style="text-align:center;">Employee Access Page</h4>
     <div>
-        <table name="viewEmployeeRequests" class="tableFormat">
+        <table name="request-history" class="tableFormat">
             <thead>
-                <th style="text-align:center;">Pending and Complete functions will be below</th>
+                <th>Status</th>
+                <th>Reimbursement ID</th>
+                <th>Employee Username</th>
+                <th>Employee Name</th>
+                <th>Title</th>
+                <th>Amount</th>
+                <th>Reason</th>
+                <th>Request Date</th>
+                <th>Decision</th>
+                <th>Manager Reason</th>
             </thead>
             <tbody>
+                <tr>
                 <td>
-                    PLACEHOLDER TEXT PLACEHOLDER TEXT <br>
-                    REIMBURSEMENT INFORMATION HERE  <br>
-                    PLACEHOLDER TEXT PLACEHOLDER TEXT <br>
+                    Pending
                 </td>
+                <td>Id number</td>
+                <td>username</td>
+                <td>employee </td>
+                <td>title</td>
+                <td>amount</td>
+                <td>reason</td>
+                <td>request date</td>
+                <td>Accepted/Declined</td>
+                <td>decision reason</td>
+                </tr>
+                <tr>
+                    <td>Complete</td>
+                    <td>Id number</td>
+                    <td>username</td>
+                    <td>employee</td>
+                    <td>title</td>
+                    <td>amount</td>
+                    <td>reason</td>
+                    <td>request date</td>
+                    <td>Accepted/Declined</td>
+                    <td>decision reason</td>
+                </tr>
             </tbody>
         </table>
     </div>
@@ -31,35 +62,22 @@
     <br>
 
     <div>
-        <table name= "IDrequest" class="tableFormat">
-            <thead>
-                CREATE NEW REQUEST
-                <th>
-                    <input type="text" placeholder="Enter Reimbursement Title"><br>
-                    <input type="text" placeholder="Enter Reimbursement Amount"><br>
-                </th>
-            </thead>
-            <tbody>
-                <td>
-                    <textarea name="managerReason" id="managerReason" cols="30" rows="10">THIS IS WHERE EMPLOYEE ENTERS DESC</textarea>
-                </td>
-            </tbody>
-
-        </table>
+        <input type="text" placeholder="new reimbursement title">   <input placeholder="new reimbursement amount" type="number" max="1000">
+        <br>
+        <br>
+        <textarea placeholder="reimbursement reason" max="500"></textarea>
     </div>
-    <br>
-
     <button>Submit</button>
-
-    <br><br>
-    <div style="text-align:center;">
-        <button>Sign Out</button>
-    </div>
-    
-
-    
+    <br>
+    <br>
+    <button id="logout-btn">Log out</button>
 </body>
 <script>
+    const logOutBtn = document.getElementById("logout-btn");
+    function logOut() {
+        window.location.href = "LoginPage.html";
+    }
+    logOutBtn.addEventListener('click', logOut);
     
     
 </script>
