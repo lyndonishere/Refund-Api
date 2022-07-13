@@ -137,6 +137,9 @@ See Sprint Backlog for what user stories we will be testing for, or look at Acce
         - All methods must have a positive test
             - This is where we will take a single piece of the application's code logic and test it in isolation
             - The goal of this is to check the logic of the code we have written
+        - Employee
+        - Manager
+        - Both
     - "Service Layer"
         - All methods must have a negative test per business rule
             - We can use Mockito to stub the methods for these tests
