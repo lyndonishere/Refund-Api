@@ -26,4 +26,21 @@ public class HibernateUtil {
         // return the factory to be used in other methods
         return sessionFactory;
     }
+    
+    // this beginTransaction method can be used in any DAOs I create now
+    private static void beginTransaction() {
+        session = getSessionFactory().openSession();
+        transaction = session.beginTransaction();
+    }
+
+    private static void endTransaction() {
+        transaction.commit();
+        session.close();
+    }
+
+    public static Session getSession() {
+        return session;
+    }
+
+    
 }
