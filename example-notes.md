@@ -47,7 +47,8 @@ write out acceptance criteria
 
 write out feature file
 
-reimbursement-kitties
+data connection: reimbursement-kitties
+database name: postgres
 username: keyboardkitties
 password: ilikekitties
 
