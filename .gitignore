@@ -255,4 +255,10 @@ dist
 # SvelteKit build / generate output
 .svelte-kit
 
+# Ignore hibernate.cfg.xml
+# hibernate.cfg.xml
+
+# Ignore .json files
+*.json
+
 # End of https://www.toptal.com/developers/gitignore/api/java,intellij+all,node
