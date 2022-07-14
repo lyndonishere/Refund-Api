@@ -20,21 +20,20 @@ public interface LoginDAOInterface {
        I chose the Login object (refering to entity "Login.java") to be my parameter because it provides an easy way for me to get both the username and 
        user_password into the database. It can also hold the newly generated ID and I can check it to make sure my method is working correctly
       */
-     Login addUser(Login newUser);   // at some point we will need to come back and decide on the parameters
 
-/*
- *      // reads
+    //creates
+     Login addUser(Login newUser);
+     
+
+    // reads
      List<Login> getAllUsers();
 
 
      // updates
-     Login updateUser(); // I will need to add an argument to this later
+     Login updateUser(Login updatedUser); 
 
-     
 
      // deletes
-     boolean removeBook();  // I will need to add an argument
- * 
- * 
- */
+     boolean removeUser(Login userToBeDeleted);  
+
 }
