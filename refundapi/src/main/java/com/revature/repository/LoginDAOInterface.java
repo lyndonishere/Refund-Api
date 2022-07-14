@@ -22,19 +22,16 @@ public interface LoginDAOInterface {
       */
      Login addUser(Login newUser);   // at some point we will need to come back and decide on the parameters
 
-/*
- *      // reads
+    // reads
      List<Login> getAllUsers();
 
 
      // updates
-     Login updateUser(); // I will need to add an argument to this later
+     Login updateUser(Login updatedUser); // I will need to add an argument to this later
 
-     
+
 
      // deletes
-     boolean removeBook();  // I will need to add an argument
- * 
- * 
- */
+     boolean removeUser(Login userToBeDeleted);  // I will need to add an argument
+
 }
