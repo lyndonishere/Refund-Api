@@ -26,19 +26,23 @@ DONE:
 - Set up Java pom.xml depedencies
 - Set up Github how-to
 
-TO-DO:
-
 ### Wednesday
-- Decide on a project theme
 - Create AWS database (RDS: PostgreSQL)
 - Connect DBeaver to AWS
 - Connect DBeaver to Java
 - Ensure editing in Java will work successfully with the database
-- Work on each HTML page
+- Made login table
+
+
+
+TO-DO:
 
 ### Thursday
-- Connect HTML pages to API
+- Decide on a project theme
+- Need to make reimbursement table (id serial primary key, username, role, person name, reimbursement request title, amount, description, date of request, status of request, manager reason) 
+- Work on each HTML page
 - Start implementing repo and service layer interfaces to pass unit tests
+- Study for automated tests
 
 ### Friday
 - TBD
