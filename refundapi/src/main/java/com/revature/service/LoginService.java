@@ -1,7 +1,5 @@
 package com.revature.service;
 
-import java.util.List;
-
 import com.revature.entities.Login;
 import com.revature.repository.LoginDAOInterface;
 
@@ -28,6 +26,7 @@ public class LoginService implements LoginServiceInterface {
          * data should NOT be sent to the repo layer
          */
 
+         
         // make sure to use the equals method when comparing strings
         if(userToCheck.getUsername().equals("badusername")){        
             // !!!!!!! this logic is just checking if username matches "badusername", need to find a method to check matching
