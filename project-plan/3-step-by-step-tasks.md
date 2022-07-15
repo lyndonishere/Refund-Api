@@ -43,7 +43,6 @@ TO-DO:
 - Study for automated tests
 
 ### Friday
-- TBD
 - Start implementing repo and service layer interfaces to pass unit tests
     - repo for the reimbursment table
     - fix unique username service tests
