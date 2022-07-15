@@ -43,16 +43,25 @@ TO-DO:
 - Study for automated tests
 
 ### Friday
-- Start implementing repo and service layer interfaces to pass unit tests
-    - repo for the reimbursment table
-    - fix unique username service tests
-    - start working on other service tests
 - Work on each HTML page
 
 ## Week Two (7/18 - 7/22)
 
 DONE:
 TO-DO:
+
+- Start implementing repo and service layer interfaces to pass unit tests
+    - repo for the reimbursment table
+        - need to do:
+            - entities
+                - reimbursement is done
+            - repository
+                - reimbursement dao is done
+                - reimbursement dao interface is done
+            - repository test
+                - need to fix ReimbursementTests.java
+    - fix unique username service tests --> will have to wait until we know more about HQL
+    - start working on other service tests --> maybe set up but wait to actually write it out
     - All repo and service unit tests should be implemented
     - All repo and service interfaces should be implemented to pass unit tests
     - Work should be started on project API
