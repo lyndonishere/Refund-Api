@@ -33,19 +33,22 @@ DONE:
 - Ensure editing in Java will work successfully with the database
 - Made login table
 
-
-
 TO-DO:
 
 ### Thursday
-- Decide on a project theme
-- Need to make reimbursement table (id serial primary key, username, role, person name, reimbursement request title, amount, description, date of request, status of request, manager reason) 
-- Work on each HTML page
+- Made reimbursement table (id serial primary key, username, role, person name, reimbursement request title, amount, description, date of request, status of request, manager reason) 
 - Start implementing repo and service layer interfaces to pass unit tests
+    - repo is done for login
+    - service test of checking unique usernames for login basis is done
 - Study for automated tests
 
 ### Friday
 - TBD
+- Start implementing repo and service layer interfaces to pass unit tests
+    - repo for the reimbursment table
+    - fix unique username service tests
+    - start working on other service tests
+- Work on each HTML page
 
 ## Week Two (7/18 - 7/22)
 
@@ -60,6 +63,7 @@ TO-DO:
         - Use basic html/css/javascript
     - E2E tests should be designed
         - Use the Server Mocking capabilities of Postman to get a head start on E2E tests
+    - Decide on a project theme (CSS)
 
 ### Monday
 ### Tuesday
