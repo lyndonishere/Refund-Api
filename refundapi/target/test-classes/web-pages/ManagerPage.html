@@ -2,67 +2,40 @@
 <html lang="en">
 <head>
     <title>Manager Page</title>
-    <style>
-        table.tableFormat th,table.tableFormat td{
-            border: 3px solid black;
-        }
-    </style>
+    <link rel = "stylesheet" href = "ManagerStyle.css">
 </head>
 <body>
-    <h1 style="text-align:center;">Welcome, [NAME WILL GO HERE]</h1>
-    <h4 style="text-align:center;">Manager Access</h4>
-    
-
-    <div>
-        <table name="viewPendingRequests" class="tableFormat">
-            <thead>
-                <th style="text-align:center;">PENDING REQUESTS WILL POPULATE THIS TABLE BELOW</th>
-            </thead>
-            <tbody>
-                <td>
-                    PLACEHOLDER TEXT PLACEHOLDER TEXT <br>
-                    Reason for Reimbursement  <br>
-                    PLACEHOLDER TEXT PLACEHOLDER TEXT <br>
-                </td>
-            </tbody>
-        </table>
-    </div>
-
-    <br>
-
-    <div>
-        <table name= "IDrequest" class="tableFormat">
-            <thead>
-                <th>
-                    <input type="text" placeholder="Enter Request ID"><br>
-                </th>
-            </thead>
-            <tbody>
-                <td>
-                    <textarea name="managerReason" id="managerReason" cols="30" rows="10">THIS IS WHERE MANAGER ENTERS DECISION REASON</textarea>
-                </td>
-            </tbody>
-
-        </table>
-    </div>
-    <br>
-
-    <select name="statusUpdate" id="statusUpdate">
-        <option value="1">Accept</option>
-        <option value="2">Deny</option>
-    </select>
-    <button>Submit</button>
-
-    <br><br>
-    <div style="text-align:center;">
-        <button>Sign Out</button>
-    </div>
-    
-
-    
+    <h1>Welcome back, Manager!</h1>  <!-- we can edit this dynamically later to make it generate current employee name -->
+    <div id = "main-body">
+        <div id = "table-body">
+            <h2>Employee Reimbursement Requests</h2>
+            <table id = "reimbursement-table">
+                <thead></thead>         <!-- we will generate this table dynamically in JavaScript -->
+                <tbody></tbody>
+            </table>
+        </div>
+        <div id = "select-id-body">
+            <h2>Make Request Decision</h2>
+            <label id = "id-label">Enter reimbursement id:</label>
+            <input type = "text" id = "enter-reimbursement-id" placeholder = "id here">
+            <br>
+            <select id = "select-decision">
+                <option value = "Approve">Approve</option>
+                <option value = "Deny">Deny</option>
+            </select>
+            <br>
+            <label id = "decison-reason">Reason for decision:</label>
+            <input type = "text" id = "enter-reimbursement-decision" minlength = "1" maxlength = "500" placeholder = "I have decided to approve your request because...">
+            <br>
+            <button id = "submit">Submit Decision</button>
+        </div>
+        <div id = "logout-body">
+            <button id = "logout-button">Logout!</button>
+        </div>
+    </div> 
 </body>
 <script>
-    
+    /*      note: i am just commenting this out for now until we start editing javascript here
 
     async function managerPageIntialize(){
     welcomesplash.textContent = `Welcome to your Homepage, ${sessionStorage.getItem('name')}`
@@ -176,6 +149,6 @@
         
         
     }
-
+*/
 </script>
 </html>
