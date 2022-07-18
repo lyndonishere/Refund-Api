@@ -31,11 +31,15 @@ public class Main {
         LoginController loginController = new LoginController(loginService);
         
         app.get("/hello", loginController.getHelloWorld);
-        app.get("/getAllUsers", loginController.getAllUsers);
+
+        /*
+         * Notice that my path strings all include login in them: this is part of creating a restful web service, something we will talk more about tomorrow
+         */
+        app.get("/login", loginController.getAllUsers);
+        app.delete("/login", loginController.removeUser);
 
         // app.post();
 
-        // app.delete();
 
         app.start();
     }
