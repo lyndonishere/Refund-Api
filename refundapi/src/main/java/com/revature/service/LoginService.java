@@ -3,6 +3,7 @@ package com.revature.service;
 import java.util.List;
 
 import com.revature.entities.Login;
+import com.revature.exceptions.InvalidUser;
 import com.revature.repository.LoginDAOInterface;
 import com.revature.utils.LoginBusinessRules;
 
@@ -16,9 +17,10 @@ public class LoginService implements LoginServiceInterface {
     private LoginDAOInterface loginDao;
     private LoginBusinessRules loginBusinessRules;
 
-    public LoginService(LoginDAOInterface loginDao, LoginBusinessRules mockLoginRules){
+    public LoginService(LoginDAOInterface loginDao, LoginBusinessRules loginBusinessRules){
         // the loginDao field is part of the object scope, so make sure to use the this keyword
         this.loginDao = loginDao;
+        this.loginBusinessRules = loginBusinessRules;
     }
 
     @Override
@@ -26,7 +28,7 @@ public class LoginService implements LoginServiceInterface {
         if(this.loginBusinessRules.checkUsernameMatch(newUser)){
             return this.loginDao.addUser(newUser);
         } else {
-            return null; // null is temporary       // we want an alert("Your username matches another user. Please contact IT for support.")
+            throw new InvalidUser("Invalid user: please try again"); 
         }
     }
 
@@ -44,7 +46,7 @@ public class LoginService implements LoginServiceInterface {
         if(this.loginBusinessRules.checkUsernameMatch(updatedUser)){
             return this.loginDao.updateUser(updatedUser);
         } else {
-            return null;
+            throw new InvalidUser("Invalid user: please try again"); 
         }
     }
 

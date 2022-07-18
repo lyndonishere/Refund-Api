@@ -6,6 +6,7 @@ import org.junit.Test;
 import org.mockito.Mockito;
 
 import com.revature.entities.Login;
+import com.revature.exceptions.InvalidUser;
 import com.revature.repository.LoginDAO;
 import com.revature.repository.LoginDAOInterface;
 import com.revature.utils.LoginBusinessRules;
@@ -34,9 +35,9 @@ public class LoginServiceTests {
          * 
          */
 
-        loginDao = new LoginDAO();
+        // loginDao = new LoginDAO();
         loginBusinessRules = new LoginBusinessRules();
-        loginService = new LoginService(loginDao, loginBusinessRules);
+        // loginService = new LoginService(loginDao, loginBusinessRules);
 
         // the mock() method creates a mock object we can control
         mockLoginDao = Mockito.mock(LoginDAO.class); // creates a mock dao object we can control
@@ -92,13 +93,24 @@ public class LoginServiceTests {
         Assert.assertNotNull(result.getId());
     }
 
+    /*
+     * When testing for exceptions, an easy way to validate you have the correct exception is to check that the exception message is correct. You will need to use a
+     * try/catch block for this
+     */
+
    @Test
     public void mockExampleAddUserNegative(){
-        Login badUser = new Login("badusername", "bad password", "bad person name", "bad user role");
-
-        Mockito.when(mockLoginRules.checkUsernameMatch(badUser)).thenReturn(false);
-        Login result = loginServiceWithMocks.serviceAddUser(badUser);
-        Assert.assertEquals(null, result);
+        try {
+            Login badUser = new Login("badusername", "bad password", "bad person name", "bad user role");
+            /* for this negative test i dont need to mock the results of the dao because the dao should never be reached with this test */
+            Mockito.when(mockLoginRules.checkUsernameMatch(badUser)).thenReturn(false);
+            Login result = loginServiceWithMocks.serviceAddUser(badUser);
+            // if no exception is thrown by the serviceCreateBook method, then the line below will make our test fail
+            Assert.fail();
+        } catch(InvalidUser e) {
+            // here we check that we get both the exception and correct message
+            Assert.assertEquals("Invalid user: please try again", e.getMessage());
+        }
     }
 
    @Test
@@ -109,15 +121,20 @@ public class LoginServiceTests {
         Mockito.when(mockLoginDao.updateUser(goodUser)).thenReturn(goodUser);
 
         Login result = loginServiceWithMocks.serviceUpdateUser(goodUser);
-        Assert.assertEquals("updatedusername", result.getUsername());
+        Assert.assertEquals("goodusername", result.getUsername());
 
     } 
 
     @Test
     public void mockExampleUpdateUserNegative(){
-        Login badUser = new Login("badusername", "bad password", "bad person name", "bad user role");
-        Login result = loginServiceWithMocks.serviceUpdateUser(badUser);
-        Assert.assertEquals(null, result);
+        try {
+            Login badUser = new Login("badusername", "bad password", "bad person name", "bad user role");
+            Login result = loginServiceWithMocks.serviceUpdateUser(badUser);
+            Assert.fail();
+        } catch(InvalidUser e) {
+            // getMessage() method comes from the parent Exception class
+            Assert.assertEquals("Invalid user: please try again", e.getMessage());
+        }
 
     } 
 }
