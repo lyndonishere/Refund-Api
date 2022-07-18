@@ -80,54 +80,6 @@ https://docs.google.com/spreadsheets/d/1Ke8h42b2Zyedi_cq4acFyu1z83YQvTtp6nRNMTYn
 - Acceptance Criteria
     - See Feature folder in refundapi Java folder
     - There is a positive AND negative test for each feature so we can make sure it's solid and bug-free
-    - Manager Features:
-        - ManagerLogin.feature
-            - Positive: (9.1) Scenario: Login with Correct Credentials 
-            - Negative: (9.2) Scenario: Login with Incorrect Credentials
-        - ManagerLogout.feature
-            - Positive: (10.1) Scenario: Logout Successful
-            - Negative: (10.2) Scenario: Logout Unsuccessful
-        - ManagerView.feature
-            - Positive: (11.1) Scenario: Table of reimbursement requests shows successfully
-            - Negative: (11.2) Scenario: Manager receives an alert if table of reimbursement requests does not show successfully
-        - ManagerApprove.feature
-            - Positive: (12.1) Scenario: Manager successfully changes reimbursement pending status to approved
-            - Negative: (12.2) Scenario: Reimbursement status does not change to approved
-        - ManagerDeny.feature
-            - Positive: (13.1) Scenario: Manager successfully changes reimbursement pending status to denied
-            - Negative: (13.2) Scenario: Reimbursement status does not change to denied
-    - Employee Features:
-        - EmployeeLogin.feature
-            - Positive: (1.1) Scenario: Login with Correct Credentials 
-            - Negative: (1.2) Scenario: Login with Incorrect Credentials
-        - EmployeeLogout.feature
-            - Positive: (2.1) Scenario: Logout Successful
-            - Negative: (2.2) Scenario: Logout Unsuccessful
-        - EmployeeRequest.feature
-            - Positive: (3.1) Scenario: Reimbursement request made successfully (new entry on reimbursement history table with a pending status)
-            - Negative: (3.2) Scenario: Employee receives alert if reimbursement request made unsuccessfully
-        - EmployeeView.feature (also a business feature)
-            - Positive: (4.1) Scenario: Employee can view only their previous reimbursement requests
-            - Negative: (4.2) Scenario: Employee receives alert if cannot view previous reimbursement requests
-        - EmployeeTitle.feature
-            - Positive: (5.1) Scenario: Employee adds a 50 character max description of reimbursement title
-            - Negative: (5.2) Scenario: Employees should be blocked from trying to put a title over 50 characters. (5.3) Scenario: Employee receives an alert if they don't put any title.
-    - Business Features:
-        - EmployeeAmount.feature
-            - Positive: (6.1) Scenario: Employee can request up to $1000 per request
-            - Negative:  (6.2) Scenario: Employee receives an alert if trying to request over $1000 in a request. (6.3) Scenario: Employees receive an alert if they don't enter any amount for a reimbursement request
-        - EmployeeDesc.feature
-            - Positive: (7.1) Scenario: Employee must provide a description of reimbursement reason up to 500 characters
-            - Negative: (7.2) Scenario: Employee should be blocked from trying to put a description of reimbursement reason over 500 characters. (7.3) Scenario: Employee receives an alert if they don't put any description.
-        - EmployeeView.feature (also a regular employee feature)
-            - Positive: (4.1) Scenario: Employee can view only their previous reimbursement requests
-            - Negative: (4.2) Scenario: Employee receives alert if cannot view previous reimbursement requests
-        - ManagerDesc.feature
-            - Positive: (14.1) Scenario: Manager must provide a description of reimbursement approval or denial reason up to 500 characters
-            - Negative: (14.2) Scenario: Manager receives an alert if trying to put a description of reimbursement approval or denial reason over 500 characters. (14.3) Scenario: Manager receives an alert if they don't put any description.
-        - UsernameMatch.feature
-            - Positive: (8.1) Scenario: No users have the same username
-            - Negative: (8.2) Scenario: User receives alert and cannot login if their username matches another
 
 ## Testing Requirements
 See Sprint Backlog for what user stories we will be testing for, or look at Acceptance Criteria above.
@@ -154,6 +106,61 @@ See Sprint Backlog for what user stories we will be testing for, or look at Acce
         - Look at each feature file within the refundapi java folder. You will see each feature has a positive scenario and a negative scenario. 
         - NOTE: We organized each user story into a separate feature file, and each feature file has 2-3 scenarios it will test for. This will help us see exactly which Manager and Employee user stories pass and fail.
 
+    - Manager Features:
+        - ManagerLogin.feature (E2E TEST)
+            - Positive: (9.1) Scenario: Login with Correct Credentials (REPO LAYER)
+            - Negative: (9.2) Scenario: Login with Incorrect Credentials (SERVICE LAYER)
+        - ManagerLogout.feature (E2E TEST)
+            - Positive: (10.1) Scenario: Logout Successful (REPO LAYER)
+            - Negative: (10.2) Scenario: Logout Unsuccessful (SERVICE LAYER)
+        - ManagerView.feature (E2E TEST)
+            - Positive: (11.1) Scenario: Table of reimbursement requests shows successfully (REPO LAYER)
+            - Negative: (11.2) Scenario: Manager receives an alert if table of reimbursement requests does not show successfully (SERVICE LAYER)
+        - ManagerApprove.feature (E2E TEST)
+            - Positive: (12.1) Scenario: Manager successfully changes reimbursement pending status to approved (REPO LAYER)
+            - Negative: (12.2) Scenario: Reimbursement status does not change to approved (SERVICE LAYER)
+        - ManagerDeny.feature (E2E TEST)
+            - Positive: (13.1) Scenario: Manager successfully changes reimbursement pending status to denied (REPO LAYER)
+            - Negative: (13.2) Scenario: Reimbursement status does not change to denied (SERVICE LAYER)
+
+    - Employee Features:
+        - EmployeeLogin.feature (E2E TEST)
+            - Positive: (1.1) Scenario: Login with Correct Credentials (REPO LAYER)
+            - Negative: (1.2) Scenario: Login with Incorrect Credentials (SERVICE LAYER)
+        - EmployeeLogout.feature (E2E TEST)
+            - Positive: (2.1) Scenario: Logout Successful (REPO LAYER)
+            - Negative: (2.2) Scenario: Logout Unsuccessful (SERVICE LAYER)
+        - EmployeeRequest.feature (E2E TEST)
+            - Positive: (3.1) Scenario: Reimbursement request made successfully (new entry on reimbursement history table with a pending status) (REPO LAYER)
+            - Negative: (3.2) Scenario: Employee receives alert if reimbursement request made unsuccessfully (SERVICE LAYER)
+        - EmployeeView.feature (also a business feature) (E2E TEST)
+            - Positive: (4.1) Scenario: Employee can view only their previous reimbursement requests (REPO LAYER)
+            - Negative: (4.2) Scenario: Employee receives alert if cannot view previous reimbursement requests (SERVICE LAYER)
+        - EmployeeTitle.feature (E2E TEST)
+            - Positive: (5.1) Scenario: Employee adds a 50 character max description of reimbursement title (REPO LAYER)
+            - Negative: (5.2) Scenario: Employees should be blocked from trying to put a title over 50 characters.  (SERVICE LAYER) 
+                        (5.3) Scenario: Employee receives an alert if they don't put any title. (SERVICE LAYER)
+
+    - Business Features:
+        - EmployeeAmount.feature (E2E TEST)
+            - Positive: (6.1) Scenario: Employee can request up to $1000 per request (REPO LAYER)
+            - Negative: (6.2) Scenario: Employee receives an alert if trying to request over $1000 in a request. (SERVICE LAYER)
+                        (6.3) Scenario: Employees receive an alert if they don't enter any amount for a reimbursement request (SERVICE LAYER)
+        - EmployeeDesc.feature (E2E TEST)
+            - Positive: (7.1) Scenario: Employee must provide a description of reimbursement reason up to 500 characters (REPO LAYER)
+            - Negative: (7.2) Scenario: Employee should be blocked from trying to put a description of reimbursement reason over 500 characters. (SERVICE LAYER) 
+                        (7.3) Scenario: Employee receives an alert if they don't put any description. (SERVICE LAYER)
+        - EmployeeView.feature (also a regular employee feature) (E2E TEST)
+            - Positive: (4.1) Scenario: Employee can view only their previous reimbursement requests (REPO LAYER)
+            - Negative: (4.2) Scenario: Employee receives alert if cannot view previous reimbursement requests (SERVICE LAYER)
+        - ManagerDesc.feature (E2E TEST)
+            - Positive: (14.1) Scenario: Manager must provide a description of reimbursement approval or denial reason up to 500 characters (REPO LAYER)
+            - Negative: (14.2) Scenario: Manager receives an alert if trying to put a description of reimbursement approval or denial reason over 500 characters. (SERVICE LAYER)
+                        (14.3) Scenario: Manager receives an alert if they don't put any description. (SERVICE LAYER)
+        - UsernameMatch.feature (E2E TEST)
+            - Positive: (8.1) Scenario: No users have the same username (REPO LAYER)
+            - Negative: (8.2) Scenario: User receives alert and cannot login if their username matches another (SERVICE LAYER)
+
 ## Brief Steps
 See more elaborated steps in 3-step-by-step-tasks.
 
@@ -175,9 +182,9 @@ See more elaborated steps in 3-step-by-step-tasks.
     - Turn user stories into acceptance criteria (DONE)
     - Create basic requirement traceability matrix (DONE)
     - Create test plan document (DONE *add on more as time goes on)
-    - Create database with correct tables
-    - Confirm project can successfully connect to the database
-    - Write unit tests for repo and service layer of application
+    - Create database with correct tables (DONE)
+    - Confirm project can successfully connect to the database (DONE)
+    - Write unit tests for repo and service layer of application (DONE)
     - Start implementing repo and service layer interfaces to pass unit tests
 
 - Week of 7/18 - 7/22

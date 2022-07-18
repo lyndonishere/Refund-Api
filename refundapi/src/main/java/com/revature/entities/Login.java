@@ -9,9 +9,6 @@ import javax.persistence.Table;
 @Table(name = "login")
 public class Login {
 
-
-    // NOTE: Just realized need to add a role to them
-
     // we need fields to represent the data in our database
     @Id
     @GeneratedValue
