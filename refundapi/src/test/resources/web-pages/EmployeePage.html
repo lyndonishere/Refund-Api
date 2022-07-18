@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Employee Page</title>
+    <link rel = "stylesheet" href = "EmployeeStyle.css">
+</head>
+<body>
+    <h1>Welcome back, Employee!</h1>    <!-- we can edit this dynamically later to make it generate current employee name -->
+    <div id = "main-body">
+        <div id = "table-body">
+            <h2>Your Reimbursement Requests</h2>
+            <table id = "reimbursement-table">
+                <thead></thead>         <!-- we will generate this table dynamically in JavaScript -->
+                <tbody></tbody>
+            </table>
+        </div>
+        <div id = "new-request-body">
+            <h2>Make A New Reimbursement Request</h2>
+            <label id = "request-title">Enter reimbursement request title:</label>
+            <input type = "text" id = "enter-request-title" minlength = "1" maxlength = "50" placeholder = "Give me my money back">
+            <br>
+            <label id = "request-amount">Amount:</label>
+            <input type = "number" id = "enter-request-amount" max = "1000" placeholder = "100">
+            <br>
+            <label id = "request-reason">Reason for reimbursement:</label>
+            <input type = "text" id = "enter-request-reason" minlength = "1" maxlength = "500" placeholder = "I am requesting $100 because...">
+            <br>
+            <button id = "submit">Submit Request</button>
+        </div>
+        <div id = "logout-body">
+            <button id = "logout-button">Logout!</button>
+        </div>
+    </div>
+</body>
+<script>
+    const logOutBtn = document.getElementById("logout-btn");
+    function logOut() {
+        window.location.href = "LoginPage.html";
+    }
+    logOutBtn.addEventListener('click', logOut);
+    
+    /*      this is in here because we will be making the table dynamically
+
+            <table name="request-history" class="tableFormat">
+            <thead>
+                <th>Status</th>
+                <th>Reimbursement ID</th>
+                <th>Employee Username</th>
+                <th>Employee Name</th>
+                <th>Title</th>
+                <th>Amount</th>
+                <th>Reason</th>
+                <th>Request Date</th>
+                <th>Decision</th>
+                <th>Manager Reason</th>
+            </thead>
+            <tbody>
+                <tr>
+                <td>
+                    Pending
+                </td>
+                <td>Id number</td>
+                <td>username</td>
+                <td>employee </td>
+                <td>title</td>
+                <td>amount</td>
+                <td>reason</td>
+                <td>request date</td>
+                <td>Accepted/Declined</td>
+                <td>decision reason</td>
+                </tr>
+                <tr>
+                    <td>Complete</td>
+                    <td>Id number</td>
+                    <td>username</td>
+                    <td>employee</td>
+                    <td>title</td>
+                    <td>amount</td>
+                    <td>reason</td>
+                    <td>request date</td>
+                    <td>Accepted/Declined</td>
+                    <td>decision reason</td>
+                </tr>
+            </tbody>
+        </table>
+
+
+    */
+</script>
+</html>

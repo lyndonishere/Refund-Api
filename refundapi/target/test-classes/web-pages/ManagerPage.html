@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Manager Page</title>
+    <link rel = "stylesheet" href = "ManagerStyle.css">
+</head>
+<body>
+    <h1>Welcome back, Manager!</h1>  <!-- we can edit this dynamically later to make it generate current employee name -->
+    <div id = "main-body">
+        <div id = "table-body">
+            <h2>Employee Reimbursement Requests</h2>
+            <table id = "reimbursement-table">
+                <thead></thead>         <!-- we will generate this table dynamically in JavaScript -->
+                <tbody></tbody>
+            </table>
+        </div>
+        <div id = "select-id-body">
+            <h2>Make Request Decision</h2>
+            <label id = "id-label">Enter reimbursement id:</label>
+            <input type = "text" id = "enter-reimbursement-id" placeholder = "id here">
+            <br>
+            <select id = "select-decision">
+                <option value = "Approve">Approve</option>
+                <option value = "Deny">Deny</option>
+            </select>
+            <br>
+            <label id = "decison-reason">Reason for decision:</label>
+            <input type = "text" id = "enter-reimbursement-decision" minlength = "1" maxlength = "500" placeholder = "I have decided to approve your request because...">
+            <br>
+            <button id = "submit">Submit Decision</button>
+        </div>
+        <div id = "logout-body">
+            <button id = "logout-button">Logout!</button>
+        </div>
+    </div> 
+</body>
+<script>
+    /*      note: i am just commenting this out for now until we start editing javascript here
+
+    async function managerPageIntialize(){
+    welcomesplash.textContent = `Welcome to your Homepage, ${sessionStorage.getItem('name')}`
+    // testDesc = 
+    // (
+    //     `The FitnessGram Pacer Test is a multistage aerobic capacity test that progressively gets more difficult as it continues. The 20 meter pacer test will begin in 30 seconds.\n`+
+    //     `Line up at the start. The running speed starts slowly, but gets faster each minute after you hear this signal.\n`+
+    //     `[beep] A single lap should be completed each time you hear this sound. [ding] Remember to run in a straight line, and run as long as possible.\n`+
+    //     `The second time you fail to complete a lap before the sound, your test is over. The test will begin on the word start. On your mark, get ready, start.\n`
+    // )
+    testSteps = 
+    (
+        `1. First Step to Reproduce\n`+
+        `2. Second Step to Reproduce\n`+
+        `3. Use Protection\n`+
+        `4. Fourth Step to Reproduce\n`
+    )
+    // defectDesc.textContent = testDesc
+    stepsDesc.textContent = testSteps
+
+    const dateData = new Date()
+    x = dateData.getDate()
+    y = dateData.getMonth() + 1
+    z = dateData.getFullYear()
+    dateString = `${z}${y}${x}`
+}
+    managerPageIntialize()
+
+    async function setTesterList(){
+        document.getElementById("testerSelect").innerHTML = ''
+
+        let employeeResponse = await fetch("https://bugcatcher.coe.revaturelabs.com/16/employees")
+        let employeResponseBody = await employeeResponse.json()
+        for( let object of employeResponseBody){
+            if(object.role === 'Tester'){
+                let test = document.getElementById("testerSelect");
+                
+                let testerOption = document.createElement("option");
+                
+                testerOption.textContent = `${object.fname} ${object.lname}`;
+                testerOption.value = `${object.fname} ${object.lname}`;
+                test.appendChild(testerOption)
+            }else{
+                null
+            }
+        }
+    }
+    setTesterList()
+
+    
+    // async function setDefectList(){
+    //     document.getElementById("defectSelect").innerHTML = ''
+    //     let defectResponse = await fetch("https://bugcatcher.coe.revaturelabs.com/16/defects")
+    //     let defectResponseBody = await defectResponse.json()
+        
+    //     for(let object of defectResponseBody){
+    //         let x = document.getElementById("defectSelect");
+    //         let defectOption = document.createElement("option");
+    //         defectOption.text = `${object.defectId}`;
+    //         x.add(defectOption, x[0])
+    //     }
+    // }
+    // setDefectList()
+    
+    async function createDefect(){
+        
+        let b = testerSelect[testerSelect.selectedIndex].value
+        let c = severitySelect[severitySelect.selectedIndex].value
+        let d = prioritySelect[prioritySelect.selectedIndex].value
+        let e = defectDesc.value
+        let f = stepsDesc.value
+        let g = ""
+        // selectionString =""
+
+        
+        let employeeResponse = await fetch("https://bugcatcher.coe.revaturelabs.com/16/employees")
+        let employeResponseBody = await employeeResponse.json()
+
+        for(let object of employeResponseBody){
+            if(`${object.fname} ${object.lname}` === b){
+                g = object.username
+            }else{
+                null
+            }
+        }
+
+        createDefectObject = 
+        {
+            "assignedTo": `${g}`,
+            "dateReported": `${dateString}`,
+            "desc": `${e}`,
+            "stepsToReproduce": `${f}`,
+            "severity": `${c}`,
+            "priority": `${d}`
+        }
+        console.log(createDefectObject)
+        createDefectJSON = JSON.stringify(createDefectObject)
+
+        let config = 
+        {
+            method:"POST", // method is a reference to the kind of request you are making (the verb): GET is the default
+            headers:{'Content-Type':"application/json"}, // some APIs will return an error message without this value included
+            body: createDefectJSON
+        }
+        let createDefectReponse = await fetch("https://bugcatcher.coe.revaturelabs.com/16/defects", config)
+        if(createDefectReponse.status === 201){
+            alert(`You have just submitted your defect`)
+        }else{
+            null
+        }
+        
+        
+    }
+*/
+</script>
+</html>
