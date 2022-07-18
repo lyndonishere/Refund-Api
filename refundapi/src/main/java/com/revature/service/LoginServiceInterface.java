@@ -29,7 +29,7 @@ public interface LoginServiceInterface {
      */
 
 
-    boolean checkUsernameMatch(Login userToCheck);
+    // boolean checkUsernameMatch(Login userToCheck);   movd to business rules in utils
 
     /*
      * When you set up an application that has a repo layer and a service layer you want to have a service method for each of your repo methods
