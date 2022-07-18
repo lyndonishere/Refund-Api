@@ -37,6 +37,9 @@ public class Main {
          */
         app.get("/login", loginController.getAllUsers);
         app.delete("/login", loginController.removeUser);
+        app.patch("/login", loginController.updateUser);
+        app.post("/login", loginController.createUser);
+
 
         // app.post();
 

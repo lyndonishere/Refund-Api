@@ -6,6 +6,7 @@ import java.util.Map;
 
 import com.google.gson.Gson;
 import com.revature.entities.Login;
+import com.revature.exceptions.InvalidUser;
 import com.revature.service.LoginServiceInterface;
 
 import io.javalin.http.Handler;
@@ -64,4 +65,47 @@ public class LoginController {
       ctx.result(messageJson);
       ctx.status(203);    // need to double check this tho
      };
-}
+
+     public Handler updateUser = ctx -> {
+      try {
+         // get json from request body
+         String json = ctx.body();
+         // convert json to our java object
+         Login updatedUser = this.gson.fromJson(json, Login.class);
+         // pass the data into the service layer and get method result back
+         Login result = this.loginService.serviceUpdateUser(updatedUser);
+         // convert the result into a json
+         String resultJson = this.gson.toJson(result);
+         // set the response body and status code
+         ctx.result(resultJson);
+         ctx.status(200);
+      } catch(InvalidUser e) {
+         // create a map to easily make key/value pair for json
+         Map<String, String> message =  new HashMap<>();
+         // place the exception message into the map
+         message.put("message", e.getMessage());
+         // convert the map into a json
+         String messageJson = this.gson.toJson(message);
+         // attach the json to the response body and set the status code
+         ctx.result(messageJson);
+         ctx.status(400); 
+      }
+     };
+
+     public Handler createUser = ctx -> {
+      try{
+         String json = ctx.body();
+         Login newUser = this.gson.fromJson(json, Login.class);
+         Login result = this.loginService.serviceAddUser(newUser);
+         String resultJson = this.gson.toJson(result);
+         ctx.result(resultJson);
+         ctx.status(201);
+     } catch(InvalidUser e){
+         Map<String, String> message =  new HashMap<>();
+         message.put("message", e.getMessage());
+         String messageJson = this.gson.toJson(message);
+         ctx.result(messageJson);
+         ctx.status(400); 
+     }
+   };
+};
