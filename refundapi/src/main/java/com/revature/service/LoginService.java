@@ -25,11 +25,13 @@ public class LoginService implements LoginServiceInterface {
 
     @Override
     public Login serviceAddUser(Login newUser) {
-        if(this.loginBusinessRules.checkUsernameMatch(newUser)){
-            return this.loginDao.addUser(newUser);
-        } else {
-            throw new InvalidUser("Invalid user: please try again"); 
-        }
+        for(){
+            if(this.loginBusinessRules.checkUsernameMatch(newUser, "spongebob")){   // is actual username as spongebob correct? 
+                return this.loginDao.addUser(newUser);
+            } else {
+                throw new InvalidUser("Invalid user: please try again"); 
+            }
+        };
     }
 
     @Override
@@ -43,7 +45,7 @@ public class LoginService implements LoginServiceInterface {
 
     @Override
     public Login serviceUpdateUser(Login updatedUser) {
-        if(this.loginBusinessRules.checkUsernameMatch(updatedUser)){
+        if(this.loginBusinessRules.checkUsernameMatch(updatedUser, "spongebob")){
             return this.loginDao.updateUser(updatedUser);
         } else {
             throw new InvalidUser("Invalid user: please try again"); 
