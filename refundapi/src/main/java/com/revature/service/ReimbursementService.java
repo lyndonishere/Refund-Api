@@ -37,15 +37,14 @@ public class ReimbursementService implements ReimbursementServiceInterface {
 
     @Override
     public Reimbursement serviceUpdateRequest(Reimbursement updatedRequest){
-        boolean valCheck1 = this.reimbursementBusinessRules.checkRefundAmount(newRequest);
-        boolean valCheck2 = this.reimbursementBusinessRules.checkTitleLength(newRequest);
+        boolean valCheck1 = this.reimbursementBusinessRules.checkRefundAmount(updatedRequest);
+        boolean valCheck2 = this.reimbursementBusinessRules.checkTitleLength(updatedRequest);
 
         if(valCheck1 && valCheck2){
             return this.reimbursementDao.addRequest(updatedRequest);
         }else{
             throw new InvalidUser("Incorrect amount request for refund"); //Potentially change/create new error throw method
         }
-        return this.reimbursementDao.updateRequest(updatedRequest);
     }
 
     @Override
