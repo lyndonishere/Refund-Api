@@ -38,13 +38,13 @@ Our deadline is 7/29.
     - AWS (RDS: PostgreSQL)
     - DBeaver
 - Mockito
-    - TBD
+    - Can create mock objects so we can run service tests without affecting our database
 - Javalin
-    - TBD
+    - Supports HTTP requests
 - Thundercat Client
-    - TBD
+    - Can set up API
 - Postman
-    - TBD
+    - Can set up API
 
 ## Sprint Backlog
 These are all the user stories we need to complete to create a minimum viable product (MVP):
@@ -89,7 +89,6 @@ See Sprint Backlog for what user stories we will be testing for, or look at Acce
         - All methods must have a positive test
             - This is where we will take a single piece of the application's code logic and test it in isolation
             - The goal of this is to check the logic of the code we have written
-        -  WRITE ALL OF THESE TOMORROW
     - "Service Layer"
         - All methods must have a negative test per business rule
             - We can use Mockito to stub the methods for these tests
@@ -109,6 +108,7 @@ See Sprint Backlog for what user stories we will be testing for, or look at Acce
     - Manager Features:
         - ManagerLogin.feature (E2E TEST)
             - Positive: (9.1) Scenario: Login with Correct Credentials (REPO LAYER)
+                - 
             - Negative: (9.2) Scenario: Login with Incorrect Credentials (SERVICE LAYER)
         - ManagerLogout.feature (E2E TEST)
             - Positive: (10.1) Scenario: Logout Successful (REPO LAYER)
@@ -160,6 +160,8 @@ See Sprint Backlog for what user stories we will be testing for, or look at Acce
         - UsernameMatch.feature (E2E TEST)
             - Positive: (8.1) Scenario: No users have the same username (REPO LAYER)
             - Negative: (8.2) Scenario: User receives alert and cannot login if their username matches another (SERVICE LAYER)
+            -  NOTE FROM ORIANA: Refactoring UsernameMatch feature so on login page you can register as a new user. This is where the username match business rule will be tested. This will be where the addUser() repo test can be, removeUser() if you want to delete your account, updateUser() if you need to change info can be. Maybe on the manager page they can pull all users up
+
 
 ## Brief Steps
 See more elaborated steps in 3-step-by-step-tasks.

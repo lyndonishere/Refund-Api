@@ -46,29 +46,33 @@ public class LoginServiceTests {
 
     }
 
-    @Test
-    public void checkUsernameMatchNegativeTest(){
-        Login badUser = new Login("badusername", "bad password", "bad person name", "bad user role");
-        boolean result = loginBusinessRules.checkUsernameMatch(badUser);
-        Assert.assertFalse(result);
-    }
-
     /*
      * This is a positive test because we are checking that our service method correctly identifies that all relevant business rules are being adhered
      * to and responds with the appropriate return value
      */
 
     @Test
-    public void checkUsernameMatchPositiveTest(){
-        Login goodUser = new Login("goodusername", "good password", "good person name", "good user role");
-        boolean result = loginBusinessRules.checkUsernameMatch(goodUser);
-        Assert.assertTrue(result);
+    public void checkUsernameMatchNegativeTest(){ // this test is saying that the user put into here DOESN'T match what is in the database. it does not break biz rules
+        Login nonMatchUser = new Login("nonmatch user", "password", "person name", "user role");
+        boolean result = loginBusinessRules.checkUsernameMatch(nonMatchUser, "spongebob");
+        Assert.assertTrue(result); // assert true because it is true and does NOT break biz rules
+    }
+// make for loop to go through all // for login check full string credentials
+    @Test
+    public void checkUsernameMatchPositiveTest(){ // this test is positive because it DOES break biz rules. spongebob is already in the databae
+        Login matchUser = new Login("spongebob", "password", "person name", "user role");
+        boolean result = loginBusinessRules.checkUsernameMatch(matchUser, "spongebob");
+        Assert.assertFalse(result); // assert false because it is false and DOES break biz rules
     }
 
     /*
      * THE TESTS BELOW ARE TO SHOW OFF MOCKING AND STUBBING
      * 
-     * At the moment, these tests below are integration tests because they require 1 or more methods to work in order for the tests to pass.
+     * At the moment, these tests below are integration tests because they require 1 or more methods to work in order for the tests to pass. 
+     * for (Login loginInfo : storedLogins){
+        if (checkUsernameMatch(loginProvided, loginInfo.getUsername){
+        ...}
+
      * 
      * VOCAB:
      * 
@@ -77,8 +81,8 @@ public class LoginServiceTests {
      */
 
    @Test
-    public void mockExampleAddUserPositive(){
-        Login goodUser = new Login("goodusername", "good password", "good person name", "good user role");
+    public void mockExampleAddUserPositive(){   // i am successfully adding a user to the database
+        Login goodUser = new Login("nonmatch user", "password", "person name", "user role");
         /*
          * This is a positive test, so we know that the business rule needs to return true, and the dao needs to return the book with a newly minted ID number.
          * We need to tell our mocked objects to do just that
@@ -86,8 +90,8 @@ public class LoginServiceTests {
          * When() is the method used to determine what mock object and associated method is being faked
          * thenReturn() is the method used to determine what the return value is for our faked method
          */
-        Mockito.when(mockLoginRules.checkUsernameMatch(goodUser)).thenReturn(true);
-        Mockito.when(mockLoginDao.addUser(goodUser)).thenReturn(new Login(-2, "goodusername", "good password", "good person name", "good user role"));
+        Mockito.when(mockLoginRules.checkUsernameMatch(goodUser, "spongebob")).thenReturn(true); // i am comparing the new username to an actual username to see if it matche
+        Mockito.when(mockLoginDao.addUser(goodUser)).thenReturn(new Login(-2, "nonmatch user", "password", "person name", "user role"));
         
         Login result = loginServiceWithMocks.serviceAddUser(goodUser);
         Assert.assertNotNull(result.getId());
@@ -101,9 +105,9 @@ public class LoginServiceTests {
    @Test
     public void mockExampleAddUserNegative(){
         try {
-            Login badUser = new Login("badusername", "bad password", "bad person name", "bad user role");
+            Login badUser = new Login("spongebob", "bad password", "bad person name", "bad user role");
             /* for this negative test i dont need to mock the results of the dao because the dao should never be reached with this test */
-            Mockito.when(mockLoginRules.checkUsernameMatch(badUser)).thenReturn(false);
+            Mockito.when(mockLoginRules.checkUsernameMatch(badUser, "spongebob")).thenReturn(false);
             Login result = loginServiceWithMocks.serviceAddUser(badUser);
             // if no exception is thrown by the serviceCreateBook method, then the line below will make our test fail
             Assert.fail();
@@ -117,7 +121,7 @@ public class LoginServiceTests {
     public void mockExampleUpdateUserPositive(){
         Login goodUser = new Login(0, "goodusername", "good password", "good person name", "good user role");
 
-        Mockito.when(mockLoginRules.checkUsernameMatch(goodUser)).thenReturn(true);
+        Mockito.when(mockLoginRules.checkUsernameMatch(goodUser, "spongebob")).thenReturn(true);
         Mockito.when(mockLoginDao.updateUser(goodUser)).thenReturn(goodUser);
 
         Login result = loginServiceWithMocks.serviceUpdateUser(goodUser);

@@ -10,4 +10,5 @@ create table login (
 
 select * from login;
 
-insert into values ()
+
+insert into login values(-5, 'spongebob', 'krabbypatties', 'Spongebob Squarepants', 'employee');
