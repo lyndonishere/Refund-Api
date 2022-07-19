@@ -23,7 +23,7 @@ public class ReimbursementService implements ReimbursementServiceInterface {
         if(this.reimbursementBusinessRules.checkRefundAmount(newRequest)){
             return this.reimbursementDao.addRequest(newRequest);
         }
-            throw new InvalidUser("Incorrect amoun request for refund");
+            throw new InvalidUser("Incorrect amount request for refund"); //Potentially change/create new error throw method
     }
 
     @Override
