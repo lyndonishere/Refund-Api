@@ -5,6 +5,7 @@ import java.util.List;
 import com.revature.entities.Login;
 import com.revature.utils.HibernateUtil;
 
+
 public class LoginDAO implements LoginDAOInterface {
 
     @Override
