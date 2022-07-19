@@ -13,4 +13,12 @@ public class ReimbursementBusinessRules {
         }
     }
 
+    public boolean checkTitleLength(Reimbursement titleToCheck){
+
+        if(titleToCheck.getReimbursement_title().length() > 50){
+            return false;
+        }else{
+            return true;
+        }
+    }
 }

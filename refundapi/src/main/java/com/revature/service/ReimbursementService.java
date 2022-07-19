@@ -20,10 +20,14 @@ public class ReimbursementService implements ReimbursementServiceInterface {
 
     @Override
     public Reimbursement serviceAddRequest(Reimbursement newRequest){
-        if(this.reimbursementBusinessRules.checkRefundAmount(newRequest)){
+        boolean valCheck1 = this.reimbursementBusinessRules.checkRefundAmount(newRequest);
+        boolean valCheck2 = this.reimbursementBusinessRules.checkTitleLength(newRequest);
+
+        if(valCheck1 && valCheck2){
             return this.reimbursementDao.addRequest(newRequest);
-        }
+        }else{
             throw new InvalidUser("Incorrect amount request for refund"); //Potentially change/create new error throw method
+        }
     }
 
     @Override
@@ -33,6 +37,14 @@ public class ReimbursementService implements ReimbursementServiceInterface {
 
     @Override
     public Reimbursement serviceUpdateRequest(Reimbursement updatedRequest){
+        boolean valCheck1 = this.reimbursementBusinessRules.checkRefundAmount(newRequest);
+        boolean valCheck2 = this.reimbursementBusinessRules.checkTitleLength(newRequest);
+
+        if(valCheck1 && valCheck2){
+            return this.reimbursementDao.addRequest(updatedRequest);
+        }else{
+            throw new InvalidUser("Incorrect amount request for refund"); //Potentially change/create new error throw method
+        }
         return this.reimbursementDao.updateRequest(updatedRequest);
     }
 
