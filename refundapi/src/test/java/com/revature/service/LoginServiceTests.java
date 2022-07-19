@@ -132,7 +132,11 @@ public class LoginServiceTests {
     @Test
     public void mockExampleUpdateUserNegative(){
         try {
-            Login badUser = new Login("badusername", "bad password", "bad person name", "bad user role");
+            Login badUser = new Login("spongebob", "bad password", "bad person name", "bad user role");
+
+            Mockito.when(mockLoginRules.checkUsernameMatch(badUser, "spongebob")).thenReturn(true);
+            Mockito.when(mockLoginDao.updateUser(badUser)).thenReturn(badUser);
+
             Login result = loginServiceWithMocks.serviceUpdateUser(badUser);
             Assert.fail();
         } catch(InvalidUser e) {
