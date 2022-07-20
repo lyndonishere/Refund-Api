@@ -21,4 +21,22 @@ public class ReimbursementBusinessRules {
             return true;
         }
     }
+
+    public boolean checkDescriptionLength(Reimbursement descriptionToCheck){
+
+        if(descriptionToCheck.getReimbursement_reason().length() > 500){
+            return false;
+        }else{
+            return true;
+        }
+    }
+
+    public boolean checkManagerDescLength(Reimbursement descriptionToCheck){
+        if(descriptionToCheck.getDecision_reason().length() > 500){
+            return false;
+        }else{
+            return true;
+        }
+    }
+    
 }
