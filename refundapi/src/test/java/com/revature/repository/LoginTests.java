@@ -29,6 +29,7 @@ public class LoginTests {
 
          Login setupUpdateUser = new Login(-3, "to be updated username", "to be updated password", "to be updated person name", "to be updated user role");
          loginDao.updateUser(setupUpdateUser);
+
     }
 
     @Test   // make sure to add this @Test annotation
@@ -54,6 +55,7 @@ public class LoginTests {
     @Test
     public void removeUserPositiveTest(){
         Login userToBeDeleted = new Login(-4, "to be deleted username", "to be deleted password", "to be deleted person name", "to be deleted user role");
+        loginDao.addUser(userToBeDeleted);  // tech this is not a TRUE unit test with this, but it is making it so we don't have to manually add in the above user every time. it tested correctly before adding user
         boolean result = loginDao.removeUser(userToBeDeleted);
         Assert.assertTrue(result);
     }
