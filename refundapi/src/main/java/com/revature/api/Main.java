@@ -35,9 +35,18 @@ public class Main {
         /*
          * Notice that my path strings all include login in them: this is part of creating a restful web service, something we will talk more about tomorrow
          */
+
+        // does not need an id
         app.get("/login", loginController.getAllUsers);
-        app.delete("/login", loginController.removeUser);
-        app.patch("/login", loginController.updateUser);
+
+        // this one should have an identifier because I am removing a specific book
+        // the id inside the {} is called a path parameter: I can use the ctx in the controller to access it
+        app.delete("/login/{id}", loginController.removeUser); 
+
+        // this one should have an identifier because I am updating a specific book
+        app.patch("/login/{id}", loginController.updateUser);
+
+        // does not need an id
         app.post("/login", loginController.createUser);
 
 

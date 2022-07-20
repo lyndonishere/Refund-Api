@@ -54,6 +54,10 @@ public class LoginController {
       String json = ctx.body();
       // we then use Gson to convert the json string into the java class we are working with
       Login userToBeDeleted = this.gson.fromJson(json, Login.class);
+      // to make sure that updating the user that I indicated in the http request I set the path id to the id of the user
+      String identifier = ctx.pathParam("id");
+      int userId = Integer.parseInt(identifier);
+      userToBeDeleted.setId(userId);
       // we then pass the java object we created into the appropriate service method for validation
       this.loginService.serviceRemoveUser(userToBeDeleted);
       // because I am not returning any special entity with this method I will use a Map to create my key/value pair mesage for the json
@@ -72,6 +76,8 @@ public class LoginController {
          String json = ctx.body();
          // convert json to our java object
          Login updatedUser = this.gson.fromJson(json, Login.class);
+         // same thing as remove just in one line
+         updatedUser.setId(Integer.parseInt(ctx.pathParam("id")));
          // pass the data into the service layer and get method result back
          Login result = this.loginService.serviceUpdateUser(updatedUser);
          // convert the result into a json
@@ -96,6 +102,7 @@ public class LoginController {
       try{
          String json = ctx.body();
          Login newUser = this.gson.fromJson(json, Login.class);
+         newUser.setId(Integer.parseInt(ctx.pathParam("id")));
          Login result = this.loginService.serviceAddUser(newUser);
          String resultJson = this.gson.toJson(result);
          ctx.result(resultJson);
