@@ -7,6 +7,8 @@ import com.revature.utils.HibernateUtil;
 
 public class ReimbursementDAO implements ReimbursementDAOInterface {
     
+    private static final Reimbursement deniedRequest = null;
+    private Reimbursement approvedRequest;
     @Override
     public Reimbursement addRequest(Reimbursement newRequest){
         HibernateUtil.beginTransaction();
@@ -38,4 +40,24 @@ public class ReimbursementDAO implements ReimbursementDAOInterface {
         HibernateUtil.endTransaction();
         return true;
     }
+
+    @Override
+    public Reimbursement approveRequest (Reimbursement requestToBeApproved){
+        HibernateUtil.beginTransaction();
+        HibernateUtil.getSession().update(requestToBeApproved);
+        HibernateUtil.endTransaction();
+        return approvedRequest;
 }
+
+@Override
+    public Reimbursement denyRequest (Reimbursement requestToBeDenied){
+        HibernateUtil.beginTransaction();
+        HibernateUtil.getSession().update(requestToBeDenied);
+        HibernateUtil.endTransaction();
+        return deniedRequest;
+
+    }
+
+
+}
+
