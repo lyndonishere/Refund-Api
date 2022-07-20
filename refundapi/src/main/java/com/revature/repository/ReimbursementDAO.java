@@ -38,4 +38,21 @@ public class ReimbursementDAO implements ReimbursementDAOInterface {
         HibernateUtil.endTransaction();
         return true;
     }
+    
+    @Override
+    public Reimbursement approveRequest (Reimbursement requestApproved){
+        HibernateUtil.beginTransaction();
+        HibernateUtil.getSession().update(requestApproved);
+        HibernateUtil.endTransaction();
+        return requestApproved;
+}
+
+@Override
+    public Reimbursement denyRequest (Reimbursement requestDenied){
+        HibernateUtil.beginTransaction();
+        HibernateUtil.getSession().update(requestDenied);
+        HibernateUtil.endTransaction();
+        return requestDenied;
+
+    }
 }
