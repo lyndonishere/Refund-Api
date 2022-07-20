@@ -13,7 +13,7 @@
         <br>
     </div>
     <div id = "body-button">
-        <button id = "login-button">login!</button>
+        <button id = "login-button" onclick = "login()">login!</button>
     </div>
 </body>
 <script>
@@ -28,8 +28,8 @@
         // to let my api validate login information, I need to attach the username and password to the
         // http request
         let loginInfo = {
-            username: document.getElementById("username").value,
-            password: document.getElementById("password").value
+            username: username.value,
+            user_password: password.value
         };
 
         // now that I have the actual login information, I need to convert it into a JSON
@@ -42,21 +42,24 @@
             body: loginJSON // stringify converts a JS object into a JSON
         };
 
-        let httpResponse = await fetch("http://localhost:8080/login", config) // make sure to enter the url assigned to you
+        console.log(loginJSON);
+        let httpResponse = await fetch("http://localhost:8080/login", config);
+        console.log(httpResponse.status);
+        
 
         if(httpResponse.status === 200){
             let responseBody = await httpResponse.json();   // remember, json() returns a promise, so we use await to get the data we want out of it
 
-            if(responseBody.role === "manager"){
+            if(responseBody.user_role === "manager"){
                 window.location.href = "ManagerPage.html"
-            } else if(responseBody.role === "employee"){
+            } else if(responseBody.user_role === "employee"){
                 window.location.href = "EmployeePage.html"
             } else {
                 alert("Could not login. User has not been assigned a role.")
             }
         } else {
             let responseBody = await httpResponse.json();
-            alert(responseBody.detail);
+            alert("Plankton's stolen the login credentials!");
         }
        
     }

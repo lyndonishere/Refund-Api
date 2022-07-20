@@ -1,7 +1,5 @@
 package com.revature.service;
 
-import java.util.List;
-
 import com.revature.entities.Login;
 
 public interface LoginServiceInterface {
@@ -34,19 +32,8 @@ public interface LoginServiceInterface {
     /*
      * When you set up an application that has a repo layer and a service layer you want to have a service method for each of your repo methods
      */
-     
-    //creates
-    Login serviceAddUser(Login newUser);
-     
 
-    // reads
-    List<Login> serviceGetAllUsers();
+    // log in
+    Login loginUser(Login loginUser); 
 
-
-    // updates
-    Login serviceUpdateUser(Login updatedUser); 
-
-
-    // deletes
-    boolean serviceRemoveUser(Login userToBeDeleted);  
 }
