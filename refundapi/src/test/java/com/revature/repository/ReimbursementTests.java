@@ -46,5 +46,32 @@ public class ReimbursementTests {
         boolean result = reimbursementDao.removeRequest(requestToBeDeleted);
         Assert.assertTrue(result);
     }
+
+    @Test
+    public void approveRequestPositiveTest(
+        int rId, 
+        String employee_username, 
+        String employee_name, 
+        String reimbursement_titleString, 
+        int amount, 
+        String reimbursement_reason, 
+        String date, 
+        String status, 
+        String decision_reason 
+    ){
+        Reimbursement requestToBeApproved = new Reimbursement(
+            rId,
+            employee_username, 
+            employee_name, 
+            reimbursement_titleString, 
+            amount, 
+            reimbursement_reason, 
+            java.sql.Date.valueOf(date), 
+            status, 
+            decision_reason
+        );
+        boolean result = reimbursementDao.approveRequest(requestToBeApproved);
+        Assert.assertTrue(result);
+    }
     
 }

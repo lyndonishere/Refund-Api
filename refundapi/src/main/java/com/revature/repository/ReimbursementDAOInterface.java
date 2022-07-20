@@ -20,8 +20,8 @@ public interface ReimbursementDAOInterface {
 
     //approve request method
 
-    Reimbursement approveRequest (Reimbursement requestApproved);
+    boolean approveRequest(Reimbursement requestApproved);
 
     // Deny request
-    Reimbursement denyRequest (Reimbursement requestDenied);
+    boolean denyRequest (Reimbursement requestDenied);
 }
