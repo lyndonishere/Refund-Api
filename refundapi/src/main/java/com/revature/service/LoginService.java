@@ -25,13 +25,17 @@ public class LoginService implements LoginServiceInterface {
 
     @Override
     public Login serviceAddUser(Login newUser) {
-        for(){
-            if(this.loginBusinessRules.checkUsernameMatch(newUser, "spongebob")){   // is actual username as spongebob correct? 
-                return this.loginDao.addUser(newUser);
+        List<Login> loginArray = this.loginDao.getAllUsers();
+        for(int x = 0; x < loginArray.size(); x++ ){
+            Login pulledObject = loginArray.get(x);
+            String pulledName = pulledObject.getUsername();
+            if(this.loginBusinessRules.checkUsernameMatch(newUser, pulledName)){   // is actual username as spongebob correct? 
+                continue;
             } else {
                 throw new InvalidUser("Invalid user: please try again"); 
             }
-        };
+        }
+        return this.loginDao.addUser(newUser);
     }
 
     @Override
@@ -45,11 +49,17 @@ public class LoginService implements LoginServiceInterface {
 
     @Override
     public Login serviceUpdateUser(Login updatedUser) {
-        if(this.loginBusinessRules.checkUsernameMatch(updatedUser, "spongebob")){
-            return this.loginDao.updateUser(updatedUser);
-        } else {
-            throw new InvalidUser("Invalid user: please try again"); 
+        List<Login> loginArray = this.loginDao.getAllUsers();
+        for(int x = 0; x < loginArray.size(); x++ ){
+            Login pulledObject = loginArray.get(x);
+            String pulledName = pulledObject.getUsername();
+            if(this.loginBusinessRules.checkUsernameMatch(updatedUser, pulledName)){
+                continue;
+            } else {
+                throw new InvalidUser("Invalid user: please try again"); 
+            }
         }
+        return this.loginDao.updateUser(updatedUser);
     }
 
     @Override
