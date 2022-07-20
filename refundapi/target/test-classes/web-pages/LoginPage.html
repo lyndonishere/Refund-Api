@@ -15,25 +15,50 @@
     <div id = "body-button">
         <button id = "login-button">login!</button>
     </div>
-    <div id = "new-user">
-        <h2>New user?</h2>
-        <button id = "new-user-button" onclick = "registerNewUser()">sign up</button>
-    </div>
 </body>
 <script>
-    const newUser = document.getElementById("new-user-button");
-    const newUserDiv = document.getElementById("new-user");
-    /*
-        <input type = "text" id = "new-username" placeholder = "enter your username"><br>
-        <input type = "password" id = "new-password" placeholder = "enter your password"><br>
-        <input type = "text" id = "new-person-name" placeholder = "enter your name"><br>
-        <p>select role</p>
-        <select id = "role-select">
-            <option>manager</option>
-            <option>employee</option>
-        </select><br>
-        <button id = "register-new-user">register new account</button>
-    */
+    // i need to set up a patch method to login
+    const username = document.getElementById("username");
+    const password = document.getElementById("password");
 
+
+    // this is following previous project, need to check if this is all valid
+
+    async function login(){
+        // to let my api validate login information, I need to attach the username and password to the
+        // http request
+        let loginInfo = {
+            username: document.getElementById("username").value,
+            password: document.getElementById("password").value
+        };
+
+        // now that I have the actual login information, I need to convert it into a JSON
+        let loginJSON = JSON.stringify(loginInfo);
+
+        // now I can set up my HTTP request configurations
+        let config = {
+            method: "PATCH", // method is a reference to the kind of request you are making (the verb): GET is the default
+            headers: {'Content-Type':"application/json"}, // some APIs will return an error message without this value included
+            body: loginJSON // stringify converts a JS object into a JSON
+        };
+
+        let httpResponse = await fetch("http://localhost:8080/login", config) // make sure to enter the url assigned to you
+
+        if(httpResponse.status === 200){
+            let responseBody = await httpResponse.json();   // remember, json() returns a promise, so we use await to get the data we want out of it
+
+            if(responseBody.role === "manager"){
+                window.location.href = "ManagerPage.html"
+            } else if(responseBody.role === "employee"){
+                window.location.href = "EmployeePage.html"
+            } else {
+                alert("Could not login. User has not been assigned a role.")
+            }
+        } else {
+            let responseBody = await httpResponse.json();
+            alert(responseBody.detail);
+        }
+       
+    }
 </script>
 </html>

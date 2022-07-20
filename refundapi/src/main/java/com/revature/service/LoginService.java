@@ -24,7 +24,7 @@ public class LoginService implements LoginServiceInterface {
     }
 
     @Override
-    public Login serviceAddUser(Login newUser) {
+    public Login serviceAddUser(Login newUser) {    // comment these out for stretch goal
         List<Login> loginArray = this.loginDao.getAllUsers();
         for(int x = 0; x < loginArray.size(); x++ ){
             Login pulledObject = loginArray.get(x);
