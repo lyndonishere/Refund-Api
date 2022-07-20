@@ -26,5 +26,14 @@ public class LoginBusinessRules {
         }
     }
 
+    // this is part of my check to see if login credentials match an entry
+    public boolean checkLoginCredentials(Login credentialsToCheck, String actualUsernameCredential, String actualPasswordCredential){
+        if(credentialsToCheck.getUsername().equals(actualUsernameCredential) && credentialsToCheck.getUser_password().equals(actualPasswordCredential)){
+            return true;    // business rule is being followed
+        } else {
+            return false;   // business rule is being broken
+        }
+    }
+
     
 }

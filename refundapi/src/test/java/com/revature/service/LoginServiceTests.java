@@ -52,16 +52,44 @@ public class LoginServiceTests {
 
     @Test
     public void checkUsernameMatchPositiveTest(){ // this test is saying that the user put into here DOESN'T match what is in the database. it does not break biz rules
-        Login nonMatchUser = new Login("nonmatch user", "password", "person name", "user role");
+        Login nonMatchUser = new Login("nonmatch");
         boolean result = loginBusinessRules.checkUsernameMatch(nonMatchUser, "spongebob");
         Assert.assertTrue(result); // assert true because it is true and does NOT break biz rules
     }
 // make for loop to go through all // for login check full string credentials
     @Test
     public void checkUsernameMatchNegativeTest(){ // this test is negative because it DOES break biz rules. spongebob is already in the databae
-        Login matchUser = new Login("spongebob", "password", "person name", "user role");
+        Login matchUser = new Login("spongebob");
         boolean result = loginBusinessRules.checkUsernameMatch(matchUser, "spongebob");
         Assert.assertFalse(result); // assert false because it is false and DOES break biz rules
+    }
+
+    @Test   // this means that my login credentials DO match login credentials in the system
+    public void checkLoginCredentialsPositiveTest(){
+        Login successUser = new Login("spongebob", "krabbypatties");
+        boolean result = loginBusinessRules.checkLoginCredentials(successUser, "spongebob", "krabbypatties");
+        Assert.assertTrue(result);
+    }
+
+    @Test // this means that NEITHER of my login credentials match login credentials in the system
+    public void checkLoginCredentialsNegativeTestBoth(){
+        Login unsuccessUser = new Login("incorrect username", "incorrect password");
+        boolean result = loginBusinessRules.checkLoginCredentials(unsuccessUser,"spongebob", "krabbypatties");
+        Assert.assertFalse(result);
+    }
+
+    @Test // this means that my USERNAME of my login credentials DOES NOT match login credentials in the system
+    public void checkLoginCredentialsNegativeTestUsername(){
+        Login unsuccessUsername = new Login("incorrect username", "krabbypatties");
+        boolean result = loginBusinessRules.checkLoginCredentials(unsuccessUsername,"spongebob", "krabbypatties");
+        Assert.assertFalse(result);
+    }
+
+    @Test // this means that my PASSWORD of my login credentials DOES NOT match login credentials in the system
+    public void checkLoginCredentialsNegativeTestPassword(){
+        Login unsuccessPassword = new Login("spongebob", "incorrect password");
+        boolean result = loginBusinessRules.checkLoginCredentials(unsuccessPassword, "spongebob", "krabbypatties");
+        Assert.assertFalse(result);
     }
 }
 
