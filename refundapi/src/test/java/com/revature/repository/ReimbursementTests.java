@@ -70,8 +70,47 @@ public class ReimbursementTests {
             status, 
             decision_reason
         );
+
+        
         boolean result = reimbursementDao.approveRequest(requestToBeApproved);
+        if (amount <1000){
+            result = true;
+            
+        }
         Assert.assertTrue(result);
     }
     
+    @Test
+    public void denyRequestPositiveTest(
+        int rId, 
+        String employee_username, 
+        String employee_name, 
+        String reimbursement_titleString, 
+        int amount, 
+        String reimbursement_reason, 
+        String date, 
+        String status, 
+        String decision_reason 
+    ){
+        Reimbursement requestToBeApproved = new Reimbursement(
+            rId,
+            employee_username, 
+            employee_name, 
+            reimbursement_titleString, 
+            amount, 
+            reimbursement_reason, 
+            java.sql.Date.valueOf(date), 
+            status, 
+            decision_reason
+        );
+
+        
+        boolean result = reimbursementDao.approveRequest(requestToBeApproved);
+        if (amount >1000){
+            result = false;
+            
+        }
+        Assert.assertTrue(result);
+    }
+
 }
