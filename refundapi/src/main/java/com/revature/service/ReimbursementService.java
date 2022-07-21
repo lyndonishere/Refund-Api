@@ -52,4 +52,29 @@ public class ReimbursementService implements ReimbursementServiceInterface {
         return reimbursementDao.removeRequest(deleteRequest);
     }
     
+    @Override
+    public Reimbursement serviceAcceptedRequest(Reimbursement acceptedRequest){
+        List<Reimbursement> reimbursementArray = this.reimbursementDao.getAllRequests();
+        for(int x=0; x<reimbursementArray.size(); x++){
+            Reimbursement pulledRequest = reimbursementArray.get(x);
+            if(pulledRequest.getReimbursement_id() == acceptedRequest.getReimbursement_id()){
+                acceptedRequest.setStatus("Accepted");
+                return acceptedRequest;
+            }
+        }
+        throw new InvalidUser("Something has gone wrong");
+    }
+
+    @Override
+    public Reimbursement serviceRejectedRequest(Reimbursement rejectedRequest){
+        List<Reimbursement> reimbursementArray = this.reimbursementDao.getAllRequests();
+        for(int x=0; x<reimbursementArray.size(); x++){
+            Reimbursement pulledRequest = reimbursementArray.get(x);
+            if(pulledRequest.getReimbursement_id() == rejectedRequest.getReimbursement_id()){
+                rejectedRequest.setStatus("Rejected");
+                return rejectedRequest;
+            }
+        }
+        throw new InvalidUser("Something has gone wrong");
+    }
 }
