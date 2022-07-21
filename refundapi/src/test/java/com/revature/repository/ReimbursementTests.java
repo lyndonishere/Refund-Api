@@ -92,8 +92,8 @@ public class ReimbursementTests {
         String status, 
         String decision_reason 
     ){
-        Reimbursement requestToBeApproved = new Reimbursement(
-            -5,
+        Reimbursement requestToBedenied = new Reimbursement(
+            -6,
             employee_username, 
             employee_name, 
             reimbursement_titleString, 
@@ -105,7 +105,7 @@ public class ReimbursementTests {
         );
 
         
-        boolean result = reimbursementDao.approveRequest(requestToBeApproved);
+        boolean result = reimbursementDao.approveRequest(requestToBedenied);
         if (amount >1000){
             result = false;
             
