@@ -29,11 +29,11 @@ public interface LoginDAOInterface {
      List<Login> getAllUsers();
 
 
-     // updates
+    //  // updates
      Login updateUser(Login updatedUser); 
 
 
-     // deletes
-     boolean removeUser(Login userToBeDeleted);  
+    //  // deletes
+    //  boolean removeUser(Login userToBeDeleted);  
 
 }

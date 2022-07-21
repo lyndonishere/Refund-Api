@@ -18,10 +18,5 @@ public interface ReimbursementDAOInterface {
     // deletes
     boolean removeRequest(Reimbursement requestToBeDeleted);
 
-    //approve request method
-
-    boolean approveRequest(Reimbursement requestApproved);
-
-    // Deny request
-    boolean denyRequest (Reimbursement requestDenied);
+     // boolean denyRequest (Reimbursement requestDenied);
 }
