@@ -105,7 +105,7 @@ public class ReimbursementTests {
         );
 
         
-        boolean result = reimbursementDao.approveRequest(requestToBedenied);
+        boolean result = reimbursementDao.denyRequest(requestToBedenied);
         if (amount >1000){
             result = false;
             
