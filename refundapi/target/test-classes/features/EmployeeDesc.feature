@@ -13,7 +13,7 @@ Feature: Employees of our reimbursement application should add a 500 character m
 
         Given the employee is on their personal employee homepage
         When the employee tries to enter more than 500 characters in the reimbursement request description
-        Then the employee should not be able to type any more characters in the input box
+        Then the employee should not be able to type any more characters in the description input box
 
     Scenario: I should receive an alert if I do not put a reimbursement request description (NEGATIVE)
 

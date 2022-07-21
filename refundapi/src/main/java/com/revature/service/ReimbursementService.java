@@ -14,7 +14,6 @@ public class ReimbursementService implements ReimbursementServiceInterface {
     
 
     public ReimbursementService(ReimbursementDAOInterface reimbursementDAOInterface, ReimbursementBusinessRules reimbursementBusinessRules){
-        this.reimbursementDao = reimbursementDao;
         this.reimbursementBusinessRules = reimbursementBusinessRules;
     }
 

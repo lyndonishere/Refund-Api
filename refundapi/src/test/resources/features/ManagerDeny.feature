@@ -2,7 +2,7 @@ Feature: Managers of our reimbursement application should be able to deny reimbu
 
     Scenario: As a manager I want be able to deny reimbursement requests (POSITIVE) 
 
-        Given the manager is on the manager page
+        Given the manager is on their personal manager homepage
         When the manager views the reimbursement requests
         When the manager inputs a pending reimbursement request ID number
         When the manager inputs a reason description
@@ -12,7 +12,7 @@ Feature: Managers of our reimbursement application should be able to deny reimbu
 
     Scenario: Reimbursement request statuses should not change if they are not denied successfully (NEGATIVE) 
 
-        Given the manager is on the manager page
+        Given the manager is on their personal manager homepage
         When the manager views the reimbursement requests
         When the manager clicks submit
         Then the reimbursement request status should remain pending
