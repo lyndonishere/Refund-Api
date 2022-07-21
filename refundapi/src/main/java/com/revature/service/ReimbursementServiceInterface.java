@@ -6,6 +6,7 @@ import com.revature.entities.Reimbursement;
 
 public interface ReimbursementServiceInterface {
     
+    //EMPLOYEE
     // creates
     Reimbursement serviceAddRequest(Reimbursement newRequest);
 
@@ -18,4 +19,10 @@ public interface ReimbursementServiceInterface {
     // deletes
     boolean serviceRemoveRequest(Reimbursement requestToBeDeleted);
 
+    //MANAGER
+    // accepts
+    Reimbursement serviceAcceptedRequest(Reimbursement acceptedRequest);
+
+    //Denies
+    Reimbursement serviceRejectedRequest(Reimbursement rejectedRequest);
 }

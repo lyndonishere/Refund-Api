@@ -6,6 +6,7 @@ import com.revature.entities.Reimbursement;
 
 public interface ReimbursementDAOInterface {
     
+    //EMPLOYEE
     // creates
     Reimbursement addRequest(Reimbursement newRequest);
 
@@ -17,4 +18,11 @@ public interface ReimbursementDAOInterface {
     
     // deletes
     boolean removeRequest(Reimbursement requestToBeDeleted);
+
+    //MANAGER
+    // accepts
+    Reimbursement acceptedRequest(Reimbursement acceptedRequest);
+
+    //Denies
+    Reimbursement rejectedRequest(Reimbursement rejectedRequest);
 }
