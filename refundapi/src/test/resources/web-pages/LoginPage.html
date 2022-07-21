@@ -83,9 +83,9 @@
             fullBody.appendChild(bubblesAnimation);
 
             if(responseBody.user_role === "manager"){
-                setTimeout(function (){window.location.href = "ManagerPage.html"}, 1700)
+                setTimeout(function (){window.location.href = "ManagerPage.html"}, 1500)
             } else if(responseBody.user_role === "employee"){
-                setTimeout(function (){window.location.href = "EmployeePage.html"}, 1700)
+                setTimeout(function (){window.location.href = "EmployeePage.html"}, 1500)
             } else {
                 alert("Could not login. User has not been assigned a role.")
             }
