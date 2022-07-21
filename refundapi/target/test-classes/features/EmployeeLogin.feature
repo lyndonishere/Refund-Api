@@ -14,4 +14,4 @@ Feature: Employees of our reimbursement application should be able to log in to 
         When the employee enters in their incorrect user name
         When the employee enters in their incorrect password
         When the employee clicks the login button
-        Then the employee should be receive an alert that their credentials are incorrect.
+        Then the employee should receive an alert that their credentials are incorrect
