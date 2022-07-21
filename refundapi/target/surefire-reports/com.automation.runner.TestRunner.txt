@@ -1,0 +1,957 @@
+-------------------------------------------------------------------------------
+Test set: com.automation.runner.TestRunner
+-------------------------------------------------------------------------------
+Tests run: 30, Failures: 0, Errors: 29, Skipped: 0, Time elapsed: 14.349 s <<< FAILURE! - in com.automation.runner.TestRunner
+As an employee, I want to add a reimbursement request amount so I can inform my manager how much I'd like to be reimbursed (POSITIVE)(Employees of our reimbursement application should add a request amount up to $1000 in a request)  Time elapsed: 0.599 s  <<< ERROR!
+io.cucumber.junit.UndefinedStepException: 
+The step "the employee is on their personal employee homepage" is undefined. You can implement it using the snippet(s) below:
+
+@Given("the employee is on their personal employee homepage")
+public void the_employee_is_on_their_personal_employee_homepage() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+
+Some other steps were also undefined:
+
+@When("the employee enters in a new reimbursement request title")
+public void the_employee_enters_in_a_new_reimbursement_request_title() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("the employee enters in a new request description")
+public void the_employee_enters_in_a_new_request_description() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("the employee enters in a new reimbursement request amount up to $1000")
+public void the_employee_enters_in_a_new_reimbursement_request_amount_up_to_$1000() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("the employee presses submit")
+public void the_employee_presses_submit() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("the employee should have created a new reimbursement request with a pending status")
+public void the_employee_should_have_created_a_new_reimbursement_request_with_a_pending_status() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+
+I should receive an alert if I try to enter a reimbursement request description over $1000 (NEGATIVE)(Employees of our reimbursement application should add a request amount up to $1000 in a request)  Time elapsed: 0 s  <<< ERROR!
+io.cucumber.junit.UndefinedStepException: 
+The step "the employee is on their personal employee homepage" is undefined. You can implement it using the snippet(s) below:
+
+@Given("the employee is on their personal employee homepage")
+public void the_employee_is_on_their_personal_employee_homepage() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+
+Some other steps were also undefined:
+
+@When("the employee tries to enter more than $1000 characters in the reimbursement request amount")
+public void the_employee_tries_to_enter_more_than_$1000_characters_in_the_reimbursement_request_amount() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("the employee should receive an alert that they cannot enter more than $1000 in the reimbursement request amount")
+public void the_employee_should_receive_an_alert_that_they_cannot_enter_more_than_$1000_in_the_reimbursement_request_amount() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+
+I should receive an alert if I do not put a reimbursement request amount (NEGATIVE)(Employees of our reimbursement application should add a request amount up to $1000 in a request)  Time elapsed: 0.016 s  <<< ERROR!
+io.cucumber.junit.UndefinedStepException: 
+The step "the employee is on their personal employee homepage" is undefined. You can implement it using the snippet(s) below:
+
+@Given("the employee is on their personal employee homepage")
+public void the_employee_is_on_their_personal_employee_homepage() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+
+Some other steps were also undefined:
+
+@When("the employee enters in a new reimbursement request title")
+public void the_employee_enters_in_a_new_reimbursement_request_title() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("the employee enters in a new reimbursement request description")
+public void the_employee_enters_in_a_new_reimbursement_request_description() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("the employee presses submit")
+public void the_employee_presses_submit() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("the employee should receive an alert that they need to enter a reimbursement amount")
+public void the_employee_should_receive_an_alert_that_they_need_to_enter_a_reimbursement_amount() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+
+As an employee, I want to add a reimbursement request description so my request is more organized (POSITIVE)(Employees of our reimbursement application should add a 500 character maximum reimbursement request description)  Time elapsed: 0 s  <<< ERROR!
+io.cucumber.junit.UndefinedStepException: 
+The step "the employee is on their personal employee homepage" is undefined. You can implement it using the snippet(s) below:
+
+@Given("the employee is on their personal employee homepage")
+public void the_employee_is_on_their_personal_employee_homepage() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+
+Some other steps were also undefined:
+
+@When("the employee enters in a new reimbursement request title")
+public void the_employee_enters_in_a_new_reimbursement_request_title() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("the employee enters in a {int} character maximum reimbursement request description")
+public void the_employee_enters_in_a_character_maximum_reimbursement_request_description(Integer int1) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("the employee enters in a new reimbursement request amount")
+public void the_employee_enters_in_a_new_reimbursement_request_amount() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("the employee presses submit")
+public void the_employee_presses_submit() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("the employee should have created a new reimbursement request with a pending status")
+public void the_employee_should_have_created_a_new_reimbursement_request_with_a_pending_status() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+
+I should be blocked from inputting more text if I try to enter a reimbursement request description over 500 characters (NEGATIVE)(Employees of our reimbursement application should add a 500 character maximum reimbursement request description)  Time elapsed: 0 s  <<< ERROR!
+io.cucumber.junit.UndefinedStepException: 
+The step "the employee is on their personal employee homepage" is undefined. You can implement it using the snippet(s) below:
+
+@Given("the employee is on their personal employee homepage")
+public void the_employee_is_on_their_personal_employee_homepage() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+
+Some other steps were also undefined:
+
+@When("the employee tries to enter more than {int} characters in the reimbursement request description")
+public void the_employee_tries_to_enter_more_than_characters_in_the_reimbursement_request_description(Integer int1) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("the employee should not be able to type any more characters in the input box")
+public void the_employee_should_not_be_able_to_type_any_more_characters_in_the_input_box() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+
+I should receive an alert if I do not put a reimbursement request description (NEGATIVE)(Employees of our reimbursement application should add a 500 character maximum reimbursement request description)  Time elapsed: 0 s  <<< ERROR!
+io.cucumber.junit.UndefinedStepException: 
+The step "the employee is on their personal employee homepage" is undefined. You can implement it using the snippet(s) below:
+
+@Given("the employee is on their personal employee homepage")
+public void the_employee_is_on_their_personal_employee_homepage() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+
+Some other steps were also undefined:
+
+@When("the employee enters in a new reimbursement request title")
+public void the_employee_enters_in_a_new_reimbursement_request_title() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("the employee enters in a new reimbursement request amount")
+public void the_employee_enters_in_a_new_reimbursement_request_amount() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("the employee presses submit")
+public void the_employee_presses_submit() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("the employee should receive an alert that they need to enter a reimbursement description")
+public void the_employee_should_receive_an_alert_that_they_need_to_enter_a_reimbursement_description() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+
+As an employee, I want to sign in so I can view my custom homepage when I enter the correct credentials (POSITIVE)(Employees of our reimbursement application should be able to log in to their personal employee homepage)  Time elapsed: 0 s  <<< ERROR!
+io.cucumber.junit.UndefinedStepException: 
+The step "the employee is on the login page" is undefined. You can implement it using the snippet(s) below:
+
+@Given("the employee is on the login page")
+public void the_employee_is_on_the_login_page() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+
+Some other steps were also undefined:
+
+@When("the employee enters in their correct user name")
+public void the_employee_enters_in_their_correct_user_name() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("the employee enters in their correct password")
+public void the_employee_enters_in_their_correct_password() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("the employee clicks the login button")
+public void the_employee_clicks_the_login_button() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("the employee should be logged into the employee homepage")
+public void the_employee_should_be_logged_into_the_employee_homepage() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+
+As an employee, I want to receive an alert if I login with the incorrect credentials (NEGATIVE)(Employees of our reimbursement application should be able to log in to their personal employee homepage)  Time elapsed: 0 s  <<< ERROR!
+io.cucumber.junit.UndefinedStepException: 
+The step "the employee is on the login page" is undefined. You can implement it using the snippet(s) below:
+
+@Given("the employee is on the login page")
+public void the_employee_is_on_the_login_page() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+
+Some other steps were also undefined:
+
+@When("the employee enters in their incorrect user name")
+public void the_employee_enters_in_their_incorrect_user_name() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("the employee enters in their incorrect password")
+public void the_employee_enters_in_their_incorrect_password() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("the employee clicks the login button")
+public void the_employee_clicks_the_login_button() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("the employee should be receive an alert that their credentials are incorrect.")
+public void the_employee_should_be_receive_an_alert_that_their_credentials_are_incorrect() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+
+As an employee, I want to sign out so I can prevent others from accessing my information (POSITIVE)(Employees of our reimbursement application should be able to log out of their personal employee homepage)  Time elapsed: 0.001 s  <<< ERROR!
+io.cucumber.junit.UndefinedStepException: 
+The step "the employee is on their personal employee homepage" is undefined. You can implement it using the snippet(s) below:
+
+@Given("the employee is on their personal employee homepage")
+public void the_employee_is_on_their_personal_employee_homepage() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+
+Some other steps were also undefined:
+
+@When("the employee clicks the logout button")
+public void the_employee_clicks_the_logout_button() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("the employee confirms they want to logout")
+public void the_employee_confirms_they_want_to_logout() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("the employee should be logged out and returned back to the login homepage")
+public void the_employee_should_be_logged_out_and_returned_back_to_the_login_homepage() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+
+If I do not confirm I want to logout, I should not logout successfully (NEGATIVE)(Employees of our reimbursement application should be able to log out of their personal employee homepage)  Time elapsed: 0 s  <<< ERROR!
+io.cucumber.junit.UndefinedStepException: 
+The step "the employee is on their personal employee homepage" is undefined. You can implement it using the snippet(s) below:
+
+@Given("the employee is on their personal employee homepage")
+public void the_employee_is_on_their_personal_employee_homepage() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+
+Some other steps were also undefined:
+
+@When("the employee clicks the logout button")
+public void the_employee_clicks_the_logout_button() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("the employee does not confirm they want to logout")
+public void the_employee_does_not_confirm_they_want_to_logout() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("the employee should stay on their current page.")
+public void the_employee_should_stay_on_their_current_page() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+
+As an employee, I want to create a reimbursement request so I can get money back I spent for the company (POSITIVE)(Employees of our reimbursement application should be able to create a reimbursement request)  Time elapsed: 0.015 s  <<< ERROR!
+io.cucumber.junit.UndefinedStepException: 
+The step "the employee is on their personal employee homepage" is undefined. You can implement it using the snippet(s) below:
+
+@Given("the employee is on their personal employee homepage")
+public void the_employee_is_on_their_personal_employee_homepage() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+
+Some other steps were also undefined:
+
+@When("the employee enters a new reimbursement request title")
+public void the_employee_enters_a_new_reimbursement_request_title() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("the employee enters in a new reimbursement request amount")
+public void the_employee_enters_in_a_new_reimbursement_request_amount() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("the employee enters in a new reimbursement request description")
+public void the_employee_enters_in_a_new_reimbursement_request_description() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("the employee presses submit")
+public void the_employee_presses_submit() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("the employee should have created a new reimbursement request with a pending status")
+public void the_employee_should_have_created_a_new_reimbursement_request_with_a_pending_status() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+
+I should receive an alert if my reimbursement request was not made successfully (NEGATIVE)(Employees of our reimbursement application should be able to create a reimbursement request)  Time elapsed: 0.007 s  <<< ERROR!
+io.cucumber.junit.UndefinedStepException: 
+The step "the employee is on their personal employee homepage" is undefined. You can implement it using the snippet(s) below:
+
+@Given("the employee is on their personal employee homepage")
+public void the_employee_is_on_their_personal_employee_homepage() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+
+Some other steps were also undefined:
+
+@When("the employee does not enter in a new reimbursement request title")
+public void the_employee_does_not_enter_in_a_new_reimbursement_request_title() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("the employee does not enter in a new reimbursement request amount")
+public void the_employee_does_not_enter_in_a_new_reimbursement_request_amount() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("the employee does not enter in a new reimbursement request description")
+public void the_employee_does_not_enter_in_a_new_reimbursement_request_description() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("the employee presses submit")
+public void the_employee_presses_submit() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("the employee should receive an alert that their request could not be made")
+public void the_employee_should_receive_an_alert_that_their_request_could_not_be_made() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+
+As an employee, I want to add a reimbursement request title so my request is more organized (POSITIVE)(Employees of our reimbursement application should add a 50 character maximum reimbursement request title)  Time elapsed: 0.006 s  <<< ERROR!
+io.cucumber.junit.UndefinedStepException: 
+The step "the employee is on their personal employee homepage" is undefined. You can implement it using the snippet(s) below:
+
+@Given("the employee is on their personal employee homepage")
+public void the_employee_is_on_their_personal_employee_homepage() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+
+Some other steps were also undefined:
+
+@When("the employee enters in a {int} character maximum reimbursement request title")
+public void the_employee_enters_in_a_character_maximum_reimbursement_request_title(Integer int1) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("the employee enters in a new reimbursement request amount")
+public void the_employee_enters_in_a_new_reimbursement_request_amount() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("the employee enters in a new reimbursement request description")
+public void the_employee_enters_in_a_new_reimbursement_request_description() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("the employee presses submit")
+public void the_employee_presses_submit() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("the employee should have created a new reimbursement request with a pending status")
+public void the_employee_should_have_created_a_new_reimbursement_request_with_a_pending_status() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+
+I should be blocked from inputting more text if I try to enter a reimbursement request title over 50 characters (NEGATIVE)(Employees of our reimbursement application should add a 50 character maximum reimbursement request title)  Time elapsed: 0.004 s  <<< ERROR!
+io.cucumber.junit.UndefinedStepException: 
+The step "the employee is on their personal employee homepage" is undefined. You can implement it using the snippet(s) below:
+
+@Given("the employee is on their personal employee homepage")
+public void the_employee_is_on_their_personal_employee_homepage() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+
+Some other steps were also undefined:
+
+@When("the employee tries to enter more than {int} characters in the reimbursement request title")
+public void the_employee_tries_to_enter_more_than_characters_in_the_reimbursement_request_title(Integer int1) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("the employee should not be able to type any more characters in the input box")
+public void the_employee_should_not_be_able_to_type_any_more_characters_in_the_input_box() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+
+I should receive an alert if I do not put a reimbursement request title (NEGATIVE)(Employees of our reimbursement application should add a 50 character maximum reimbursement request title)  Time elapsed: 0.004 s  <<< ERROR!
+io.cucumber.junit.UndefinedStepException: 
+The step "the employee is on their personal employee homepage" is undefined. You can implement it using the snippet(s) below:
+
+@Given("the employee is on their personal employee homepage")
+public void the_employee_is_on_their_personal_employee_homepage() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+
+Some other steps were also undefined:
+
+@When("the employee enters in a new reimbursement request amount")
+public void the_employee_enters_in_a_new_reimbursement_request_amount() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("the employee enters in a new reimbursement request description")
+public void the_employee_enters_in_a_new_reimbursement_request_description() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("the employee presses submit")
+public void the_employee_presses_submit() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("the employee should receive an alert that they need to enter a reimbursement title")
+public void the_employee_should_receive_an_alert_that_they_need_to_enter_a_reimbursement_title() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+
+As an employee, I want to only view my previous reimbursement requests so I can see whether to expect money back or not (POSITIVE)(Employees of our reimbursement application should be only able to view their previous reimbursement requests)  Time elapsed: 0.003 s  <<< ERROR!
+io.cucumber.junit.UndefinedStepException: 
+The step "the employee is on their personal employee homepage" is undefined. You can implement it using the snippet(s) below:
+
+@Given("the employee is on their personal employee homepage")
+public void the_employee_is_on_their_personal_employee_homepage() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+
+Some other steps were also undefined:
+
+@When("their personal employee homepage loads")
+public void their_personal_employee_homepage_loads() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("a table generates with their personal reimbursement request history")
+public void a_table_generates_with_their_personal_reimbursement_request_history() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("the employee should be able to view their previous reimbursement requests")
+public void the_employee_should_be_able_to_view_their_previous_reimbursement_requests() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+
+I should receive an alert if my I cannot view my reimbursement requests (NEGATIVE)(Employees of our reimbursement application should be only able to view their previous reimbursement requests)  Time elapsed: 0.004 s  <<< ERROR!
+io.cucumber.junit.UndefinedStepException: 
+The step "the employee is on their personal employee homepage" is undefined. You can implement it using the snippet(s) below:
+
+@Given("the employee is on their personal employee homepage")
+public void the_employee_is_on_their_personal_employee_homepage() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+
+Some other steps were also undefined:
+
+@When("their personal employee homepage loads")
+public void their_personal_employee_homepage_loads() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("a table does not generate with their personal reimbursement request history")
+public void a_table_does_not_generate_with_their_personal_reimbursement_request_history() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("the employee should receive an alert that there are no reimbursement requests available")
+public void the_employee_should_receive_an_alert_that_there_are_no_reimbursement_requests_available() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+
+As a manager I want be able to approve reimbursement requests (POSITIVE)(Managers of our reimbursement application should be able to approve reimbursement requests)  Time elapsed: 0.003 s  <<< ERROR!
+io.cucumber.junit.UndefinedStepException: 
+The step "the manager is on the manager page" is undefined. You can implement it using the snippet(s) below:
+
+@Given("the manager is on the manager page")
+public void the_manager_is_on_the_manager_page() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+
+Some other steps were also undefined:
+
+@When("the manager views the reimbursement requests")
+public void the_manager_views_the_reimbursement_requests() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("the manager inputs a pending reimbursement request ID number")
+public void the_manager_inputs_a_pending_reimbursement_request_ID_number() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("the manager inputs a reason description")
+public void the_manager_inputs_a_reason_description() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("the manager selects approve")
+public void the_manager_selects_approve() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("the manager clicks submit")
+public void the_manager_clicks_submit() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("the reimbursement request status should change from pending to approved")
+public void the_reimbursement_request_status_should_change_from_pending_to_approved() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+
+Reimbursement request statuses should not change if they are not approved successfully (NEGATIVE)(Managers of our reimbursement application should be able to approve reimbursement requests)  Time elapsed: 0.003 s  <<< ERROR!
+io.cucumber.junit.UndefinedStepException: 
+The step "the manager is on the manager page" is undefined. You can implement it using the snippet(s) below:
+
+@Given("the manager is on the manager page")
+public void the_manager_is_on_the_manager_page() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+
+Some other steps were also undefined:
+
+@When("the manager views the reimbursement requests")
+public void the_manager_views_the_reimbursement_requests() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("the manager clicks submit")
+public void the_manager_clicks_submit() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("the reimbursement request status should remain pending")
+public void the_reimbursement_request_status_should_remain_pending() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+
+As a manager I want be able to deny reimbursement requests (POSITIVE)(Managers of our reimbursement application should be able to deny reimbursement requessts)  Time elapsed: 0.004 s  <<< ERROR!
+io.cucumber.junit.UndefinedStepException: 
+The step "the manager is on the manager page" is undefined. You can implement it using the snippet(s) below:
+
+@Given("the manager is on the manager page")
+public void the_manager_is_on_the_manager_page() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+
+Some other steps were also undefined:
+
+@When("the manager views the reimbursement requests")
+public void the_manager_views_the_reimbursement_requests() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("the manager inputs a pending reimbursement request ID number")
+public void the_manager_inputs_a_pending_reimbursement_request_ID_number() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("the manager inputs a reason description")
+public void the_manager_inputs_a_reason_description() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("the manager selects deny")
+public void the_manager_selects_deny() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("the manager clicks submit")
+public void the_manager_clicks_submit() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("the reimbursement request status should change from pending to denied")
+public void the_reimbursement_request_status_should_change_from_pending_to_denied() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+
+Reimbursement request statuses should not change if they are not denied successfully (NEGATIVE)(Managers of our reimbursement application should be able to deny reimbursement requessts)  Time elapsed: 0 s  <<< ERROR!
+io.cucumber.junit.UndefinedStepException: 
+The step "the manager is on the manager page" is undefined. You can implement it using the snippet(s) below:
+
+@Given("the manager is on the manager page")
+public void the_manager_is_on_the_manager_page() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+
+Some other steps were also undefined:
+
+@When("the manager views the reimbursement requests")
+public void the_manager_views_the_reimbursement_requests() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("the manager clicks submit")
+public void the_manager_clicks_submit() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("the reimbursement request status should remain pending")
+public void the_reimbursement_request_status_should_remain_pending() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+
+As a manager, I want to add a reimbursement request reason description so I can tell my employee why I approved or denied their request (POSITIVE)(Managers of our reimbursement application should add a 500 character maximum reimbursement request reason description)  Time elapsed: 0 s  <<< ERROR!
+io.cucumber.junit.UndefinedStepException: 
+The step "the manager is on their personal manager homepage" is undefined. You can implement it using the snippet(s) below:
+
+@Given("the manager is on their personal manager homepage")
+public void the_manager_is_on_their_personal_manager_homepage() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+
+Some other steps were also undefined:
+
+@When("the manger views the reimbursement requests")
+public void the_manger_views_the_reimbursement_requests() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("the manager inputs a pending reimbursement request ID number")
+public void the_manager_inputs_a_pending_reimbursement_request_ID_number() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("the manager inputs in a {int} character maximum reimbursement request reason description")
+public void the_manager_inputs_in_a_character_maximum_reimbursement_request_reason_description(Integer int1) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("the manager selects accept")
+public void the_manager_selects_accept() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("the manager clicks submit")
+public void the_manager_clicks_submit() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("the manager should have approved a request alongside a reason")
+public void the_manager_should_have_approved_a_request_alongside_a_reason() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+
+I should be blocked from inputting more text if I try to enter a reimbursement request reason description over 500 characters (NEGATIVE)(Managers of our reimbursement application should add a 500 character maximum reimbursement request reason description)  Time elapsed: 0 s  <<< ERROR!
+io.cucumber.junit.UndefinedStepException: 
+The step "the manager is on their personal manager homepage" is undefined. You can implement it using the snippet(s) below:
+
+@Given("the manager is on their personal manager homepage")
+public void the_manager_is_on_their_personal_manager_homepage() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+
+Some other steps were also undefined:
+
+@When("the manager tries to enter more than {int} characters in the reimbursement request reason description")
+public void the_manager_tries_to_enter_more_than_characters_in_the_reimbursement_request_reason_description(Integer int1) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("the manager should not be able to type any more characters in the input box")
+public void the_manager_should_not_be_able_to_type_any_more_characters_in_the_input_box() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+
+I should receive an alert if I do not put a reimbursement request reason description (NEGATIVE)(Managers of our reimbursement application should add a 500 character maximum reimbursement request reason description)  Time elapsed: 0 s  <<< ERROR!
+io.cucumber.junit.UndefinedStepException: 
+The step "the manager is on their personal manager homepage" is undefined. You can implement it using the snippet(s) below:
+
+@Given("the manager is on their personal manager homepage")
+public void the_manager_is_on_their_personal_manager_homepage() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+
+Some other steps were also undefined:
+
+@When("the manager views the reimbursement requests")
+public void the_manager_views_the_reimbursement_requests() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("the manager inputs a pending reimbursement request ID number")
+public void the_manager_inputs_a_pending_reimbursement_request_ID_number() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("the manager selects accept")
+public void the_manager_selects_accept() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("the manager clicks submit")
+public void the_manager_clicks_submit() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("the manager should receive an alert that they need to enter a reimbursement reason description")
+public void the_manager_should_receive_an_alert_that_they_need_to_enter_a_reimbursement_reason_description() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+
+As a manager, I want to receive an alert if I login with the incorrect credentials (NEGATIVE)(Managers of our reimbursement application should be able to log in to their personal manager homepage)  Time elapsed: 0.515 s  <<< ERROR!
+java.lang.NullPointerException
+
+As a manager, I want to sign out so I can prevent others from accessing my information (POSITIVE)(Managers of our reimbursement application should be able to logout of their homepage)  Time elapsed: 0.004 s  <<< ERROR!
+io.cucumber.junit.UndefinedStepException: 
+The step "the manager is on their personal manager homepage" is undefined. You can implement it using the snippet(s) below:
+
+@Given("the manager is on their personal manager homepage")
+public void the_manager_is_on_their_personal_manager_homepage() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+
+Some other steps were also undefined:
+
+@When("the manager clicks the logout button")
+public void the_manager_clicks_the_logout_button() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("the manager confirms they want to logout")
+public void the_manager_confirms_they_want_to_logout() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("the manager should be logged out and returned back to the login homepage")
+public void the_manager_should_be_logged_out_and_returned_back_to_the_login_homepage() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+
+If I do not confirm I want to logout, I should not logout successfully (NEGATIVE)(Managers of our reimbursement application should be able to logout of their homepage)  Time elapsed: 0.003 s  <<< ERROR!
+io.cucumber.junit.UndefinedStepException: 
+The step "the manager is on their personal manager homepage" is undefined. You can implement it using the snippet(s) below:
+
+@Given("the manager is on their personal manager homepage")
+public void the_manager_is_on_their_personal_manager_homepage() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+
+Some other steps were also undefined:
+
+@When("the manager clicks the logout button")
+public void the_manager_clicks_the_logout_button() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("the manager does not confirm they want to logout")
+public void the_manager_does_not_confirm_they_want_to_logout() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("the manager should stay on their current page.")
+public void the_manager_should_stay_on_their_current_page() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+
+As a manager, I want to view all employee reimbursement requests so I can see if I need to approve or deny requests (POSITIVE)(Manager of our reimbursement application should be able to view all employee reimbursement requests)  Time elapsed: 0.004 s  <<< ERROR!
+io.cucumber.junit.UndefinedStepException: 
+The step "the manager is on their personal manager homepage" is undefined. You can implement it using the snippet(s) below:
+
+@Given("the manager is on their personal manager homepage")
+public void the_manager_is_on_their_personal_manager_homepage() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+
+Some other steps were also undefined:
+
+@When("their personal manager homepage loads")
+public void their_personal_manager_homepage_loads() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("a table generates with employee reimbursement requests")
+public void a_table_generates_with_employee_reimbursement_requests() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("the manager should be able to view employee reimbursement requests")
+public void the_manager_should_be_able_to_view_employee_reimbursement_requests() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+
+I should receive an alert if my I cannot view employee reimbursement requests (NEGATIVE)(Manager of our reimbursement application should be able to view all employee reimbursement requests)  Time elapsed: 0.004 s  <<< ERROR!
+io.cucumber.junit.UndefinedStepException: 
+The step "the manager is on their personal manager homepage" is undefined. You can implement it using the snippet(s) below:
+
+@Given("the manager is on their personal manager homepage")
+public void the_manager_is_on_their_personal_manager_homepage() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+
+Some other steps were also undefined:
+
+@When("their personal manager homepage loads")
+public void their_personal_manager_homepage_loads() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("a table does not generate with employee reimbursement requests")
+public void a_table_does_not_generate_with_employee_reimbursement_requests() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("the manager should receive an alert that there are no reimbursement requests available")
+public void the_manager_should_receive_an_alert_that_there_are_no_reimbursement_requests_available() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+

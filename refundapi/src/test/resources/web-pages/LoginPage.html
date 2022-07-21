@@ -3,24 +3,50 @@
 <head>
     <title>Login Page</title>
     <link rel = "stylesheet" href = "LoginStyle.css">
+    <style>
+    @import url(https://fonts.googleapis.com/css?family=Irish+Grover:regular);
+    @import url(https://fonts.googleapis.com/css?family=Antic+Slab:regular);
+    @import url(https://fonts.googleapis.com/css?family=Podkova:regular,500,600,700,800);
+    </style>
 </head>
 <body>
-    <h1>Please Login!</h1>
-    <div id = "main-body">
-        <input type = "text" id = "username" placeholder = "enter username">
-        <br>
-        <input type = "password" id = "password" placeholder = "enter password">
-        <br>
-    </div>
-    <div id = "body-button">
-        <button id = "login-button" onclick = "login()">login!</button>
+    <div id = "full-body">
+        <h1>Krusty Krab User Portal</h1>
+        <img id = "krabby-patty" src = "https://www.pngmart.com/files/13/Krabby-Patty-PNG-Transparent.png" alt = "krabby-patty">
+        <h2>please login!</h2>
+        <div id = "main-body">
+            <input type = "text" id = "username" placeholder = "enter username">
+            <br>
+            <input type = "password" id = "password" placeholder = "enter password">
+            <br>
+        </div>
+        <div id = "body-button">
+            <button id = "login-button" onclick = "login()">login!</button>
+        </div>
+        <!--<img id = "bubbles" src = "https://thumbs.gfycat.com/AngelicWildCondor-size_restricted.gif" alt = "bubbles">-->
     </div>
 </body>
 <script>
     // i need to set up a patch method to login
     const username = document.getElementById("username");
     const password = document.getElementById("password");
+    const loginButton = document.getElementById("login-button");
+    const fullBody = document.getElementById("full-body");
 
+    function changeButtonColor() {
+        loginButton.style.color = "#fff646";
+        loginButton.style.border = "solid 1px #fff646";
+        loginButton.style.backgroundColor = "#6b6be0"
+    }
+
+    function revertButtonColor() {
+        loginButton.style.color = "#6b6be0";
+        loginButton.style.border = "solid 1px #6b6be0";
+        loginButton.style.backgroundColor = "#fff646"
+    }
+
+    loginButton.addEventListener("mouseover", changeButtonColor);
+    loginButton.addEventListener("mouseleave", revertButtonColor);
 
     // this is following previous project, need to check if this is all valid
 
@@ -50,18 +76,23 @@
         if(httpResponse.status === 200){
             let responseBody = await httpResponse.json();   // remember, json() returns a promise, so we use await to get the data we want out of it
 
+            let bubblesAnimation = document.createElement("img");
+            bubblesAnimation.setAttribute("id", "bubbles");
+            bubblesAnimation.setAttribute("src",  "https://thumbs.gfycat.com/AngelicWildCondor-size_restricted.gif");
+            bubblesAnimation.setAttribute("alt", "bubbles");
+            fullBody.appendChild(bubblesAnimation);
+
             if(responseBody.user_role === "manager"){
-                window.location.href = "ManagerPage.html"
+                setTimeout(function (){window.location.href = "ManagerPage.html"}, 1700)
             } else if(responseBody.user_role === "employee"){
-                window.location.href = "EmployeePage.html"
+                setTimeout(function (){window.location.href = "EmployeePage.html"}, 1700)
             } else {
                 alert("Could not login. User has not been assigned a role.")
             }
         } else {
             let responseBody = await httpResponse.json();
-            alert("Plankton's stolen the login credentials!");
+            alert(responseBody.message);
         }
-       
     }
 </script>
 </html>
