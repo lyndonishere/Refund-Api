@@ -60,7 +60,7 @@ public class ReimbursementTests {
         String decision_reason 
     ){
         Reimbursement requestToBeApproved = new Reimbursement(
-            rId,
+            -5,
             employee_username, 
             employee_name, 
             reimbursement_titleString, 
@@ -93,7 +93,7 @@ public class ReimbursementTests {
         String decision_reason 
     ){
         Reimbursement requestToBeApproved = new Reimbursement(
-            rId,
+            -5,
             employee_username, 
             employee_name, 
             reimbursement_titleString, 
