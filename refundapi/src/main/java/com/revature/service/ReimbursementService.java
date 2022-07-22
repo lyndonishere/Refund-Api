@@ -56,11 +56,10 @@ public class ReimbursementService implements ReimbursementServiceInterface {
     public Reimbursement serviceAcceptedRequest(Reimbursement acceptedRequest){
         boolean valCheck2 = this.reimbursementBusinessRules.checkManagerDescLength(acceptedRequest);
 
-
         List<Reimbursement> reimbursementArray = this.reimbursementDao.getAllRequests();
         for(int x=0; x<reimbursementArray.size(); x++){
             Reimbursement pulledRequest = reimbursementArray.get(x);
-            if(pulledRequest.getReimbursement_id() == acceptedRequest.getReimbursement_id()){
+            if(pulledRequest.getReimbursement_id() == acceptedRequest.getReimbursement_id() && valCheck2){
                 acceptedRequest.setStatus("Accepted");
                 return acceptedRequest;
             }
@@ -70,10 +69,12 @@ public class ReimbursementService implements ReimbursementServiceInterface {
 
     @Override
     public Reimbursement serviceRejectedRequest(Reimbursement rejectedRequest){
+        boolean valCheck2 = this.reimbursementBusinessRules.checkManagerDescLength(rejectedRequest);
+
         List<Reimbursement> reimbursementArray = this.reimbursementDao.getAllRequests();
         for(int x=0; x<reimbursementArray.size(); x++){
             Reimbursement pulledRequest = reimbursementArray.get(x);
-            if(pulledRequest.getReimbursement_id() == rejectedRequest.getReimbursement_id()){
+            if(pulledRequest.getReimbursement_id() == rejectedRequest.getReimbursement_id() && valCheck2){
                 rejectedRequest.setStatus("Rejected");
                 return rejectedRequest;
             }
