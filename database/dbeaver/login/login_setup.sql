@@ -10,8 +10,21 @@ create table login (
 
 select * from login;
 
+-- service tests
+insert into login values(-2, 'spongebob', 'krabbypatties', 'Spongebob', 'employee');
+update login set person_name = 'Spongebob Squarepants' where person_name = 'Spongebob';
 
-insert into login values(-5, 'spongebob', 'krabbypatties', 'Spongebob Squarepants', 'employee');
+-- for my own sake
+insert into login values(-4, 'mrkrabs', 'ilikemoney', 'Eugene Krabs', 'manager');
 
--- do this manually for delete
-insert into login values(-4, 'to be deleted username', 'to be deleted password', 'to be deleted person name', 'to be deleted user role');
+-- repo update test
+insert into login values(-1, 'squinkward', 'clairnet', 'Squidward Tortellini', 'manager');
+
+-- api remove
+insert into login values(-6, 'kevin', 'jellyfishing', 'Kevin the Cucumber', 'employee');
+
+-- api update
+insert into login values(-7, 'mrspuff', 'helpme', 'Mrs. Poppy Puff', 'employee');
+update login set username  = 'mspuff' where username  = 'mrspuff';
+
+
