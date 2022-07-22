@@ -13,8 +13,9 @@ public class ReimbursementService implements ReimbursementServiceInterface {
     private ReimbursementBusinessRules reimbursementBusinessRules;
     
 
-    public ReimbursementService(ReimbursementDAOInterface reimbursementDAOInterface, ReimbursementBusinessRules reimbursementBusinessRules){
+    public ReimbursementService(ReimbursementDAOInterface reimbursementDao, ReimbursementBusinessRules reimbursementBusinessRules){
         this.reimbursementBusinessRules = reimbursementBusinessRules;
+        this.reimbursementDao = reimbursementDao;
     }
 
     @Override
@@ -26,7 +27,7 @@ public class ReimbursementService implements ReimbursementServiceInterface {
         if(valCheck1 && valCheck2 && valCheck3){
             return this.reimbursementDao.addRequest(newRequest);
         }else{
-            throw new InvalidUser("Incorrect amount request for refund"); //Potentially change/create new error throw method
+            throw new InvalidUser("Could not make request!"); //Potentially change/create new error throw method
         }
     }
 
@@ -37,10 +38,9 @@ public class ReimbursementService implements ReimbursementServiceInterface {
 
     @Override
     public Reimbursement serviceUpdateRequest(Reimbursement updatedRequest){
-        boolean valCheck1 = this.reimbursementBusinessRules.checkRefundAmount(updatedRequest);
-        boolean valCheck2 = this.reimbursementBusinessRules.checkTitleLength(updatedRequest);
+        boolean valCheck4 = this.reimbursementBusinessRules.checkManagerDescLength(updatedRequest);
 
-        if(valCheck1 && valCheck2){
+        if(valCheck4){
             return this.reimbursementDao.addRequest(updatedRequest);
         }else{
             throw new InvalidUser("Incorrect amount request for refund"); //Potentially change/create new error throw method

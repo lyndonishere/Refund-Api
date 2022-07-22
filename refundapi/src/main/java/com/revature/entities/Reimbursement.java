@@ -50,6 +50,38 @@ public class Reimbursement {
         this.decision_reason = decision_reason;
     }
 
+    // check refund amount, title, employee desc
+    public Reimbursement(String employee_username, String employee_name, String reimbursement_title, int amount, String reimbursment_reason, String status){
+        this.employee_username = employee_username;
+        this.employee_name = employee_name;
+        this.reimbursement_title = reimbursement_title;
+        this.amount = amount;
+        this.reimbursement_reason = reimbursment_reason;
+        this.status = status;
+    }
+
+    // check refund amount, title, employee desc
+    public Reimbursement(int reimbursement_id, String employee_username, String employee_name, String reimbursement_title, int amount, String reimbursment_reason, String status){
+        this.reimbursement_id = reimbursement_id;
+        this.employee_username = employee_username;
+        this.employee_name = employee_name;
+        this.reimbursement_title = reimbursement_title;
+        this.amount = amount;
+        this.reimbursement_reason = reimbursment_reason;
+        this.status = status;
+    }
+
+    // check refund amount, title, employee desc
+    public Reimbursement(String employee_username, String employee_name, String reimbursement_title, int amount, String reimbursment_reason, String status, String decision_reason){
+        this.employee_username = employee_username;
+        this.employee_name = employee_name;
+        this.reimbursement_title = reimbursement_title;
+        this.amount = amount;
+        this.reimbursement_reason = reimbursment_reason;
+        this.status = status;
+        this.decision_reason = decision_reason;
+    }
+
     // this constructor is for manager approval/denial
     public Reimbursement(int reimbursement_id, String status, String decision_reason){
         this.reimbursement_id = reimbursement_id;
