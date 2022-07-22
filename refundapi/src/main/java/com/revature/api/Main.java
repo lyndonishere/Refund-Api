@@ -10,6 +10,7 @@ import com.revature.service.LoginService;
 import com.revature.service.LoginServiceInterface;
 import com.revature.service.ReimbursementService;
 import com.revature.service.ReimbursementServiceInterface;
+import com.revature.utils.HibernateUtil;
 import com.revature.utils.LoginBusinessRules;
 import com.revature.utils.ReimbursementBusinessRules;
 
@@ -18,6 +19,8 @@ import io.javalin.Javalin;
 public class Main {
     // reminder: the main method is the entry point for your application
     public static void main(String[] args){
+
+        HibernateUtil.getSessionFactory();
 
         // inside of the create method we call a lambda that Javalin can use to configure our web server
         // referencing a lambda (a method defined in an interface that you can redefine and implement on the fly)
@@ -41,7 +44,6 @@ public class Main {
          */
 
         app.patch("/login", loginController.loginUser);
-
 
         ReimbursementDAOInterface reimbursementDao = new ReimbursementDAO();
         ReimbursementBusinessRules reimbursementBusinessRules = new ReimbursementBusinessRules();

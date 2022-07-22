@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.revature.repository.LoginTests" time="4.906" tests="4" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.revature.service.ReimbursementServiceTests" time="0.031" tests="9" errors="1" skipped="0" failures="0">
   <properties>
     <property name="sun.desktop" value="windows"/>
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
@@ -60,8 +60,17 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="52.0"/>
   </properties>
-  <testcase name="getAllUsersPositiveTest" classname="com.revature.repository.LoginTests" time="0.451"/>
-  <testcase name="updateUsersPositiveTest" classname="com.revature.repository.LoginTests" time="0.251"/>
-  <testcase name="removeUserPositiveTest" classname="com.revature.repository.LoginTests" time="0.15"/>
-  <testcase name="addUserPositiveTest" classname="com.revature.repository.LoginTests" time="0.074"/>
+  <testcase name="checkEmployeeDescLengthPositiveTest" classname="com.revature.service.ReimbursementServiceTests" time="0.001"/>
+  <testcase name="checkEmployeeDescLengthNegativeTest" classname="com.revature.service.ReimbursementServiceTests" time="0"/>
+  <testcase name="checkRefundAmountPositiveTest" classname="com.revature.service.ReimbursementServiceTests" time="0"/>
+  <testcase name="checkRefundAmountNegativeTest" classname="com.revature.service.ReimbursementServiceTests" time="0.001"/>
+  <testcase name="mockExampleCreateRequestPositive" classname="com.revature.service.ReimbursementServiceTests" time="0.02">
+    <error type="java.lang.NullPointerException">java.lang.NullPointerException
+	at com.revature.service.ReimbursementServiceTests.mockExampleCreateRequestPositive(ReimbursementServiceTests.java:146)
+</error>
+  </testcase>
+  <testcase name="checkTitleLengthPositiveTest" classname="com.revature.service.ReimbursementServiceTests" time="0"/>
+  <testcase name="checkTitleLengthNegativeTest" classname="com.revature.service.ReimbursementServiceTests" time="0"/>
+  <testcase name="checkManagerDescLengthPositiveTest" classname="com.revature.service.ReimbursementServiceTests" time="0"/>
+  <testcase name="checkManagerDescLengthNegativeTest" classname="com.revature.service.ReimbursementServiceTests" time="0"/>
 </testsuite>
