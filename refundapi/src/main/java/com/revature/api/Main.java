@@ -36,15 +36,40 @@ public class Main {
         LoginServiceInterface loginService = new LoginService(loginDao, loginBusinessRules);
         LoginController loginController = new LoginController(loginService);
         
+        app.get("/hello", loginController.getHelloWorld);
+
         /*
          * Notice that my path strings all include login in them: this is part of creating a restful web service, something we will talk more about tomorrow
          */
+        
 
-        app.patch("/login", loginController.loginUser);
+
+        // app.post();
+
 
         app.start();
+
+
+        ReimbursementDAOInterface reimbursementDao = new ReimbursementDAO();
+      ReimbursementBusinessRules reimbursementBusinessRules = new ReimbursementBusinessRules();
+      ReimbursementServiceInterface reimbursementService = new ReimbursementService(reimbursementDao, reimbursementBusinessRules);
+      ReimbursementController reimbursementController = new ReimbursementController(reimbursementService);
+      
+      app.get("/hello", reimbursementController.getHelloWorld);
+
+      app.get("/reimbursement", reimbursementController.getAllreimbursements);
+      app.delete("/reimbursement{id}", reimbursementController.removereimbursement);
+      app.patch("/reimbursement{id}", reimbursementController.updatereimbursement);
+      app.post("/reimbursement{id}", reimbursementController.createreimbursement);
+
+
+      // app.post();
+      
+      app.start();
+
     }
 
 }
+
 
 
