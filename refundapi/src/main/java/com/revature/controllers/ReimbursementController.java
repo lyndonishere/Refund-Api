@@ -34,9 +34,9 @@ public class ReimbursementController {
        * We can use the GSON library we acquired from the Maven repository to handle this conversion process for us
        */
       // the toJson metod provided by Gson turns our collection of Book objects into a formatted string
-      String reimbursementJSON = this.gson.toJson(reimbursement);
+      String reimbursementsJSON = this.gson.toJson(reimbursement);
       // we use the ctx.result() method to attack the loginJSON to the response body
-      ctx.result(reimbursementJSON);
+      ctx.result(reimbursementsJSON);
       ctx.status(200);
      };
      public Handler deleteReimbursement = ctx -> {
@@ -46,7 +46,7 @@ public class ReimbursementController {
         Reimbursement reimbursementToBeDeleted = this.gson.fromJson(json, Reimbursement.class);
         // we then pass the java object we created into the appropriate service method for validation
         this.reimbursementService.serviceRemoveReimbursement(reimbursementToBeDeleted);
-        // because I am not returning any special entity with this method I will use a Map to create my key/value pair mesage for the json
+        // because we are am not returning any special entity with this method I will use a Map to create my key/value pair mesage for the json
         Map<String, String> message =  new HashMap<>();
         message.put("message", "reimbursement was deleted");
         // once the map is made we convert it into a json
@@ -98,6 +98,10 @@ public class ReimbursementController {
            ctx.status(400); 
        }
      };
+      public Handler getAllreimbursements;
+    public Handler removereimbursement;
+    public Handler updatereimbursement;
+    public Handler createreimbursement;
   }
   
 
