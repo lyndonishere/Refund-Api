@@ -32,7 +32,7 @@ public class TestRunner {
         wait = new WebDriverWait(driver, 5);
 
         managerLogin = new ManagerLogin(driver);
-        // employeeLogin = new EmployeeLogin(driver);
+        employeeLogin = new EmployeeLogin(driver);
     }
 
     @AfterClass

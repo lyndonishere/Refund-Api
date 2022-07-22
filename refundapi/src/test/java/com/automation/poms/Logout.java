@@ -1,5 +1,5 @@
 package com.automation.poms;
 
-public class ManagerLogout {
+public class Logout {
     
 }

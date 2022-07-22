@@ -50,6 +50,14 @@ public class Reimbursement {
         this.decision_reason = decision_reason;
     }
 
+    // this constructor is for manager approval/denial
+    public Reimbursement(int reimbursement_id, String status, String decision_reason){
+        this.reimbursement_id = reimbursement_id;
+        this.status = status;
+        this.decision_reason = decision_reason;
+    }
+
+
     // getters and setters
     public int getReimbursement_id() {
         return reimbursement_id;
