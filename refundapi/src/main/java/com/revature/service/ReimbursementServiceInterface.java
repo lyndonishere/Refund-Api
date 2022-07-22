@@ -2,6 +2,7 @@ package com.revature.service;
 
 import java.util.List;
 
+import com.revature.controllers.Login;
 import com.revature.entities.Reimbursement;
 
 public interface ReimbursementServiceInterface {
@@ -17,5 +18,13 @@ public interface ReimbursementServiceInterface {
     
     // deletes
     boolean serviceRemoveRequest(Reimbursement requestToBeDeleted);
+
+    List<Reimbursement> serviceGetAllReimbursements();
+
+    void serviceRemoveReimbursement(Reimbursement reimbursementToBeDeleted);
+
+    Reimbursement serviceUpdateReimbursement(Reimbursement updatedReimbursement);
+
+    Reimbursement serviceAddReimbursement(Reimbursement newReimbursement);
 
 }
