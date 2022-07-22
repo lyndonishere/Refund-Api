@@ -6,7 +6,7 @@ Feature: Managers of our reimbursement application should add a 500 character ma
         When the manger views the reimbursement requests
         When the manager inputs a pending reimbursement request ID number
         When the manager inputs in a 500 character maximum reimbursement request reason description
-        When the manager selects accept
+        When the manager selects approve
         When the manager clicks submit
         Then the manager should have approved a request alongside a reason
 
@@ -21,6 +21,6 @@ Feature: Managers of our reimbursement application should add a 500 character ma
         Given the manager is on their personal manager homepage
         When the manager views the reimbursement requests
         When the manager inputs a pending reimbursement request ID number
-        When the manager selects accept
+        When the manager selects approve
         When the manager clicks submit
         Then the manager should receive an alert that they need to enter a reimbursement reason description

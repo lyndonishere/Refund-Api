@@ -1,5 +1,5 @@
 package com.automation.steps;
 
-public class EmployeeTitleSteps {
+public class LogoutSteps {
     
 }

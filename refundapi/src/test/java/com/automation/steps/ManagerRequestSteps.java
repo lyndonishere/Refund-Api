@@ -1,5 +1,5 @@
 package com.automation.steps;
 
-public class ManagerLogoutSteps {
+public class ManagerRequestSteps {
     
 }
