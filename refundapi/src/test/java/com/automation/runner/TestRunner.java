@@ -13,8 +13,8 @@ import com.automation.poms.ManagerLogin;
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 
-@RunWith(Cucumber.class)
-@CucumberOptions(features = "classpath:features", glue = "com/automation/steps")
+// @RunWith(Cucumber.class)
+// @CucumberOptions(features = "classpath:features", glue = "com/automation/steps")
 
 public class TestRunner {
 
