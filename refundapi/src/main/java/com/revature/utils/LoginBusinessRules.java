@@ -19,12 +19,19 @@ public class LoginBusinessRules {
          
         // make sure to use the equals method when comparing strings
 
-        if(userToCheck.getUsername().equals(actualUsername)){        
-            // !!!!!!! this logic is just checking if username matches "badusername", need to find a method to check matching usernames
-            
+        if(userToCheck.getUsername().equals(actualUsername)){                    
             return false;   // if the business rule is broken, we return false
         } else {
             return true;    // if the business rule is being followed, we return true
+        }
+    }
+
+    // this is part of my check to see if login credentials match an entry
+    public boolean checkLoginCredentials(Login credentialsToCheck, String actualUsernameCredential, String actualPasswordCredential){
+        if(credentialsToCheck.getUsername().equals(actualUsernameCredential) && credentialsToCheck.getUser_password().equals(actualPasswordCredential)){
+            return true;    // business rule is being followed
+        } else {
+            return false;   // business rule is being broken
         }
     }
 

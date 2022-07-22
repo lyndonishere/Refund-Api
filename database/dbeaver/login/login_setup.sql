@@ -12,3 +12,6 @@ select * from login;
 
 
 insert into login values(-5, 'spongebob', 'krabbypatties', 'Spongebob Squarepants', 'employee');
+
+-- do this manually for delete
+insert into login values(-4, 'to be deleted username', 'to be deleted password', 'to be deleted person name', 'to be deleted user role');

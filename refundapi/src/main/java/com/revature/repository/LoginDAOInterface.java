@@ -32,8 +32,8 @@ public interface LoginDAOInterface {
     //  // updates
      Login updateUser(Login updatedUser); 
 
+     // deletes
+     boolean removeUser(Login userToBeDeleted);  
 
-    //  // deletes
-    //  boolean removeUser(Login userToBeDeleted);  
 
 }

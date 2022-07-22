@@ -14,4 +14,4 @@ Feature: Managers of our reimbursement application should be able to log in to t
         When the manager enters in their incorrect user name
         When the manager enters in their incorrect password
         When the manager clicks the login button
-        Then the manager should be receive an alert that their credentials are incorrect.
+        Then the manager should receive an alert that their credentials are incorrect

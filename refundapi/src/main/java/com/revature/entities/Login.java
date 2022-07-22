@@ -38,6 +38,17 @@ public class Login {
         this.user_role = user_role;
     }
 
+    // i think this constructor will let me just check login credentials service test
+    public Login(String username, String user_password){
+        this.username = username;
+        this.user_password = user_password;
+    }
+
+    // this constructor should let me just check username match service test
+    public Login(String username){
+        this.username = username;
+    }
+
     // feel free to use the vsc source action... option to use this
     public int getId() {
         return id;

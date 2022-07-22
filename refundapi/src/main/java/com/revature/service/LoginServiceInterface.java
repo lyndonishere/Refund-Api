@@ -34,19 +34,10 @@ public interface LoginServiceInterface {
     /*
      * When you set up an application that has a repo layer and a service layer you want to have a service method for each of your repo methods
      */
-     
-    //creates
-    Login serviceAddUser(Login newUser);
-     
 
-    // reads
-    List<Login> serviceGetAllUsers();
+    // log in
+    Login loginUser(Login loginUser);
 
+    List<Login> serviceGetAllUsers(); 
 
-    // updates
-    Login serviceUpdateUser(Login updatedUser); 
-
-
-    // deletes
-    boolean serviceRemoveUser(Login userToBeDeleted);  
 }

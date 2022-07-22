@@ -36,19 +36,11 @@ public class Main {
         LoginServiceInterface loginService = new LoginService(loginDao, loginBusinessRules);
         LoginController loginController = new LoginController(loginService);
         
-        app.get("/hello", loginController.getHelloWorld);
-
         /*
          * Notice that my path strings all include login in them: this is part of creating a restful web service, something we will talk more about tomorrow
          */
-        app.get("/login", loginController.getAllUsers);
-        app.delete("/login", loginController.removeUser);
-        app.patch("/login", loginController.updateUser);
-        app.post("/login", loginController.createUser);
 
-
-        // app.post();
-
+        app.patch("/login", loginController.loginUser);
 
         app.start();
     }

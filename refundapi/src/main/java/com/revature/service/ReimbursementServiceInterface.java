@@ -2,11 +2,12 @@ package com.revature.service;
 
 import java.util.List;
 
-import com.revature.controllers.Login;
+
 import com.revature.entities.Reimbursement;
 
 public interface ReimbursementServiceInterface {
     
+    //EMPLOYEE
     // creates
     Reimbursement serviceAddRequest(Reimbursement newRequest);
 
@@ -19,12 +20,10 @@ public interface ReimbursementServiceInterface {
     // deletes
     boolean serviceRemoveRequest(Reimbursement requestToBeDeleted);
 
-    List<Reimbursement> serviceGetAllReimbursements();
+    //MANAGER
+    // accepts
+    Reimbursement serviceAcceptedRequest(Reimbursement acceptedRequest);
 
-    void serviceRemoveReimbursement(Reimbursement reimbursementToBeDeleted);
-
-    Reimbursement serviceUpdateReimbursement(Reimbursement updatedReimbursement);
-
-    Reimbursement serviceAddReimbursement(Reimbursement newReimbursement);
-
+    //Denies
+    Reimbursement serviceRejectedRequest(Reimbursement rejectedRequest);
 }
