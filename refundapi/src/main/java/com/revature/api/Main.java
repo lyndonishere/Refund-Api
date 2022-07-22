@@ -1,11 +1,17 @@
 package com.revature.api;
 
 import com.revature.controllers.LoginController;
+import com.revature.controllers.ReimbursementController;
 import com.revature.repository.LoginDAO;
 import com.revature.repository.LoginDAOInterface;
+import com.revature.repository.ReimbursementDAO;
+import com.revature.repository.ReimbursementDAOInterface;
 import com.revature.service.LoginService;
 import com.revature.service.LoginServiceInterface;
+import com.revature.service.ReimbursementService;
+import com.revature.service.ReimbursementServiceInterface;
 import com.revature.utils.LoginBusinessRules;
+import com.revature.utils.ReimbursementBusinessRules;
 
 import io.javalin.Javalin;
 
@@ -35,6 +41,18 @@ public class Main {
          */
 
         app.patch("/login", loginController.loginUser);
+
+
+        ReimbursementDAOInterface reimbursementDao = new ReimbursementDAO();
+        ReimbursementBusinessRules reimbursementBusinessRules = new ReimbursementBusinessRules();
+        ReimbursementServiceInterface reimbursementService = new ReimbursementService(reimbursementDao, reimbursementBusinessRules);
+        ReimbursementController reimbursementController = new ReimbursementController(reimbursementService);
+      
+        app.get("/reimbursement", reimbursementController.getAllReimbursements);
+        app.delete("/reimbursement{id}", reimbursementController.deleteReimbursement);
+        app.patch("/reimbursement{id}", reimbursementController.updateReimbursement);
+        app.post("/reimbursement{id}", reimbursementController.createReimbursement);
+
 
         app.start();
     }
