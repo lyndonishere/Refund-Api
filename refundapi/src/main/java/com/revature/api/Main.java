@@ -51,7 +51,7 @@ public class Main {
         app.get("/reimbursement", reimbursementController.getAllReimbursements);
         app.delete("/reimbursement{id}", reimbursementController.deleteReimbursement);
         app.patch("/reimbursement{id}", reimbursementController.updateReimbursement);
-        app.post("/reimbursement{id}", reimbursementController.createReimbursement);
+        app.post("/reimbursement", reimbursementController.createReimbursement);
 
 
         app.start();
