@@ -63,7 +63,7 @@ public class ReimbursementController {
            Reimbursement result = this.reimbursementService.serviceUpdateRequest(updatedReimbursement);
            // convert the result into a json
            String resultJson = this.gson.toJson(result);
-           // set the response body and status code
+           // Set the response body and status code
            ctx.result(resultJson);
            ctx.status(200);
         } catch(InvalidReimbursement e) {
