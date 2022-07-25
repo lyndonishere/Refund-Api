@@ -136,14 +136,7 @@ public class ReimbursementServiceTests {
         Assert.assertNotNull(result.getReimbursement_id());
     }
 
-    @Test
-    public void mockExampleCreateRequestNegative(){
-        try{
-            Reimbursement badRequest = new Reimbursement();
-        }
-    }
-
-
+   
     // @Test
     // public void mockExampleCreateBookNegative(){
     //     try{
