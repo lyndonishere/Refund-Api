@@ -12,4 +12,4 @@ Feature: Employees of our reimbursement application should be able to log out of
         Given the employee is on their personal employee homepage
         When the employee clicks the logout button
         When the employee does not confirm they want to logout
-        Then the employee should stay on their current page.
+        Then the employee should stay on their current page

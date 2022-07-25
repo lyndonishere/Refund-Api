@@ -12,4 +12,4 @@ Feature: Managers of our reimbursement application should be able to logout of t
                 Given the manager is on their personal manager homepage
                 When the manager clicks the logout button
                 When the manager does not confirm they want to logout
-                Then the manager should stay on their current page.
+                Then the manager should stay on their current page
