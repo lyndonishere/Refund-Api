@@ -3,31 +3,41 @@
 <head>
     <title>Manager Page</title>
     <link rel = "stylesheet" href = "ManagerStyle.css">
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Irish+Grover:regular);
+        @import url(https://fonts.googleapis.com/css?family=Antic+Slab:regular);
+        @import url(https://fonts.googleapis.com/css?family=Podkova:regular,500,600,700,800);
+    </style>
 </head>
-<body>
-    <h1>Welcome back, Manager!</h1>  <!-- we can edit this dynamically later to make it generate current employee name -->
-    <div id = "main-body">
+<body onload = "getRequests()">
+    <div id = "full-body">
+        <img id = "krabs-dancing" src = "https://i.gifer.com/origin/15/15310ad10b0782225838f43aa8b63b48_w200.gif" alt = "mr-krabs-dancing">
+        <h1>Welcome back, Mr. Krabs!</h1>
         <div id = "table-body">
             <h2>Employee Reimbursement Requests</h2>
             <table id = "reimbursement-table">
-                <thead></thead>         <!-- we will generate this table dynamically in JavaScript -->
-                <tbody></tbody>
+                <thead id = "table-head"></thead>         <!-- we will generate this table dynamically in JavaScript -->
+                <tbody id = "table-body"></tbody>
             </table>
         </div>
-        <div id = "select-id-body">
+        <div id = "decision-body">
             <h2>Make Request Decision</h2>
             <label id = "id-label">Enter reimbursement id:</label>
-            <input type = "text" id = "enter-reimbursement-id" placeholder = "id here">
+            <br>
+            <input type = "number" id = "enter-reimbursement-id" placeholder = "id here">
+            <br>
+            <label id = "select-label">Select decision:</label>
             <br>
             <select id = "select-decision">
-                <option value = "Approve">Approve</option>
-                <option value = "Deny">Deny</option>
+                <option value = "Approved">Approve</option>
+                <option value = "Denied">Deny</option>
             </select>
             <br>
-            <label id = "decison-reason">Reason for decision:</label>
-            <input type = "text" id = "enter-reimbursement-decision" minlength = "1" maxlength = "500" placeholder = "I have decided to approve your request because...">
+            <label id = "decision-reason">Reason for decision:</label>
             <br>
-            <button id = "submit">Submit Decision</button>
+            <input type = "text" id = "enter-reimbursement-decision" minlength = "1" maxlength = "500" placeholder = "I have decided to deny your request because I am a cheapo...">
+            <br>
+            <button id = "submit-button" onclick = "managerDecision()">Submit Decision</button>
         </div>
         <div id = "logout-body">
             <button id = "logout-button">Logout!</button>
@@ -36,128 +46,187 @@
 </body>
 <script>
 
+    // function to change submit button color
+        const submitButton = document.getElementById("submit-button");
 
-
-
-
-
-
-
-
-    /*      note: i am just commenting this out for now until we start editing javascript here
-
-    async function managerPageIntialize(){
-    welcomesplash.textContent = `Welcome to your Homepage, ${sessionStorage.getItem('name')}`
-    // testDesc = 
-    // (
-    //     `The FitnessGram Pacer Test is a multistage aerobic capacity test that progressively gets more difficult as it continues. The 20 meter pacer test will begin in 30 seconds.\n`+
-    //     `Line up at the start. The running speed starts slowly, but gets faster each minute after you hear this signal.\n`+
-    //     `[beep] A single lap should be completed each time you hear this sound. [ding] Remember to run in a straight line, and run as long as possible.\n`+
-    //     `The second time you fail to complete a lap before the sound, your test is over. The test will begin on the word start. On your mark, get ready, start.\n`
-    // )
-    testSteps = 
-    (
-        `1. First Step to Reproduce\n`+
-        `2. Second Step to Reproduce\n`+
-        `3. Use Protection\n`+
-        `4. Fourth Step to Reproduce\n`
-    )
-    // defectDesc.textContent = testDesc
-    stepsDesc.textContent = testSteps
-
-    const dateData = new Date()
-    x = dateData.getDate()
-    y = dateData.getMonth() + 1
-    z = dateData.getFullYear()
-    dateString = `${z}${y}${x}`
-}
-    managerPageIntialize()
-
-    async function setTesterList(){
-        document.getElementById("testerSelect").innerHTML = ''
-
-        let employeeResponse = await fetch("https://bugcatcher.coe.revaturelabs.com/16/employees")
-        let employeResponseBody = await employeeResponse.json()
-        for( let object of employeResponseBody){
-            if(object.role === 'Tester'){
-                let test = document.getElementById("testerSelect");
-                
-                let testerOption = document.createElement("option");
-                
-                testerOption.textContent = `${object.fname} ${object.lname}`;
-                testerOption.value = `${object.fname} ${object.lname}`;
-                test.appendChild(testerOption)
-            }else{
-                null
-            }
+        function changeSubmitButtonColor(){
+            submitButton.style.backgroundColor = "#316d15";
+            submitButton.style.color = "#ffffff";
+            submitButton.style.border = "solid 1px #ffffff";
         }
-    }
-    setTesterList()
 
-    
-    // async function setDefectList(){
-    //     document.getElementById("defectSelect").innerHTML = ''
-    //     let defectResponse = await fetch("https://bugcatcher.coe.revaturelabs.com/16/defects")
-    //     let defectResponseBody = await defectResponse.json()
-        
-    //     for(let object of defectResponseBody){
-    //         let x = document.getElementById("defectSelect");
-    //         let defectOption = document.createElement("option");
-    //         defectOption.text = `${object.defectId}`;
-    //         x.add(defectOption, x[0])
-    //     }
-    // }
-    // setDefectList()
-    
-    async function createDefect(){
-        
-        let b = testerSelect[testerSelect.selectedIndex].value
-        let c = severitySelect[severitySelect.selectedIndex].value
-        let d = prioritySelect[prioritySelect.selectedIndex].value
-        let e = defectDesc.value
-        let f = stepsDesc.value
-        let g = ""
-        // selectionString =""
+        submitButton.addEventListener("mouseover", changeSubmitButtonColor);
 
-        
-        let employeeResponse = await fetch("https://bugcatcher.coe.revaturelabs.com/16/employees")
-        let employeResponseBody = await employeeResponse.json()
+    // function to revert submit button color
+        function revertSubmitButtonColor(){
+            submitButton.style.backgroundColor = "#aa0606";
+            submitButton.style.color = "#ffffff";
+            submitButton.style.border = "solid 1px #316d15";
+        }
 
-        for(let object of employeResponseBody){
-            if(`${object.fname} ${object.lname}` === b){
-                g = object.username
-            }else{
-                null
+        submitButton.addEventListener("mouseleave", revertSubmitButtonColor);
+
+    // function to change logout button color
+        const logoutButton = document.getElementById("logout-button");
+
+        function changeLogoutButtonColor(){
+            logoutButton.style.backgroundColor = "#aa0606";
+            logoutButton.style.color = "#ffffff";
+            logoutButton.style.border = "solid 1px #316d15";
+        }
+
+        logoutButton.addEventListener("mouseover", changeLogoutButtonColor);
+
+    // function to revert logout button color'
+        function revertLogoutButtonColor(){
+                logoutButton.style.backgroundColor = "#ffffff";
+                logoutButton.style.color = "#316d15";
+                logoutButton.style.border = "solid 1px #316d15";
+            }
+
+        logoutButton.addEventListener("mouseleave", revertLogoutButtonColor);
+
+    // function to log out
+        function confirmLogout(){
+            let result = confirm("Arr! Are ye sure your finances are all in order?")
+            if(result === true){
+                alert("Ay ay!");
+                window.location.href = "LoginPage.html";
+                return true;
+            } else {
+                return false;
             }
         }
 
-        createDefectObject = 
-        {
-            "assignedTo": `${g}`,
-            "dateReported": `${dateString}`,
-            "desc": `${e}`,
-            "stepsToReproduce": `${f}`,
-            "severity": `${c}`,
-            "priority": `${d}`
-        }
-        console.log(createDefectObject)
-        createDefectJSON = JSON.stringify(createDefectObject)
+        logoutButton.addEventListener("click", confirmLogout);
 
-        let config = 
-        {
-            method:"POST", // method is a reference to the kind of request you are making (the verb): GET is the default
-            headers:{'Content-Type':"application/json"}, // some APIs will return an error message without this value included
-            body: createDefectJSON
+    // function to get all requests
+        const reimbursementTable = document.getElementById("reimbursement-table");
+        const tableHead = document.getElementById("table-head");
+        const tableBody = document.getElementById("table-body");
+            
+        async function getRequests(){
+            
+            let httpResponse = await fetch("http://localhost:8080/reimbursement");
+            console.log(httpResponse);
+            let responseBody = await httpResponse.json();
+
+            if(httpResponse.status === 200){
+                console.log(responseBody);
+
+                // create structure of table
+                    let hdOne = document.createElement("th");
+                        hdOne.innerHTML =
+                        `
+                        <th>ID</th>
+                        `
+                        tableHead.appendChild(hdOne);
+
+                    let hdTwo = document.createElement("th");
+                        hdTwo.innerHTML = 
+                        `
+                        <th>Employee Name</th>
+                        `
+                        tableHead.appendChild(hdTwo);
+                    
+                    let hdThree = document.createElement("th");
+                        hdThree.innerHTML =
+                        `
+                        <th>Title</th>
+                        `
+                        tableHead.appendChild(hdThree);
+                    
+                    let hdFour = document.createElement("th");
+                        hdFour.innerHTML = 
+                        `
+                        <th>Amount</th>
+                        `
+                        tableHead.appendChild(hdFour);
+                    
+                    let hdFive = document.createElement("th");
+                        hdFive.innerHTML =
+                        `
+                        <th>Description</th>
+                        `
+                        tableHead.appendChild(hdFive);
+
+                    let hdSix = document.createElement("th");
+                        hdSix.innerHTML =
+                        `
+                        <th>Decision</th>
+                        `
+                        tableHead.appendChild(hdSix);
+
+                    let hdSeven = document.createElement("th");
+                        hdSeven.innerHTML =
+                        `
+                        <th>Reason</th>
+                        `
+                        tableHead.appendChild(hdSeven);
+
+                // add in table content
+                    for(let request of responseBody){
+                        let tr = document.createElement("tr");
+                        tr.innerHTML =
+                        `
+                        <td>${request.reimbursement_id}</td>
+                        <td>${request.employee_name}</td>
+                        <td>${request.reimbursement_title}</td>
+                        <td>${request.amount}</td>
+                        <td>${request.reimbursement_reason}</td>
+                        <td>${request.status}</td>
+                        <td>${request.decision_reason}</td>
+                        `
+                        tableBody.appendChild(tr);
+                    }
+            } else {
+                alert("Plankton's up to something-- no requests could be found!")
+            }
         }
-        let createDefectReponse = await fetch("https://bugcatcher.coe.revaturelabs.com/16/defects", config)
-        if(createDefectReponse.status === 201){
-            alert(`You have just submitted your defect`)
-        }else{
-            null
+
+    // function to update request status
+        const selectDecision = document.getElementById("select-decision");
+        const decisionReason = document.getElementById("enter-decision-reason");
+        const requestNumber = document.getElementById("enter-reimbursement-id");
+
+        async function managerDecision(){
+            let updateInfo = {
+                status: selectDecision.value,
+                decision_reason: decisionReason.value
+            };
+
+            let updateJSON = JSON.stringify(updateInfo);
+
+            let config = {
+                method: "PATCH",
+                headers: {'Content-Type': "application/json"},
+                body: updateJSON
+            };
+
+            let httpResponse = await fetch(`http://localhost:8080/reimbursement/${requestNumber.value}`, config)
+            console.log(httpResponse.status);
+
+            if(httpResponse.status === 204){
+                if(selectDecision.value === "Approved"){
+                    let result = confirm("Cheer up? How can I cheer up... when you're spending all me hard-earned cash?!");
+                    if(result === true){
+                        location.reload();
+                        return true;
+                    } else {
+                        return false;
+                    }
+                } else if(selectDecision.value === "Denied"){
+                    let result = confirm("We had an agreement, boy. You ain't supposed to spend any of me money!");
+                    if(result === true){
+                        location.reload();
+                        return true;
+                    } else {
+                        return false;
+                    }
+                }
+            } else {
+                alert("Do you smell it? That smell. A kind of smelly smell. The smelly smell that smells... smelly...")
+            }
         }
-        
-        
-    }
-*/
 </script>
 </html>

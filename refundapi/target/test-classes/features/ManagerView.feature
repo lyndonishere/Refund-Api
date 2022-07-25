@@ -5,7 +5,7 @@ Feature: Manager of our reimbursement application should be able to view all emp
         Given the manager is on their personal manager homepage
         When their personal manager homepage loads
         When a table generates with employee reimbursement requests
-        Then the manager should be able to view employee reimbursement requests
+        Then the manager should be able to view employee r  eimbursement requests
 
      Scenario: I should receive an alert if my I cannot view employee reimbursement requests (NEGATIVE)
 
