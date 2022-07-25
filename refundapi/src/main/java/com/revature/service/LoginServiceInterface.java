@@ -1,5 +1,7 @@
 package com.revature.service;
 
+import java.util.List;
+
 import com.revature.entities.Login;
 
 public interface LoginServiceInterface {
@@ -35,5 +37,7 @@ public interface LoginServiceInterface {
 
     // log in
     Login loginUser(Login loginUser); 
+    
+    List<Login> serviceGetAllUsers();
 
 }

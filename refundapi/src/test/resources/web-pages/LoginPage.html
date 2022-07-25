@@ -57,7 +57,7 @@
             username: username.value,
             user_password: password.value
         };
-
+        sessionStorage.setItem("sessionUsername", username.value);
         // now that I have the actual login information, I need to convert it into a JSON
         let loginJSON = JSON.stringify(loginInfo);
 

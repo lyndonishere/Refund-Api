@@ -1,11 +1,13 @@
 package com.revature.controllers;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import com.google.gson.Gson;
 import com.revature.entities.Login;
 import com.revature.exceptions.InvalidUser;
+import com.revature.repository.LoginDAOInterface;
 import com.revature.service.LoginServiceInterface;
 
 import io.javalin.http.Handler;
@@ -14,6 +16,7 @@ public class LoginController {
    
    private LoginServiceInterface loginService;
    private Gson gson;
+   private LoginDAOInterface loginDaoInterface;
 
    public LoginController(LoginServiceInterface loginService){
       this.loginService = loginService;
@@ -63,4 +66,18 @@ public class LoginController {
          ctx.status(400); 
       }
      };
+
+     public Handler getAllUsers = ctx -> {
+      List<Login> login =  this.loginService.serviceGetAllUsers();
+
+      /*
+     * The reimbursement arrayList above contains multiple Java reimbursement objects: these need to turn into JSON formatting to be able to attach them to the HTTP Response Body
+     * We can use the GSON library we acquired from the Maven repository to handle this conversion process for us
+     */
+      // the toJson metod provided by Gson turns our collection of Book objects into a formatted string
+      String loginJSON = this.gson.toJson(login);
+      // we use the ctx.result() method to attack the loginJSON to the response body
+      ctx.result(loginJSON);
+      ctx.status(200);
+   };
 };
