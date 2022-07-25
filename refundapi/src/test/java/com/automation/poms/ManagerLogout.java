@@ -3,9 +3,9 @@ package com.automation.poms;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
-public class ManagerCommon {
+public class ManagerLogout {
 
-    public ManagerCommon(WebDriver driver) {
+    public ManagerLogout(WebDriver driver) {
         PageFactory.initElements(driver, this);
     }
     

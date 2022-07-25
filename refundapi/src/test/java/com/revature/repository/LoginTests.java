@@ -32,6 +32,7 @@ public class LoginTests {
 
     }
 
+    // note: the add user test is not following service rule to make sure username added doesn't add duplicate user bcuz this is separate test of just adding a user
     @Test   // make sure to add this @Test annotation
     public void addUserPositiveTest(){   // this is a positive test, so I note it in the test name
         Login testLogin = new Login("patrick", "donuts", "Patrick Star", "employee");
