@@ -170,6 +170,10 @@ public class Reimbursement {
                 + employee_name + ", employee_username=" + employee_username + ", reimbursement_id=" + reimbursement_id
                 + ", reimbursement_reason=" + reimbursement_reason + ", reimbursement_title=" + reimbursement_title
                 + ", request_date=" + request_date + ", status=" + status + "]";
+    }
+
+    public Object thenReturn(Reimbursement goodRequest) {
+        return null;
     }    
     
 }

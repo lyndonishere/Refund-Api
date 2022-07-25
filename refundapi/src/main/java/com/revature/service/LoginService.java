@@ -35,7 +35,14 @@ public class LoginService implements LoginServiceInterface {
         }
         throw new InvalidUser("Incorrect login: please try again!");
     }
+    
+    @Override
+    public List<Login> serviceGetAllUsers(){
+        return this.loginDao.getAllUsers();
+    }
 
 }
+
+
 
 
