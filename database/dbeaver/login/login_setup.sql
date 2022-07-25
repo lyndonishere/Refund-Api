@@ -8,6 +8,7 @@ create table login (
 
 -- create and save a startup sql script in your github repo
 
+select * from reimbursement;
 select * from login;
 
 -- service tests
