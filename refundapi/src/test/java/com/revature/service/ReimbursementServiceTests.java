@@ -6,9 +6,11 @@ import org.junit.Test;
 import org.mockito.Mockito;
 
 import com.revature.entities.Reimbursement;
+import com.revature.exceptions.InvalidReimbursement;
 import com.revature.repository.ReimbursementDAO;
 import com.revature.repository.ReimbursementDAOInterface;
 import com.revature.utils.ReimbursementBusinessRules;
+
 
 public class ReimbursementServiceTests {
     
@@ -137,47 +139,56 @@ public class ReimbursementServiceTests {
     }
 
    
-    // @Test
-    // public void mockExampleCreateBookNegative(){
-    //     try{
-    //         Book badBook = new Book("The Fellowship of the Ring","J. R. R. Tolkien");
-    //         /*
-    //             for this negative test I don't need to mock the results of the dao because the dao should never be
-    //             reached with this test
-    //         */
-    //         Mockito.when(mockRules.checkBookForTolkien(badBook)).thenReturn(false);
+    @Test
+    public void mockExampleCreateRequestNegative(){
+        try{
+            Reimbursement badrequest = new Reimbursement( 
+                "plankton", 
+                "Sheldon J. Plankton", 
+                "Give me the formula!", 
+                1500, 
+                "Foiled by Krabs!", 
+                "Pending"
+            );
 
-    //         // the serviceCreateBook method below SHOULD, based on the input, throw the InvalidBook exception
-    //         Book result = serviceWithMocks.serviceCreateBook(badBook);
-    //         // if no exception is thrown by the serviceCreateBook method then the line below will make our test fail
-    //         Assert.fail();          
-    //     } catch(InvalidBook e){
-    //         // here we check that we get both the expected exception and the correct message
-    //         Assert.assertEquals("invalid book: please try again", e.getMessage());
-    //     }
+            Mockito.when(mockRules.checkRefundAmount(badrequest)).thenReturn(false);
+            Mockito.when(mockRules.checkDescriptionLength(badrequest)).thenReturn(true);
+            Mockito.when(mockRules.checkTitleLength(badrequest)).thenReturn(true);
 
-    // }
+            //must still use method even when var isnt used
+            Reimbursement result = serviceWithMocks.serviceAddRequest(badrequest);
+            Assert.fail();
+            
+        } catch (InvalidReimbursement e){
+            Assert.assertEquals("Could not make request!", e.getMessage());
+        }
+    }
 
-    // @Test
-    // public void mockExampleUpdateBookPositive(){
-    //     Book goodBook = new Book(0,"Crime and Punishment", "I cant spell this name");
-    //     Mockito.when(mockRules.checkBookForTolkien(goodBook)).thenReturn(true);
-    //     Mockito.when(mockDao.updateBook(goodBook)).thenReturn(goodBook);
-    //     Book result = serviceWithMocks.serviceUpdateBook(goodBook);
-    //     Assert.assertEquals("Crime and Punishment", result.getTitle());
-    // }
+    @Test
+    public void mockExampleUpdateRequestPositive(){
+        Reimbursement goodRequest = new Reimbursement(-100, "Approved","Sounds gucci gucci");
 
-    // @Test
-    // public void mockExampleUpdateBookNegative(){
-    //     try{
-    //         Book badBook = new Book("The Fellowship of the Ring","J. R. R. Tolkien");
-    //         Mockito.when(mockRules.checkBookForTolkien(badBook)).thenReturn(false);
-    //         Book result = serviceWithMocks.serviceUpdateBook(badBook);
-    //         Assert.fail();
-    //     } catch(InvalidBook e){
-    //         // the getMessage() method comes from the parent Exception class
-    //         Assert.assertEquals("invalid book: please try again", e.getMessage());
-    //     }
+        Mockito.when(mockRules.checkManagerDescLength(goodRequest)).thenReturn(true);
 
-    // }
+        Mockito.when(mockDao.updateRequest(goodRequest)).thenReturn(goodRequest);
+
+        Reimbursement result = serviceWithMocks.serviceUpdateRequest(goodRequest);
+
+        Assert.assertNotNull(result);
+    }
+
+    @Test
+    public void mockExampleUpdateRequestNegative(){
+        try{
+            Reimbursement badRequest = new Reimbursement(-100, "Approved","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus");
+
+            Mockito.when(mockRules.checkManagerDescLength(badRequest)).thenReturn(false);
+
+            Reimbursement result = serviceWithMocks.serviceUpdateRequest(badRequest);
+            Assert.fail();
+        }catch(InvalidReimbursement e){
+            Assert.assertEquals("Incorrect manager decription", e.getMessage());
+        }
+    }
 }
+

@@ -8,6 +8,7 @@ import org.junit.Test;
 
 import com.revature.entities.Reimbursement;
 
+
 public class ReimbursementTests {
 
     public static ReimbursementDAOInterface reimbursementDao;
@@ -31,7 +32,7 @@ public class ReimbursementTests {
     public void updateRequestPositiveTest(){
         Reimbursement updatedRequest = new Reimbursement(-3, "updated username", "updated name", "updated title", 300, "updated reason", java.sql.Date.valueOf("2021-11-15"), "updated status", "updated reason");
         Reimbursement result =  reimbursementDao.updateRequest(updatedRequest);
-        Assert.assertEquals("updated", result.getReimbursement_title());
+        Assert.assertEquals("updated title", result.getReimbursement_title());
     }
 
     @Test
@@ -42,7 +43,9 @@ public class ReimbursementTests {
 
     @Test
     public void removeRequestPositiveTest(){
+        
         Reimbursement requestToBeDeleted = new Reimbursement(-4, "to be deleted username", "to be deleted name", "to be deleted title", 500, "to be deleted reason", java.sql.Date.valueOf("1993-12-25"), "to be deleted status", "to be deleted reason");
+        reimbursementDao.addRequest(requestToBeDeleted);
         boolean result = reimbursementDao.removeRequest(requestToBeDeleted);
         Assert.assertTrue(result);
     }

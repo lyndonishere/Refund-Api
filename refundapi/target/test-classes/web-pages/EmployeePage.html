@@ -42,6 +42,25 @@
     </div>
 </body>
 <script>
+    pulledEmployeeName = "";
+
+    
+    async function nameCall(){
+        usernameToCheck = sessionStorage.getItem("sessionUsername");
+
+        let httpUserResponse = await fetch("http://localhost:8080/login");
+        let responseUserBody = await httpUserResponse.json();
+        console.log(responseUserBody);
+        for(y of responseUserBody){
+            let check = y.username;
+            if(check == usernameToCheck){
+                pulledEmployeeName = y.person_name;
+            }
+        }
+
+        console.log(pulledEmployeeName)
+    }
+
     
     // function to change submit button color
         const submitButton = document.getElementById("submit-button");
@@ -103,16 +122,29 @@
         const tableBody = document.getElementById("table-body");
             
         async function getMyRequests(){
+            usernameToCheck = sessionStorage.getItem("sessionUsername");
+
+            let httpUserResponse = await fetch("http://localhost:8080/login");
+            let responseUserBody = await httpUserResponse.json();
+            console.log(responseUserBody);
+            for(y of responseUserBody){
+                let check = y.username;
+                if(check == usernameToCheck){
+                    pulledEmployeeName = y.person_name;
+                }
+            }
+
+            console.log(pulledEmployeeName)
             
             let httpResponse = await fetch("http://localhost:8080/reimbursement");
             console.log(httpResponse);
             let responseBody = await httpResponse.json();
-
+            sessionUsername = sessionStorage.getItem("sessionUsername");
+            
             if(httpResponse.status === 200){
                 console.log(responseBody);
-
-                // create structure of table
-                    let hdOne = document.createElement("th");
+                                // create structure of table
+                                let hdOne = document.createElement("th");
                         hdOne.innerHTML =
                         `
                         <th>ID</th>
@@ -161,25 +193,34 @@
                         `
                         tableHead.appendChild(hdSeven);
 
+                for(x of responseBody){
+                    pulledUsername = x.employee_username;
+
                 // add in table content
-                    for(let request of responseBody){
+
+                    if(pulledUsername == sessionUsername){
                         let tr = document.createElement("tr");
                         tr.innerHTML =
                         `
-                        <td>${request.reimbursement_id}</td>
-                        <td>${request.employee_name}</td>
-                        <td>${request.reimbursement_title}</td>
-                        <td>${request.amount}</td>
-                        <td>${request.reimbursement_reason}</td>
-                        <td>${request.status}</td>
-                        <td>${request.decision_reason}</td>
+                        <td>${x.reimbursement_id}</td>
+                        <td>${x.employee_name}</td>
+                        <td>${x.reimbursement_title}</td>
+                        <td>${x.amount}</td>
+                        <td>${x.reimbursement_reason}</td>
+                        <td>${x.status}</td>
+                        <td>${x.decision_reason}</td>
                         `
                         tableBody.appendChild(tr);
+                    }else{
+                        null;
                     }
+                }
             } else {
                 alert("Plankton's up to something-- no requests could be found!")
             }
-        }
+        
+    }
+
 
     // function to make a new request with post
         const title = document.getElementById("enter-request-title");
@@ -188,13 +229,15 @@
 
         async function createRequest(){
 
+
             let requestInfo = {
-                reimbursement_id: // NEED TO SET AS NEXT DEFAULT
-                employee_username: // NEED TO USE THIS USER
+                reimbursement_id: 0,
+                employee_username: sessionStorage.getItem("sessionUsername"),
+                employee_name: pulledEmployeeName,
                 reimbursement_title: title.value,
                 amount: amount.value,
                 reimbursement_reason: reason.value,
-                request_date: // TAKE THIS DATE
+                request_date: "0",
                 status: "Pending",
                 decision_reason: "TBA"
             };
@@ -216,6 +259,7 @@
                 alert(`Something's gone wrong! You now owe Mr. Krabs $${amount.value}!`)
             }
         }
+
 
 </script>
 </html>

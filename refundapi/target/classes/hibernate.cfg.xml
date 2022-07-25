@@ -30,6 +30,7 @@
         <!-- Object Reational Mapping, we're mapping our Login class (that we have yet to create) to a table in our database-->
         <!-- NOTE: need to map other classes for other tables-->
         <mapping class="com.revature.entities.Login"/>
-
+        <mapping class="com.revature.entities.Reimbursement"/>
+        
     </session-factory>
 </hibernate-configuration>

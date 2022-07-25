@@ -3,7 +3,7 @@ package com.revature.service;
 import java.util.List;
 
 import com.revature.entities.Reimbursement;
-import com.revature.exceptions.InvalidUser;
+import com.revature.exceptions.InvalidReimbursement;
 import com.revature.repository.ReimbursementDAOInterface;
 import com.revature.utils.ReimbursementBusinessRules;
 
@@ -27,7 +27,7 @@ public class ReimbursementService implements ReimbursementServiceInterface {
         if(valCheck1 && valCheck2 && valCheck3){
             return this.reimbursementDao.addRequest(newRequest);
         }else{
-            throw new InvalidUser("Could not make request!"); //Potentially change/create new error throw method
+            throw new InvalidReimbursement("Could not make request!"); //Potentially change/create new error throw method
         }
     }
 
@@ -41,9 +41,9 @@ public class ReimbursementService implements ReimbursementServiceInterface {
         boolean valCheck4 = this.reimbursementBusinessRules.checkManagerDescLength(updatedRequest);
 
         if(valCheck4){
-            return this.reimbursementDao.addRequest(updatedRequest);
+            return this.reimbursementDao.updateRequest(updatedRequest);
         }else{
-            throw new InvalidUser("Incorrect amount request for refund"); //Potentially change/create new error throw method
+            throw new InvalidReimbursement("Incorrect manager decription"); //Potentially change/create new error throw method
         }
     }
 
@@ -64,7 +64,7 @@ public class ReimbursementService implements ReimbursementServiceInterface {
                 return acceptedRequest;
             }
         }
-        throw new InvalidUser("Something has gone wrong");
+        throw new InvalidReimbursement("Something has gone wrong");
     }
 
     @Override
@@ -79,6 +79,6 @@ public class ReimbursementService implements ReimbursementServiceInterface {
                 return rejectedRequest;
             }
         }
-        throw new InvalidUser("Something has gone wrong");
+        throw new InvalidReimbursement("Something has gone wrong");
     }
 }

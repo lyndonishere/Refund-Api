@@ -44,6 +44,7 @@ public class Main {
          */
 
         app.patch("/login", loginController.loginUser);
+        app.get("/login", loginController.getAllUsers);
 
         ReimbursementDAOInterface reimbursementDao = new ReimbursementDAO();
         ReimbursementBusinessRules reimbursementBusinessRules = new ReimbursementBusinessRules();
@@ -51,8 +52,8 @@ public class Main {
         ReimbursementController reimbursementController = new ReimbursementController(reimbursementService);
       
         app.get("/reimbursement", reimbursementController.getAllReimbursements);
-        app.delete("/reimbursement{id}", reimbursementController.deleteReimbursement);
-        app.patch("/reimbursement{id}", reimbursementController.updateReimbursement);
+        app.delete("/reimbursement/{id}", reimbursementController.deleteReimbursement);
+        app.patch("/reimbursement/{id}", reimbursementController.updateReimbursement);
         app.post("/reimbursement", reimbursementController.createReimbursement);
 
 
