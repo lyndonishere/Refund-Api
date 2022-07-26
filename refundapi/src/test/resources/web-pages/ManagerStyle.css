@@ -168,18 +168,21 @@ select {
     margin-left: auto;
     margin-right: auto;
     text-align: center;
-    width: 100%;
     background-color: #ffffff;
 }
 
 th {
     color: #720505;
     font-size: large;
+    text-align: center;
+    align-items: center;
 }
 
 td {
     color: #aa0606;
     font-size: medium;
+    text-align: center;
+    align-items: center;
 }
 
 .table-data {
@@ -187,11 +190,8 @@ td {
     font-size: medium;
     text-align: center;
     font-family: "Podkova", "Arial";
-    margin-left: auto;
-    margin-right: auto;
-    width: 100%;
+    align-items: center;
     background-color: #ffffff;
-
 }
 
 #money-shower {

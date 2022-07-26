@@ -121,6 +121,13 @@
                         <th>ID</th>
                         `
                         tableHead.appendChild(hdOne);
+                    
+                    let hdOneAndAHalf = document.createElement("th");
+                        hdOneAndAHalf.innerHTML =
+                        `
+                        <th id = "th-oneandahalf">Employee Username</th>
+                        `
+                        tableHead.appendChild(hdOneAndAHalf);
 
                     let hdTwo = document.createElement("th");
                         hdTwo.innerHTML = 
@@ -169,13 +176,14 @@
                         let tr = document.createElement("tr");
                         tr.innerHTML =
                         `
-                        <td id = "reimbursement_id${request.reimbursement_id}" class = "table-data">${request.reimbursement_id}</td>
-                        <td id = "employee_name${request.reimbursement_id}" class = "table-data">${request.employee_name}</td>
-                        <td id = "reimbursement_title${request.reimbursement_id}" class = "table-data">${request.reimbursement_title}</td>
-                        <td id = "amount${request.reimbursement_id}" class = "table-data">${request.amount}</td>
-                        <td id = "reimbursement_reason${request.reimbursement_id}" class = "table-data">${request.reimbursement_reason}</td>
-                        <td id = "status${request.reimbursement_id}" class = "table-data">${request.status}</td>
-                        <td id = "decision_reason${request.reimbursement_id}" class = "table-data">${request.decision_reason}</td>
+                        <td id = "reimbursement_id${request.reimbursement_id}" class = "table-data" style = "width: 50px">${request.reimbursement_id}</td>
+                        <td id = "employee_username${request.reimbursement_id}" class = "table-data" style = "width: 200px">${request.employee_username}</td>
+                        <td id = "employee_name${request.reimbursement_id}" class = "table-data" style = "width: 200px">${request.employee_name}</td>
+                        <td id = "reimbursement_title${request.reimbursement_id}" class = "table-data" style = "width: 200px">${request.reimbursement_title}</td>
+                        <td id = "amount${request.reimbursement_id}" class = "table-data" style = "width: 100px">${request.amount}</td>
+                        <td id = "reimbursement_reason${request.reimbursement_id}" class = "table-data" style = "width: 300px">${request.reimbursement_reason}</td>
+                        <td id = "status${request.reimbursement_id}" class = "table-data" style = "width: 150px">${request.status}</td>
+                        <td id = "decision_reason${request.reimbursement_id}" class = "table-data" style = "width: 300px">${request.decision_reason}</td>
                         `
                         tableBody.appendChild(tr);
                     }
@@ -191,11 +199,12 @@
 
         async function managerDecision(){
             let updateInfo = {   // checked and the problem is it's not pulling the values, maybe stuck in function scope?
-                reimbursement_id: document.getElementById(`reimbursement_id${requestNumber.value}`).value,
-                employee_name: document.getElementById(`employee_name${requestNumber.value}`).value,
-                reimbursement_title: document.getElementById(`reimbursement_title${requestNumber.value}`.value),
-                amount: document.getElementById(`amount${requestNumber.value}`.value),
-                reimbursement_reason: document.getElementById(`reimbursement_reason${requestNumber.value}`.value),
+                reimbursement_id: document.getElementById(`reimbursement_id${requestNumber.value}`).textContent,
+                employee_username: document.getElementById(`employee_username${requestNumber.value}`).textContent,
+                employee_name: document.getElementById(`employee_name${requestNumber.value}`).textContent,
+                reimbursement_title: document.getElementById(`reimbursement_title${requestNumber.value}`).textContent,
+                amount: document.getElementById(`amount${requestNumber.value}`).textContent,
+                reimbursement_reason: document.getElementById(`reimbursement_reason${requestNumber.value}`).textContent,
                 status: selectDecision.value,
                 decision_reason: decisionReason.value  
             };
