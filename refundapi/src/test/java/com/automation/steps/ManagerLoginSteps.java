@@ -19,7 +19,7 @@ public class ManagerLoginSteps {
     // done
     @Given("the manager is on the login page")
         public void the_manager_is_on_the_login_page(){
-            TestRunner.driver.get("File://C:/Users/orian/Refund-Api/refundapi/src/test/resources/web-pages/LoginPage.html");
+            TestRunner.driver.get("File:///Users/orian/Refund-Api/refundapi/src/test/resources/web-pages/LoginPage.html");
         }
     
     // done
