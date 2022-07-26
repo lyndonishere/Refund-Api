@@ -221,21 +221,17 @@
             console.log(httpResponse.status);
 
             if(httpResponse.status === 200){
-                if(selectDecision.value === "Approved"){
-                    let result = confirm("Cheer up? How can I cheer up... when you're spending all me hard-earned cash?!");
-                    if(result === true){
+                if(decisionReason.value.length < 1){
+                    alert("You need a decision reason!")
+                } else {
+                    if(selectDecision.value === "Approved"){
+                        let result = alert("Cheer up? How can I cheer up... when you're spending all me hard-earned cash?!");
                         location.reload();
-                        return true;
-                    } else {
-                        return false;
-                    }
-                } else if(selectDecision.value === "Denied"){
-                    let result = confirm("We had an agreement, boy. You ain't supposed to spend any of me money!");
-                    if(result === true){
+                    } else if(selectDecision.value === "Denied"){
+                        let result = alert("We had an agreement, boy. You ain't supposed to spend any of me money!");
                         location.reload();
-                        return true;
                     } else {
-                        return false;
+                        alert("No decision made!")
                     }
                 }
             } else {
