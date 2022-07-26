@@ -7,7 +7,6 @@ import java.util.Map;
 import com.google.gson.Gson;
 import com.revature.entities.Login;
 import com.revature.exceptions.InvalidUser;
-import com.revature.repository.LoginDAOInterface;
 import com.revature.service.LoginServiceInterface;
 
 import io.javalin.http.Handler;
@@ -16,7 +15,6 @@ public class LoginController {
    
    private LoginServiceInterface loginService;
    private Gson gson;
-   private LoginDAOInterface loginDaoInterface;
 
    public LoginController(LoginServiceInterface loginService){
       this.loginService = loginService;

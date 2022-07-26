@@ -237,7 +237,6 @@
                 reimbursement_title: title.value,
                 amount: amount.value,
                 reimbursement_reason: reason.value,
-                request_date: "0",
                 status: "Pending",
                 decision_reason: "TBA"
             };
@@ -255,6 +254,7 @@
             if(httpResponse.status === 201){
                 let responseBody = await httpResponse.json();
                 alert("Now we wait and see...")
+                location.reload();
             } else {
                 alert(`Something's gone wrong! You now owe Mr. Krabs $${amount.value}!`)
             }

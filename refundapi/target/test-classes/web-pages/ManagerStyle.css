@@ -95,7 +95,7 @@ h2 {
     color: #3a771d;
 }
 
-#enter-reimbursement-decision {
+#enter-decision-reason {
     height: 150px;
     width: 500px;
     font-size: medium;
@@ -180,6 +180,18 @@ th {
 td {
     color: #aa0606;
     font-size: medium;
+}
+
+.table-data {
+    color: #aa0606;
+    font-size: medium;
+    text-align: center;
+    font-family: "Podkova", "Arial";
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    background-color: #ffffff;
+
 }
 
 #money-shower {

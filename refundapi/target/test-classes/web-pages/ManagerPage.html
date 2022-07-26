@@ -35,7 +35,7 @@
             <br>
             <label id = "decision-reason">Reason for decision:</label>
             <br>
-            <input type = "text" id = "enter-reimbursement-decision" minlength = "1" maxlength = "500" placeholder = "I have decided to deny your request because I am a cheapo...">
+            <input type = "text" id = "enter-decision-reason" minlength = "1" maxlength = "500" placeholder = "I have decided to deny your request because I am a cheapo...">
             <br>
             <button id = "submit-button" onclick = "managerDecision()">Submit Decision</button>
         </div>
@@ -169,13 +169,13 @@
                         let tr = document.createElement("tr");
                         tr.innerHTML =
                         `
-                        <td>${request.reimbursement_id}</td>
-                        <td>${request.employee_name}</td>
-                        <td>${request.reimbursement_title}</td>
-                        <td>${request.amount}</td>
-                        <td>${request.reimbursement_reason}</td>
-                        <td>${request.status}</td>
-                        <td>${request.decision_reason}</td>
+                        <td id = "reimbursement_id${request.reimbursement_id}" class = "table-data">${request.reimbursement_id}</td>
+                        <td id = "employee_name${request.reimbursement_id}" class = "table-data">${request.employee_name}</td>
+                        <td id = "reimbursement_title${request.reimbursement_id}" class = "table-data">${request.reimbursement_title}</td>
+                        <td id = "amount${request.reimbursement_id}" class = "table-data">${request.amount}</td>
+                        <td id = "reimbursement_reason${request.reimbursement_id}" class = "table-data">${request.reimbursement_reason}</td>
+                        <td id = "status${request.reimbursement_id}" class = "table-data">${request.status}</td>
+                        <td id = "decision_reason${request.reimbursement_id}" class = "table-data">${request.decision_reason}</td>
                         `
                         tableBody.appendChild(tr);
                     }
@@ -190,9 +190,14 @@
         const requestNumber = document.getElementById("enter-reimbursement-id");
 
         async function managerDecision(){
-            let updateInfo = {
+            let updateInfo = {   // checked and the problem is it's not pulling the values, maybe stuck in function scope?
+                reimbursement_id: document.getElementById(`reimbursement_id${requestNumber.value}`).value,
+                employee_name: document.getElementById(`employee_name${requestNumber.value}`).value,
+                reimbursement_title: document.getElementById(`reimbursement_title${requestNumber.value}`.value),
+                amount: document.getElementById(`amount${requestNumber.value}`.value),
+                reimbursement_reason: document.getElementById(`reimbursement_reason${requestNumber.value}`.value),
                 status: selectDecision.value,
-                decision_reason: decisionReason.value
+                decision_reason: decisionReason.value  
             };
 
             let updateJSON = JSON.stringify(updateInfo);
@@ -206,7 +211,7 @@
             let httpResponse = await fetch(`http://localhost:8080/reimbursement/${requestNumber.value}`, config)
             console.log(httpResponse.status);
 
-            if(httpResponse.status === 204){
+            if(httpResponse.status === 200){
                 if(selectDecision.value === "Approved"){
                     let result = confirm("Cheer up? How can I cheer up... when you're spending all me hard-earned cash?!");
                     if(result === true){

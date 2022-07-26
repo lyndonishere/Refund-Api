@@ -52,7 +52,6 @@ public class Main {
         ReimbursementController reimbursementController = new ReimbursementController(reimbursementService);
       
         app.get("/reimbursement", reimbursementController.getAllReimbursements);
-        app.delete("/reimbursement/{id}", reimbursementController.deleteReimbursement);
         app.patch("/reimbursement/{id}", reimbursementController.updateReimbursement);
         app.post("/reimbursement", reimbursementController.createReimbursement);
 
