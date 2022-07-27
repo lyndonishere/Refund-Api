@@ -19,7 +19,14 @@ public class ManagerCommonSteps {
     // Manager Logout Scenarios: 1, 2
     @Given("the manager is on their personal manager homepage")
         public void the_manager_is_on_their_personal_manager_homepage(){
-            TestRunner.driver.get("C:/Users/orian/Refund-Api/refundapi/src/test/resources/web-pages/ManagerPage.html");
+            TestRunner.driver.get("File:///Users/mauricekabeireho/_dev/Refund-Api/refundapi/src/test/resources/web-pages/ManagerPage.html");
+        }
+
+    // Manager Approve Scenarios: 1, 2
+    // Manager Deny Scenarios: 1, 2
+    // Manager Desc Scenarios: 1, 3
+    @When("the manager views the reimbursement requests")
+        public void the_manager_views_the_reimbursement_requests(){
         }
 
     // Manager Approve Scenarios: 1
