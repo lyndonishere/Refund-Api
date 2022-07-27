@@ -20,7 +20,7 @@ public class EmployeeLoginSteps {
     @Given("the employee is on the login page")
         public void the_employee_is_on_the_login_page(){
             
-            TestRunner.driver.get("File://C:/Users/lyndo/Revature-Training/RefundAPIFiles/Refund-Api/refundapi/src/test/resources/web-pages/LoginPage.html");
+            TestRunner.driver.get("File://C:/Users/orian/Refund-Api/refundapi/src/test/resources/web-pages/EmployeePage.html");
         }
     
     // done

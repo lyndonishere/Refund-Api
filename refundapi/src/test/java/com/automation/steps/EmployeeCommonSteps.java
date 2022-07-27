@@ -1,7 +1,5 @@
 package com.automation.steps;
 
-import org.junit.Assert;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -22,7 +20,7 @@ public class EmployeeCommonSteps {
     // Employee Logout Scenarios: 1, 2
     @Given("the employee is on their personal employee homepage")
         public void the_employee_is_on_their_personal_employee_homepage(){
-            TestRunner.driver.get("File://C:/Users/lyndo/Revature-Training/RefundAPIFiles/Refund-Api/refundapi/src/test/resources/web-pages/EmployeePage.html");
+            TestRunner.driver.get("File://C:/Users/orian/Refund-Api/refundapi/src/test/resources/web-pages/EmployeePage.html");
         }
 
     // Employee Amount Scenarios: 1, 3
