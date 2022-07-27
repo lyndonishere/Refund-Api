@@ -13,6 +13,7 @@ public class ManagerLogout {
     private WebDriver driver;
 
     public ManagerLogout(WebDriver driver) {
+        this.driver = driver;
         PageFactory.initElements(driver, this);
     }
     
@@ -20,21 +21,17 @@ public class ManagerLogout {
     @FindBy(id = "logout-button")
         public WebElement managerLogoutButton;
 
-    public void managerClickLogoutButton(){
-        this.managerLogoutButton.click();
-    }
-
     public void managerConfirmLogout(){
+        this.managerLogoutButton.click();
+
         WebDriverWait waitManagerLogout = new WebDriverWait(driver,10);
         waitManagerLogout.until(ExpectedConditions.alertIsPresent());
         Alert alertManagerLogout = driver.switchTo().alert();
         alertManagerLogout.accept();
-    }
 
-    public void noLogout(){
         WebDriverWait waitManagerLogoutNow = new WebDriverWait(driver,10);
         waitManagerLogoutNow.until(ExpectedConditions.alertIsPresent());
         Alert alertManagerLogoutNow = driver.switchTo().alert();
-        alertManagerLogoutNow.dismiss();
+        alertManagerLogoutNow.accept();
     }
 }

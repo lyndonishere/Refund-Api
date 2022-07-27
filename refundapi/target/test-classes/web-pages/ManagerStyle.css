@@ -12,7 +12,6 @@ body {
 }
 
 #table-body {
-    display: block;
     align-items: center;
     text-align: center;
     padding-top: 20px;
@@ -165,24 +164,13 @@ select {
 
 #reimbursement-table {
     font-family: "Podkova", "Arial";
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-    background-color: #ffffff;
+    background-color: #720505;
 }
 
 th {
-    color: #720505;
+    color: #c1fba6;
     font-size: large;
     text-align: center;
-    align-items: center;
-}
-
-td {
-    color: #aa0606;
-    font-size: medium;
-    text-align: center;
-    align-items: center;
 }
 
 .table-data {
@@ -191,20 +179,21 @@ td {
     text-align: center;
     font-family: "Podkova", "Arial";
     align-items: center;
-    background-color: #ffffff;
+    background-color: #c1fba6;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
-#money-shower {
+#dollar {
     position: relative;
-    animation: money 2s infinite;
+    width: 200px;
+    height: auto;
 }
 
-@keyframes money {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(359deg);
-    }
+#krabs-money {
+    position: relative;
+    width: 150px;
+    height: auto;
+    padding-bottom: 15px;
 }
 

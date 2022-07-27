@@ -22,7 +22,7 @@ public class EmployeeCommonSteps {
     // Employee Logout Scenarios: 1, 2
     @Given("the employee is on their personal employee homepage")
         public void the_employee_is_on_their_personal_employee_homepage(){
-            TestRunner.driver.get("File:///Users/mauricekabeireho/_dev/Refund-Api/refundapi/src/test/resources/web-pages/EmployeePage.html");
+            TestRunner.driver.get("File://C:/Users/lyndo/Revature-Training/RefundAPIFiles/Refund-Api/refundapi/src/test/resources/web-pages/EmployeePage.html");
         }
 
     // Employee Amount Scenarios: 1, 3
