@@ -89,6 +89,11 @@ public class Reimbursement {
         this.decision_reason = decision_reason;
     }
 
+    public Reimbursement(String status, String decision_reason){
+        this.status = status;
+        this.decision_reason = decision_reason;
+    }
+
 
     // getters and setters
     public int getReimbursement_id() {

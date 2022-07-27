@@ -35,23 +35,6 @@ public class ReimbursementController {
         ctx.result(reimbursementsJSON);
         ctx.status(200);
      };
-
-     public Handler deleteReimbursement = ctx -> {
-        // the ctx.body() method creates a java string object from the content of the request body
-        String json = ctx.body();
-        // we then use Gson to convert the json string into the java class we are working with
-        Reimbursement reimbursementToBeDeleted = this.gson.fromJson(json, Reimbursement.class);
-        // we then pass the java object we created into the appropriate service method for validation
-        this.reimbursementService.serviceRemoveRequest(reimbursementToBeDeleted);
-        // because we are am not returning any special entity with this method I will use a Map to create my key/value pair mesage for the json
-        Map<String, String> message =  new HashMap<>();
-        message.put("message", "reimbursement was deleted");
-        // once the map is made we convert it into a json
-        String messageJson = this.gson.toJson(message);
-        // then we attach it into the response body and set the status code
-        ctx.result(messageJson);
-        ctx.status(203);    // need to double check this tho
-       };
   
        public Handler updateReimbursement = ctx -> {
         try {
@@ -59,6 +42,8 @@ public class ReimbursementController {
            String json = ctx.body();
            // convert json to our java object
            Reimbursement updatedReimbursement = this.gson.fromJson(json, Reimbursement.class);
+           // make it pull with id
+           updatedReimbursement.setReimbursement_id(Integer.parseInt(ctx.pathParam("id")));
            // pass the data into the service layer and get method result back
            Reimbursement result = this.reimbursementService.serviceUpdateRequest(updatedReimbursement);
            // convert the result into a json

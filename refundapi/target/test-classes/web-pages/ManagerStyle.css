@@ -95,7 +95,7 @@ h2 {
     color: #3a771d;
 }
 
-#enter-reimbursement-decision {
+#enter-decision-reason {
     height: 150px;
     width: 500px;
     font-size: medium;
@@ -168,18 +168,30 @@ select {
     margin-left: auto;
     margin-right: auto;
     text-align: center;
-    width: 100%;
     background-color: #ffffff;
 }
 
 th {
     color: #720505;
     font-size: large;
+    text-align: center;
+    align-items: center;
 }
 
 td {
     color: #aa0606;
     font-size: medium;
+    text-align: center;
+    align-items: center;
+}
+
+.table-data {
+    color: #aa0606;
+    font-size: medium;
+    text-align: center;
+    font-family: "Podkova", "Arial";
+    align-items: center;
+    background-color: #ffffff;
 }
 
 #money-shower {
