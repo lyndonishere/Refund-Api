@@ -41,11 +41,18 @@ h2 {
 th {
     color: #111159;
     font-size: large;
+    text-align: center;
 }
 
-td {
+.table-data {
     color: #273e88;
     font-size: medium;
+    text-align: center;
+    font-family: "Podkova", "Arial";
+    align-items: center;
+    background-color: #c5c1ff;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 #spongebob-dancing {
@@ -162,4 +169,18 @@ td {
     background-color: #ffffff;
     color: #111159;
     margin-bottom: 15px;
+}
+
+#spatula {
+    position: relative;
+    width: 200px;
+    height: auto;
+    padding-bottom: 15px;
+}
+
+#spongebob-broke {
+    position: relative;
+    width: 200px;
+    height: auto;
+    padding-bottom: 15px;
 }

@@ -15,18 +15,30 @@
         <h1>Welcome back, Employee!</h1> 
         <div id = "table-body">
             <h2>Your Reimbursement Requests</h2>
+            <img id = "spatula" src = "spatula.png" alt = "spatula">
             <table id = "reimbursement-table">
-                <thead id = "table-head"></thead>         <!-- we will generate this table dynamically in JavaScript -->
+                <thead id = "table-head">
+                    <th id = "test-table" class = "table-header" style = "width: 50px">ID</th>
+                    <th id = "th-oneandahalf" class = "table-header" style = "width: 150px">Employee Username</th>
+                    <th class = "table-header" style = "width: 150px">Employee Name</th>
+                    <th class = "table-header" style = "width: 200px">Title</th>
+                    <th class = "table-header" style = "width: 100px">Amount</th>
+                    <th class = "table-header" style = "width: 300px">Description</th>
+                    <th class = "table-header" style = "width: 150px">Decision</th>
+                    <th class = "table-header" style = "width: 300px">Reason</th>
+                </thead>         <!-- we will generate this table dynamically in JavaScript -->
                 <tbody id = "table-body"></tbody>
             </table>
         </div>
         <div id = "new-request-body">
             <h2>Make A New Reimbursement Request</h2>
+            <img id = "spongebob-broke" src = "spongebobbroke.png" alt = "spongebob-no-money">
+            <br>
             <label id = "request-title">Enter reimbursement request title:</label>
             <br>
             <input type = "text" id = "enter-request-title" minlength = "1" maxlength = "50" placeholder = "Give me my money back">
             <br>
-            <label id = "request-amount">Amount:</label>
+            <label id = "request-amount" min = "1">Amount:</label>
             <br>
             <input type = "number" id = "enter-request-amount" max = "1000" placeholder = "100">
             <br>
@@ -143,55 +155,6 @@
             
             if(httpResponse.status === 200){
                 console.log(responseBody);
-                                // create structure of table
-                                let hdOne = document.createElement("th");
-                        hdOne.innerHTML =
-                        `
-                        <th>ID</th>
-                        `
-                        tableHead.appendChild(hdOne);
-
-                    let hdTwo = document.createElement("th");
-                        hdTwo.innerHTML = 
-                        `
-                        <th>Employee Name</th>
-                        `
-                        tableHead.appendChild(hdTwo);
-                    
-                    let hdThree = document.createElement("th");
-                        hdThree.innerHTML =
-                        `
-                        <th>Title</th>
-                        `
-                        tableHead.appendChild(hdThree);
-                    
-                    let hdFour = document.createElement("th");
-                        hdFour.innerHTML = 
-                        `
-                        <th>Amount</th>
-                        `
-                        tableHead.appendChild(hdFour);
-                    
-                    let hdFive = document.createElement("th");
-                        hdFive.innerHTML =
-                        `
-                        <th>Description</th>
-                        `
-                        tableHead.appendChild(hdFive);
-
-                    let hdSix = document.createElement("th");
-                        hdSix.innerHTML =
-                        `
-                        <th>Decision</th>
-                        `
-                        tableHead.appendChild(hdSix);
-
-                    let hdSeven = document.createElement("th");
-                        hdSeven.innerHTML =
-                        `
-                        <th>Reason</th>
-                        `
-                        tableHead.appendChild(hdSeven);
 
                 for(x of responseBody){
                     pulledUsername = x.employee_username;
@@ -202,13 +165,14 @@
                         let tr = document.createElement("tr");
                         tr.innerHTML =
                         `
-                        <td>${x.reimbursement_id}</td>
-                        <td>${x.employee_name}</td>
-                        <td>${x.reimbursement_title}</td>
-                        <td>${x.amount}</td>
-                        <td>${x.reimbursement_reason}</td>
-                        <td id = "status${x.reimbursement_id}"">${x.status}</td>
-                        <td>${x.decision_reason}</td>
+                        <td class = "table-data" style = "width: 50px">${x.reimbursement_id}</td>
+                        <td class = "table-data" style = "width: 150px">${x.employee_username}</td>
+                        <td class = "table-data" style = "width: 150px">${x.employee_name}</td>
+                        <td class = "table-data" style = "width: 200px">${x.reimbursement_title}</td>
+                        <td class = "table-data" style = "width: 100px">${x.amount}</td>
+                        <td class = "table-data" style = "width: 300px">${x.reimbursement_reason}</td>
+                        <td id = "status${x.reimbursement_id}" class = "table-data" style = "width: 150px">${x.status}</td>
+                        <td class = "table-data" style = "width: 300px">${x.decision_reason}</td>
                         `
                         tableBody.appendChild(tr);
                     }else{
