@@ -58,7 +58,7 @@ h2 {
     height: auto;
     width: 1325px;
     position: absolute;
-    animation: bubbles 2s infinite;
+    animation: bubbles 2.2s infinite;
 }
 
 @keyframes bubbles {

@@ -15,13 +15,25 @@
         <h1>Welcome back, Mr. Krabs!</h1>
         <div id = "table-body">
             <h2>Employee Reimbursement Requests</h2>
+            <img id = "dollar" src = "money.png" alt = "money">
             <table id = "reimbursement-table">
-                <thead id = "table-head"></thead>         <!-- we will generate this table dynamically in JavaScript -->
+                <thead id = "table-head">
+                    <th id = "test-table" class = "table-header" style = "width: 50px">ID</th>
+                    <th id = "th-oneandahalf" class = "table-header" style = "width: 150px">Employee Username</th>
+                    <th class = "table-header" style = "width: 150px">Employee Name</th>
+                    <th class = "table-header" style = "width: 200px">Title</th>
+                    <th class = "table-header" style = "width: 100px">Amount</th>
+                    <th class = "table-header" style = "width: 300px">Description</th>
+                    <th class = "table-header" style = "width: 150px">Decision</th>
+                    <th class = "table-header" style = "width: 300px">Reason</th>
+                </thead>         <!-- we will generate this table dynamically in JavaScript -->
                 <tbody id = "table-body"></tbody>
             </table>
         </div>
         <div id = "decision-body">
             <h2>Make Request Decision</h2>
+            <img id = "krabs-money" src = "mrkrabsbag.png" alt = "mr-krabs-holding-money">
+            <br>
             <label id = "id-label">Enter reimbursement id:</label>
             <br>
             <input type = "number" id = "enter-reimbursement-id" placeholder = "id here">
@@ -114,71 +126,14 @@
             if(httpResponse.status === 200){
                 console.log(responseBody);
 
-                // create structure of table
-                    let hdOne = document.createElement("th");
-                        hdOne.innerHTML =
-                        `
-                        <th>ID</th>
-                        `
-                        tableHead.appendChild(hdOne);
-                    
-                    let hdOneAndAHalf = document.createElement("th");
-                        hdOneAndAHalf.innerHTML =
-                        `
-                        <th id = "th-oneandahalf">Employee Username</th>
-                        `
-                        tableHead.appendChild(hdOneAndAHalf);
-
-                    let hdTwo = document.createElement("th");
-                        hdTwo.innerHTML = 
-                        `
-                        <th>Employee Name</th>
-                        `
-                        tableHead.appendChild(hdTwo);
-                    
-                    let hdThree = document.createElement("th");
-                        hdThree.innerHTML =
-                        `
-                        <th>Title</th>
-                        `
-                        tableHead.appendChild(hdThree);
-                    
-                    let hdFour = document.createElement("th");
-                        hdFour.innerHTML = 
-                        `
-                        <th>Amount</th>
-                        `
-                        tableHead.appendChild(hdFour);
-                    
-                    let hdFive = document.createElement("th");
-                        hdFive.innerHTML =
-                        `
-                        <th>Description</th>
-                        `
-                        tableHead.appendChild(hdFive);
-
-                    let hdSix = document.createElement("th");
-                        hdSix.innerHTML =
-                        `
-                        <th>Decision</th>
-                        `
-                        tableHead.appendChild(hdSix);
-
-                    let hdSeven = document.createElement("th");
-                        hdSeven.innerHTML =
-                        `
-                        <th>Reason</th>
-                        `
-                        tableHead.appendChild(hdSeven);
-
                 // add in table content
                     for(let request of responseBody){
                         let tr = document.createElement("tr");
                         tr.innerHTML =
                         `
                         <td id = "reimbursement_id${request.reimbursement_id}" class = "table-data" style = "width: 50px">${request.reimbursement_id}</td>
-                        <td id = "employee_username${request.reimbursement_id}" class = "table-data" style = "width: 200px">${request.employee_username}</td>
-                        <td id = "employee_name${request.reimbursement_id}" class = "table-data" style = "width: 200px">${request.employee_name}</td>
+                        <td id = "employee_username${request.reimbursement_id}" class = "table-data" style = "width: 150px">${request.employee_username}</td>
+                        <td id = "employee_name${request.reimbursement_id}" class = "table-data" style = "width: 150px">${request.employee_name}</td>
                         <td id = "reimbursement_title${request.reimbursement_id}" class = "table-data" style = "width: 200px">${request.reimbursement_title}</td>
                         <td id = "amount${request.reimbursement_id}" class = "table-data" style = "width: 100px">${request.amount}</td>
                         <td id = "reimbursement_reason${request.reimbursement_id}" class = "table-data" style = "width: 300px">${request.reimbursement_reason}</td>
