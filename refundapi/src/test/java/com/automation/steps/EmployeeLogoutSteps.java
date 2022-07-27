@@ -1,16 +1,9 @@
 package com.automation.steps;
 
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class EmployeeLogoutSteps {
-    
-    // scenarios 1 and 2
-    @Given("the employee is on their personal employee homepage")
-        public void the_employee_is_on_their_personal_employee_homepage(){
-            
-        }
 
     // scenarios 1 and 2
     @When("the employee clicks the logout button")
