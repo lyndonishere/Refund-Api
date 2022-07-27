@@ -64,10 +64,10 @@ public class EmployeeCommonSteps {
     // Employee Request Scenarios: 1
     // Employee Title Scenarios: 1
     @Then("the employee should have created a new reimbursement request with a pending status")
-        public String the_employee_should_have_created_a_new_reimbursement_request_with_a_pending_status(){
+        public void the_employee_should_have_created_a_new_reimbursement_request_with_a_pending_status(){
 
-            TestRunner.employeeCommon.employeeCreateRequest();
-            return "Pending";
+            // TestRunner.employeeCommon.employeeCreateRequest();
+            // return "Pending";
         }
     
 }
