@@ -19,7 +19,7 @@ public class ManagerCommonSteps {
     // Manager Logout Scenarios: 1, 2
     @Given("the manager is on their personal manager homepage")
         public void the_manager_is_on_their_personal_manager_homepage(){
-            TestRunner.driver.get("File:///Users/mauricekabeireho/_dev/Refund-Api/refundapi/src/test/resources/web-pages/ManagerPage.html");
+            TestRunner.driver.get("File://C:/Users/orian/Refund-Api/refundapi/src/test/resources/web-pages/ManagerPage.html");
         }
 
     // Manager Approve Scenarios: 1, 2

@@ -1,8 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.revature.repository.ReimbursementTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.001 s <<< FAILURE! - in com.revature.repository.ReimbursementTests
-com.revature.repository.ReimbursementTests  Time elapsed: 0.001 s  <<< ERROR!
-org.hibernate.MappingException: Unknown entity: com.revature.entities.Reimbursement
-	at com.revature.repository.ReimbursementTests.setup(ReimbursementTests.java:20)
-
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.335 s - in com.revature.repository.ReimbursementTests
