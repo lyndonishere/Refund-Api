@@ -55,6 +55,7 @@ public class ManagerCommon {
 
     public void submitDecision(){
         this.submitDecision.click();
+
         WebDriverWait waitAccept = new WebDriverWait(driver,10);
         waitAccept.until(ExpectedConditions.alertIsPresent());
         Alert alertAccept = driver.switchTo().alert();

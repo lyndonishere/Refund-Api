@@ -7,18 +7,6 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class ManagerLogoutSteps {
-    
-    // scenarios 1 and 2
-    @Given("the manager is on their personal manager homepage")
-        public void the_manager_is_on_their_personal_manager_homepage(){
-            TestRunner.driver.get("File:///Users/mauricekabeireho/_dev/Refund-Api/refundapi/src/test/resources/web-pages/ManagerPage.html");
-        }
-
-    // scenarios 1 and 2
-    @When("the manager clicks the logout button")
-        public void the_manager_clicks_the_logout_button(){
-            TestRunner.managerLogout.managerClickLogoutButton();
-        }
 
     // scenario 1
     @Given("the manager is on their personal manager homepage and ready to logout")

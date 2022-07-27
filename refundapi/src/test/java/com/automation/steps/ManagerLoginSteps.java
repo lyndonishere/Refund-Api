@@ -1,10 +1,7 @@
 package com.automation.steps;
 
 import org.junit.Assert;
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.automation.runner.TestRunner;
 
@@ -14,11 +11,9 @@ import io.cucumber.java.en.When;
 
 public class ManagerLoginSteps {
 
-    private WebDriver driver;
-
     @Given("the manager is on the login page")
         public void the_manager_is_on_the_login_page(){
-            TestRunner.driver.get("File:///Users/orian/Refund-Api/refundapi/src/test/resources/web-pages/LoginPage.html");
+            TestRunner.driver.get("File://C:/Users/orian/Refund-Api/refundapi/src/test/resources/web-pages/LoginPage.html");
         }
     
     @When("the manager enters their correct username")

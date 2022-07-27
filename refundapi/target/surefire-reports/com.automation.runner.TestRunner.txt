@@ -1,4 +1,22 @@
 -------------------------------------------------------------------------------
 Test set: com.automation.runner.TestRunner
 -------------------------------------------------------------------------------
-Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 8.57 s - in com.automation.runner.TestRunner
+Tests run: 11, Failures: 0, Errors: 6, Skipped: 0, Time elapsed: 11.858 s <<< FAILURE! - in com.automation.runner.TestRunner
+As a manager I want be able to approve reimbursement requests (POSITIVE)(Managers of our reimbursement application should be able to approve reimbursement requests)  Time elapsed: 1.498 s  <<< ERROR!
+java.lang.NullPointerException
+
+Reimbursement request statuses should not change if they are not approved successfully (NEGATIVE)(Managers of our reimbursement application should be able to approve reimbursement requests)  Time elapsed: 0.297 s  <<< ERROR!
+java.lang.NullPointerException
+
+As a manager I want be able to deny reimbursement requests (POSITIVE)(Managers of our reimbursement application should be able to deny reimbursement requessts)  Time elapsed: 0.327 s  <<< ERROR!
+java.lang.NullPointerException
+
+Reimbursement request statuses should not change if they are not denied successfully (NEGATIVE)(Managers of our reimbursement application should be able to deny reimbursement requessts)  Time elapsed: 0.193 s  <<< ERROR!
+java.lang.NullPointerException
+
+As a manager, I want to add a reimbursement request reason description so I can tell my employee why I approved or denied their request (POSITIVE)(Managers of our reimbursement application should add a 500 character maximum reimbursement request reason description)  Time elapsed: 0.38 s  <<< ERROR!
+java.lang.NullPointerException
+
+I should receive an alert if I do not put a reimbursement request reason description (NEGATIVE)(Managers of our reimbursement application should add a 500 character maximum reimbursement request reason description)  Time elapsed: 0.187 s  <<< ERROR!
+java.lang.NullPointerException
+

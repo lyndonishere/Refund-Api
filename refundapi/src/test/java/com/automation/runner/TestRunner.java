@@ -40,8 +40,8 @@ public class TestRunner {
    // public static EmployeeRequest employeeRequest;
 
     // manager page
-   // public static ManagerCommon managerCommon;
-   // public static ManagerRequest managerRequest;
+   public static ManagerCommon managerCommon;
+   public static ManagerRequest managerRequest;
 
     @BeforeClass
     public static void setup(){
@@ -53,14 +53,14 @@ public class TestRunner {
         managerLogin = new ManagerLogin(driver);
        // employeeLogin = new EmployeeLogin(driver);
 
-       managerLogout = new ManagerLogout(driver);
+        managerLogout = new ManagerLogout(driver);
        // employeeLogout = new EmployeeLogout(driver);
 
        // employeeCommon = new EmployeeCommon(driver);
        // employeeRequest = new EmployeeRequest(driver);
 
-      // managerCommon = new ManagerCommon(driver);
-      //  managerRequest = new ManagerRequest(driver);
+        managerCommon = new ManagerCommon(driver);
+        managerRequest = new ManagerRequest(driver);
     }
 
     @AfterClass
