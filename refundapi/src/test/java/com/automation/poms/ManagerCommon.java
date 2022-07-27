@@ -18,6 +18,7 @@ public class ManagerCommon {
     private WebDriver driver;
 
     public ManagerCommon(WebDriver driver) {
+        this.driver = driver;
         PageFactory.initElements(driver, this);
     }
     
@@ -56,7 +57,7 @@ public class ManagerCommon {
     public void submitDecision(){
         this.submitDecision.click();
 
-        WebDriverWait waitAccept = new WebDriverWait(driver,10);
+        WebDriverWait waitAccept = new WebDriverWait(driver,15);
         waitAccept.until(ExpectedConditions.alertIsPresent());
         Alert alertAccept = driver.switchTo().alert();
         alertAccept.accept();

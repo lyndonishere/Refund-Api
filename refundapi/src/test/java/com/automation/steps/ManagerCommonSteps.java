@@ -19,14 +19,7 @@ public class ManagerCommonSteps {
     // Manager Logout Scenarios: 1, 2
     @Given("the manager is on their personal manager homepage")
         public void the_manager_is_on_their_personal_manager_homepage(){
-            TestRunner.driver.get("File://C:/Users/orian/Refund-Api/refundapi/src/test/resources/web-pages/ManagerPage.html");
-        }
-
-    // Manager Approve Scenarios: 1, 2
-    // Manager Deny Scenarios: 1, 2
-    // Manager Desc Scenarios: 1, 3
-    @When("the manager views the reimbursement requests")
-        public void the_manager_views_the_reimbursement_requests(){
+            TestRunner.driver.get("File://C:/Users/lyndo/Revature-Training/RefundAPIFiles/Refund-Api/refundapi/src/test/resources/web-pages/ManagerPage.html");
         }
 
     // Manager Approve Scenarios: 1
@@ -52,16 +45,6 @@ public class ManagerCommonSteps {
             TestRunner.managerCommon.submitDecision();
         }
 
-    // Manager Approve Scenarios: 2
-    // Manager Deny Scenarios: 2
-
-    @FindBy(id = "status9")
-    public WebElement status9;
-    
-    @Then("the reimbursement request status should remain pending")
-        public void the_reimbursement_request_status_should_remain_pending(){
-            TestRunner.wait.until(ExpectedConditions.attributeContains(status9, "textContent", "Pending"));
-        }
 
     // Manager Approve Scenarios: 1
     // Manager Desc Scenarios: 1, 3

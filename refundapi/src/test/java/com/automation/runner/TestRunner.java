@@ -29,15 +29,15 @@ public class TestRunner {
 
     // login
     public static ManagerLogin managerLogin;
-    //public static EmployeeLogin employeeLogin;
+    public static EmployeeLogin employeeLogin;
 
     // logout
     public static ManagerLogout managerLogout;
-   // public static EmployeeLogout employeeLogout;
+   public static EmployeeLogout employeeLogout;
 
     // employee page
-   // public static EmployeeCommon employeeCommon;
-   // public static EmployeeRequest employeeRequest;
+   public static EmployeeCommon employeeCommon;
+   public static EmployeeRequest employeeRequest;
 
     // manager page
    public static ManagerCommon managerCommon;
@@ -51,13 +51,13 @@ public class TestRunner {
         wait = new WebDriverWait(driver, 5);
 
         managerLogin = new ManagerLogin(driver);
-       // employeeLogin = new EmployeeLogin(driver);
+       employeeLogin = new EmployeeLogin(driver);
 
         managerLogout = new ManagerLogout(driver);
-       // employeeLogout = new EmployeeLogout(driver);
+       employeeLogout = new EmployeeLogout(driver);
 
-       // employeeCommon = new EmployeeCommon(driver);
-       // employeeRequest = new EmployeeRequest(driver);
+       employeeCommon = new EmployeeCommon(driver);
+       employeeRequest = new EmployeeRequest(driver);
 
         managerCommon = new ManagerCommon(driver);
         managerRequest = new ManagerRequest(driver);

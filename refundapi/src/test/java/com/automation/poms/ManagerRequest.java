@@ -19,6 +19,7 @@ public class ManagerRequest {
     private WebDriver driver;
 
     public ManagerRequest(WebDriver driver) {
+        this.driver = driver;
         PageFactory.initElements(driver, this);
     }
     
