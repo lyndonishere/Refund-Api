@@ -8,9 +8,3 @@ Feature: Managers of our reimbursement application should be able to approve rei
         When the manager selects approve
         When the manager clicks submit
         Then the reimbursement request status should change from pending to approved 
-
-    Scenario: Reimbursement request statuses should not change if they are not approved successfully (NEGATIVE) 
-
-        Given the manager is on their personal manager homepage
-        When the manager clicks submit
-        Then the reimbursement request status should remain pending

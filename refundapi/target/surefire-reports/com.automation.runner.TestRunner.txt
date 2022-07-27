@@ -1,22 +1,19 @@
 -------------------------------------------------------------------------------
 Test set: com.automation.runner.TestRunner
 -------------------------------------------------------------------------------
-Tests run: 11, Failures: 0, Errors: 6, Skipped: 0, Time elapsed: 11.858 s <<< FAILURE! - in com.automation.runner.TestRunner
-As a manager I want be able to approve reimbursement requests (POSITIVE)(Managers of our reimbursement application should be able to approve reimbursement requests)  Time elapsed: 1.498 s  <<< ERROR!
+Tests run: 5, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 24.563 s <<< FAILURE! - in com.automation.runner.TestRunner
+As a manager I want be able to approve reimbursement requests (POSITIVE)(Managers of our reimbursement application should be able to approve reimbursement requests)  Time elapsed: 1.485 s  <<< ERROR!
 java.lang.NullPointerException
 
-Reimbursement request statuses should not change if they are not approved successfully (NEGATIVE)(Managers of our reimbursement application should be able to approve reimbursement requests)  Time elapsed: 0.297 s  <<< ERROR!
-java.lang.NullPointerException
+As a manager I want be able to deny reimbursement requests (POSITIVE)(Managers of our reimbursement application should be able to deny reimbursement requessts)  Time elapsed: 15.785 s  <<< ERROR!
+org.openqa.selenium.TimeoutException: 
+Expected condition failed: waiting for alert to be present (tried for 15 second(s) with 500 milliseconds interval)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-TUA62GE', ip: '192.168.0.2', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_332'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 103.0.5060.114, chrome: {chromedriverVersion: 103.0.5060.53 (a1711811edd7..., userDataDir: C:\Users\lyndo\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:50599}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: f9a41a62c2773bf442f7c47f5414ec94
 
-As a manager I want be able to deny reimbursement requests (POSITIVE)(Managers of our reimbursement application should be able to deny reimbursement requessts)  Time elapsed: 0.327 s  <<< ERROR!
-java.lang.NullPointerException
-
-Reimbursement request statuses should not change if they are not denied successfully (NEGATIVE)(Managers of our reimbursement application should be able to deny reimbursement requessts)  Time elapsed: 0.193 s  <<< ERROR!
-java.lang.NullPointerException
-
-As a manager, I want to add a reimbursement request reason description so I can tell my employee why I approved or denied their request (POSITIVE)(Managers of our reimbursement application should add a 500 character maximum reimbursement request reason description)  Time elapsed: 0.38 s  <<< ERROR!
-java.lang.NullPointerException
-
-I should receive an alert if I do not put a reimbursement request reason description (NEGATIVE)(Managers of our reimbursement application should add a 500 character maximum reimbursement request reason description)  Time elapsed: 0.187 s  <<< ERROR!
+As a manager, I want to add a reimbursement request reason description so I can tell my employee why I approved or denied their request (POSITIVE)(Managers of our reimbursement application should add a 500 character maximum reimbursement request reason description)  Time elapsed: 0.971 s  <<< ERROR!
 java.lang.NullPointerException
 
