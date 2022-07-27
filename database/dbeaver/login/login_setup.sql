@@ -29,3 +29,8 @@ insert into login values(-7, 'mrspuff', 'helpme', 'Mrs. Poppy Puff', 'employee')
 update login set username  = 'mspuff' where username  = 'mrspuff';
 
 
+insert into reimbursement values(default, 'squidward', 'Squidward Tentacles', 'E2E Test', 999, 'Use this for Manager E2E Test', '2017-12-12', 'Pending', 'TBA');
+update reimbursement set employee_username = 'spongebob' where employee_username = 'imready420';
+
+delete from reimbursement where reimbursement_id = 65;
+select * from reimbursement;
