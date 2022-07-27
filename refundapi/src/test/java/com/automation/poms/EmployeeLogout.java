@@ -12,6 +12,7 @@ public class EmployeeLogout {
     private WebDriver driver;
 
     public EmployeeLogout(WebDriver driver) {
+        this.driver = driver;
         PageFactory.initElements(driver, this);
     }
 
@@ -20,21 +21,15 @@ public class EmployeeLogout {
     public void employeeClickLogoutButton(){
         this.employeeLogoutButton.click();
 
-    }
-
-    public void employeeConfirmLogout(){
         WebDriverWait waitEmployeeLogout = new WebDriverWait(driver,10);
         waitEmployeeLogout.until(ExpectedConditions.alertIsPresent());
         Alert alertEmployeeLogout = driver.switchTo().alert();
         alertEmployeeLogout.accept();
+
+        WebDriverWait waitEmployeeLogoutAgain = new WebDriverWait(driver,10);
+        waitEmployeeLogoutAgain.until(ExpectedConditions.alertIsPresent());
+        Alert alertEmployeeLogoutAgain = driver.switchTo().alert();
+        alertEmployeeLogoutAgain.accept();
     }
-
-    public void noLogout(){
-        WebDriverWait waitEmployeeLogoutNow = new WebDriverWait(driver,10);
-        waitEmployeeLogoutNow.until(ExpectedConditions.alertIsPresent());
-        Alert alertEmployeeLogoutNow = driver.switchTo().alert();
-        alertEmployeeLogoutNow.dismiss();
-        
-
     
 }

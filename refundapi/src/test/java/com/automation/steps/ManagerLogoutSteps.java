@@ -21,7 +21,7 @@ public class ManagerLogoutSteps {
 
     @Then("the manager should be logged out and returned back to the login homepage")
         public void the_manager_should_be_logged_out_and_returned_back_to_the_login_homepage(){
-            TestRunner.driver.get("File://C:/Users/orian/Refund-Api/refundapi/src/test/resources/web-pages/ManagerPage.html");
+            TestRunner.driver.get("File://C:/Users/orian/Refund-Api/refundapi/src/test/resources/web-pages/LoginPage.html");
         }
 
 }

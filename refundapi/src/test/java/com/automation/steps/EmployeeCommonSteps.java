@@ -1,5 +1,6 @@
 package com.automation.steps;
 
+import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -69,10 +70,9 @@ public class EmployeeCommonSteps {
 
     @Then("the employee should have created a new reimbursement request with a pending status")
         public void the_employee_should_have_created_a_new_reimbursement_request_with_a_pending_status(){
-            TestRunner.wait.until(ExpectedConditions.attributeContains(status7, "textContent", "Denied"));
-
-            // TestRunner.employeeCommon.employeeCreateRequest();
-            // return "Pending";
+            TestRunner.wait.until(ExpectedConditions.titleIs("Employee Page"));
+            String title = TestRunner.driver.getTitle();
+            Assert.assertEquals("Employee Page", title);
         }
     
 }

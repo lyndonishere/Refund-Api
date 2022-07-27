@@ -1,17 +1,24 @@
 package com.automation.poms;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 
 
 public class EmployeeCommon {
 
+    private WebDriver driver;
+
     public EmployeeCommon(WebDriver driver) {
+        this.driver = driver;
         PageFactory.initElements(driver, this);
     }
+    
     @FindBy(id = "enter-request-title")
     public WebElement employeeRequestInput;
     
@@ -38,19 +45,13 @@ public class EmployeeCommon {
         public void employeeClickSubmitButton(){
             this.employeeSubmitButton.click();
 
+            WebDriverWait waitAccept = new WebDriverWait(driver,15);
+            waitAccept.until(ExpectedConditions.alertIsPresent());
+            Alert alertAccept = driver.switchTo().alert();
+            alertAccept.accept();
+
         }
 
-        // public String getAlertText() {
-        //     return null;
-        
-
-        public void employeeCreateRequest() {
-        }
-    
-    
-
-    
-       
         
 }
 
