@@ -1,13 +1,8 @@
 package com.automation.steps;
 
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-
 import com.automation.runner.TestRunner;
 
 import io.cucumber.java.en.Given;
-import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class ManagerCommonSteps {
@@ -19,7 +14,7 @@ public class ManagerCommonSteps {
     // Manager Logout Scenarios: 1, 2
     @Given("the manager is on their personal manager homepage")
         public void the_manager_is_on_their_personal_manager_homepage(){
-            TestRunner.driver.get("File://C:/Users/lyndo/Revature-Training/RefundAPIFiles/Refund-Api/refundapi/src/test/resources/web-pages/ManagerPage.html");
+            TestRunner.driver.get("File://C:/Users/orian/Refund-Api/refundapi/src/test/resources/web-pages/ManagerPage.html");
         }
 
     // Manager Approve Scenarios: 1

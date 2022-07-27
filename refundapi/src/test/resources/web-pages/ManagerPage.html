@@ -82,9 +82,9 @@
         const logoutButton = document.getElementById("logout-button");
 
         function changeLogoutButtonColor(){
-            logoutButton.style.backgroundColor = "#aa0606";
+            logoutButton.style.backgroundColor = "#316d15";
             logoutButton.style.color = "#ffffff";
-            logoutButton.style.border = "solid 1px #316d15";
+            logoutButton.style.border = "solid 1px #ffffff";
         }
 
         logoutButton.addEventListener("mouseover", changeLogoutButtonColor);
@@ -137,7 +137,7 @@
                         <td id = "reimbursement_title${request.reimbursement_id}" class = "table-data" style = "width: 200px">${request.reimbursement_title}</td>
                         <td id = "amount${request.reimbursement_id}" class = "table-data" style = "width: 100px">${request.amount}</td>
                         <td id = "reimbursement_reason${request.reimbursement_id}" class = "table-data" style = "width: 300px">${request.reimbursement_reason}</td>
-                        <td id = "status${request.reimbursement_id}" class = "table-data" style = "width: 150px">${request.status}</td>
+                        <td id = "status${request.reimbursement_id} value = "${request.status}" class = "table-data" style = "width: 150px">${request.status}</td>
                         <td id = "decision_reason${request.reimbursement_id}" class = "table-data" style = "width: 300px">${request.decision_reason}</td>
                         `
                         tableBody.appendChild(tr);

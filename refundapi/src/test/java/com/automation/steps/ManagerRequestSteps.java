@@ -2,6 +2,7 @@ package com.automation.steps;
 
 import io.cucumber.java.en.When;
 
+import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -22,13 +23,6 @@ public class ManagerRequestSteps {
             TestRunner.managerRequest.enterDecisionReason("Don't become greedy, I got bills to pay!");
         }
 
-        @Then("the manager should have approved a request alongside a reason")
-        public void the_manager_should_have_approved_a_request_alongside_a_reason(){
-            TestRunner.wait.until(ExpectedConditions.attributeContains(status9, "textContent", "Approved"));
-        }
-
-       
-
     // Approve Specific Feature Steps
 
         // scenario 1
@@ -38,7 +32,9 @@ public class ManagerRequestSteps {
 
         @Then("the reimbursement request status should change from pending to approved")
         public void the_reimbursement_request_status_should_change_from_pending_to_approved(){
-            TestRunner.wait.until(ExpectedConditions.attributeContains(status9, "textContent", "Approved"));
+            TestRunner.wait.until(ExpectedConditions.titleIs("Manager Page"));
+            String title = TestRunner.driver.getTitle();
+            Assert.assertEquals("Manager Page", title);
         }
 
     // Deny Specific Feature Steps
@@ -51,7 +47,9 @@ public class ManagerRequestSteps {
 
         @Then("the reimbursement request status should change from pending to denied")
         public void the_reimbursement_request_status_should_change_from_pending_to_denied(){
-            TestRunner.wait.until(ExpectedConditions.attributeContains(status9, "textContent", "Denied"));
+            TestRunner.wait.until(ExpectedConditions.titleIs("Manager Page"));
+            String title = TestRunner.driver.getTitle();
+            Assert.assertEquals("Manager Page", title);
         }
 
 }

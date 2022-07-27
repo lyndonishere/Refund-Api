@@ -11,7 +11,7 @@ public class EmployeeLogoutSteps {
     // scenarios 1 and 2
     @Given("the employee is on their personal employee homepage and ready to logout")
         public void the_employee_is_on_their_personal_employee_homepage_and_ready_to_logout(){
-            TestRunner.driver.get("File://C:/Users/lyndo/Revature-Training/RefundAPIFiles/Refund-Api/refundapi/src/test/resources/web-pages/EmployeePage.html");
+            TestRunner.driver.get("File://C:/Users/orian/Refund-Api/refundapi/src/test/resources/web-pages/EmployeePage.html");
         }
 
     // scenarios 1 and 2
