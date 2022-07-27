@@ -7,4 +7,4 @@ Feature: Managers of our reimbursement application should add a 500 character ma
         When the manager inputs in a 500 character maximum reimbursement request reason description
         When the manager selects approve
         When the manager clicks submit
-        Then the manager should have approved a request alongside a reason
+        Then the reimbursement request status should change from pending to approved
