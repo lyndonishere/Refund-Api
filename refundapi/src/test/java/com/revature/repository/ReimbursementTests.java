@@ -17,7 +17,16 @@ public class ReimbursementTests {
     public static void setup(){
         reimbursementDao = new ReimbursementDAO();
 
-        Reimbursement setupUpdateRequest = new Reimbursement(-3, "to be updated username", "to be updated name", "to be updated title", 100, "to be updated reason", java.sql.Date.valueOf("2020-11-15"), "to be updated status", "to be updated reason");
+        Reimbursement setupUpdateRequest = new Reimbursement(
+        -3, 
+        "to be updated username", 
+        "to be updated name", 
+        "to be updated title", 
+        100, "to be updated reason", 
+        java.sql.Date.valueOf("2020-11-15"), 
+        "to be updated status", 
+        "to be updated reason");
+        
         reimbursementDao.updateRequest(setupUpdateRequest);
     }
 

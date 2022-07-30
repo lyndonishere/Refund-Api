@@ -11,7 +11,7 @@ public class EmployeeLogoutSteps {
     // scenarios 1 and 2
     @Given("the employee is on their personal employee homepage and ready to logout")
         public void the_employee_is_on_their_personal_employee_homepage_and_ready_to_logout(){
-            TestRunner.driver.get("File://C:/Users/orian/Refund-Api/refundapi/src/test/resources/web-pages/EmployeePage.html");
+            TestRunner.driver.get("File:///Users/mauricekabeireho/_dev/Refund-Api/refundapi/src/test/resources/web-pages/EmployeePage.html");
         }
 
     // scenarios 1 
@@ -23,7 +23,7 @@ public class EmployeeLogoutSteps {
 
     @Then("the employee should be logged out and returned back to the login homepage")
         public void the_employee_should_be_logged_out_and_returned_back_to_the_login_homepage(){
-            TestRunner.driver.get("File://C:/Users/orian/Refund-Api/refundapi/src/test/resources/web-pages/LoginPage.html");
+            TestRunner.driver.get("File:///Users/mauricekabeireho/_dev/Refund-Api/refundapi/src/test/resources/web-pages/LoginPage.html");
        
     }
 

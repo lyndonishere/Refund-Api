@@ -73,14 +73,14 @@ public class LoginServiceTests {
 
     @Test // this means that NEITHER of my login credentials match login credentials in the system
     public void checkLoginCredentialsNegativeTestBoth(){
-        Login unsuccessUser = new Login("incorrect username", "incorrect password");
+        Login unsuccessUser = new Login("incorrectUsername", "incorrectPassword");
         boolean result = loginBusinessRules.checkLoginCredentials(unsuccessUser,"spongebob", "krabbypatties");
         Assert.assertFalse(result);
     }
 
     @Test // this means that my USERNAME of my login credentials DOES NOT match login credentials in the system
     public void checkLoginCredentialsNegativeTestUsername(){
-        Login unsuccessUsername = new Login("incorrect username", "krabbypatties");
+        Login unsuccessUsername = new Login("incorrectUsername", "krabbypatties");
         boolean result = loginBusinessRules.checkLoginCredentials(unsuccessUsername,"spongebob", "krabbypatties");
         Assert.assertFalse(result);
     }
